@@ -12,31 +12,34 @@ namespace Classes.Lists
         #region Attributes
         private static string path = Directory.GetCurrentDirectory() + "\\..\\..\\..\\saves\\moves.xml";
 
+        public List<PokeMove> Moves { get; set; }
         #endregion
 
-
-        #region Static Methods
-        public static void CreateMovesListXML()
+        #region Constructors
+        public MovesList()
         {
-            try
-            {
-                XDocument doc = PreparedXMLDocument();
-                XElement root = new XElement("moves");
-                root.Add(AddDataMoveElement(PokeMove.Zero()));
-                doc.Add(root);
-                doc.Save(path);
+            Moves = new List<PokeMove>();
+        }
 
-                Console.WriteLine("Moves list created succesfully." + root);
-            }
-            catch (Exception t)
+        public MovesList(List<PokeMove> moves)
+        {
+            Moves = moves;
+        }
+        #endregion
+
+        #region CRUD Methods
+
+        public void Show()
+        {
+            for (int i = 0; i < Moves.Count; ++i)
             {
-                Console.WriteLine(t.Message);
+                Console.WriteLine(Moves[i].Name);
             }
         }
 
-        public static void SaveMovesListInXML(List<PokeMove> movesList)
+        public static void Save(List<PokeMove> movesList)
         {
-            XDocument doc = PreparedXMLDocument();
+            XDocument doc = XMLTools.CreateXMLDocument();
             XElement root = new XElement("moves");
 
             foreach (PokeMove m in movesList)
@@ -49,28 +52,15 @@ namespace Classes.Lists
             return;
         }
 
-        public static void SaveMoveInPokedexXML(PokeMove m)
+        public static List<PokeMove> Load()
         {
-            XDocument doc = GetXMLDocument();
-
-            if (doc == null)
-                doc = PreparedXMLDocument();
-
-            doc.Root.Add(AddDataMoveElement(m));
-            doc.Save(path);
-
-            return;
-        }
-
-        public static List<PokeMove> LoadMovesListFromXML()
-        {
-            XDocument doc = GetXMLDocument();
-            List<PokeMove> moves = null;
-
+            XDocument doc = XMLTools.GetXMLDocument(path);
+            XElement root = doc.Root;
+            List<PokeMove> moves = new List<PokeMove>();
             if (doc != null)
             {
                 int i = 0;
-                foreach (XElement e in doc.Elements("move"))
+                foreach (XElement e in root.Elements("move"))
                 {
                     i++;
                     try
@@ -87,88 +77,9 @@ namespace Classes.Lists
 
             return moves;
         }
-
-
-
-        public static PokeMove LoadMoveFromMovesListXML(string name)
-        {
-            XDocument doc = GetXMLDocument();
-            PokeMove m = null;
-
-            if (doc != null)
-                foreach (XElement e in doc.Root.Elements())
-                    if (e.Element("name").Value.ToUpper().Equals(name.ToUpper()))
-                        m = LoadDataInMove(e);
-
-            return m;
-        }
-
-        public static void EditMoveFromMovesListXML(int id, PokeMove p)
-        {
-            XDocument doc = GetXMLDocument();
-            XElement f = null;
-
-            if (doc != null)
-                foreach (XElement e in doc.Root.Elements())
-                    if (Convert.ToInt32(e.Attribute("id").Value).Equals(id))
-                        f = e;
-
-            if (f != null && p != null)
-                EditDataInMove(f, p);
-
-            doc.Save(path);
-
-            return;
-        }
-
-        public static void RemoveMoveFromMovesListXML(string name)
-        {
-            XDocument doc = XMLTools.GetXMLDocument(path);
-            XElement p = null;
-
-            if (doc != null)
-                foreach (XElement e in doc.Root.Elements())
-                    if (e.Element("name").Value.ToUpper().Equals(name.ToUpper()))
-                    {
-                        p = e;
-                        break;
-                    }
-
-            p.Remove();
-
-            doc.Save(path);
-
-            return;
-        }
-
+        #endregion
 
         #region XML Methods
-        private static XDocument GetXMLDocument()
-        {
-            XDocument doc = null;
-            try //Check if the XML Document exists
-            {
-                doc = XDocument.Load(path);
-            }
-            catch (Exception e)
-            { //If not, end Method
-                Console.WriteLine(e.Message);
-                return null;
-            }
-
-            return doc;
-        }
-
-        private static XDocument PreparedXMLDocument()
-        {
-            XDocument doc = new XDocument();
-
-            doc.Add(new XDeclaration("1.0", "utf-8", "yes"));
-            doc.Add(new XComment("Pokedex"));
-            doc.Add(new XProcessingInstruction("xml-stylesheet", "href = 'MyStyles.css' title = 'Compact' type = 'text/css'"));
-
-            return doc;
-        }
 
         private static XElement AddDataMoveElement(PokeMove m)
         {
@@ -214,37 +125,14 @@ namespace Classes.Lists
             return p;
         }
 
-        private static XElement EditDataInMove(XElement move, PokeMove m)
-        {
-            move.Attribute("id").Value = m.Id.ToString();
-            move.Element("name").Value = m.Name;
-            move.Element("description").Value = m.Description;
-            move.Element("type").Value = m.Type.ToString();
-            move.Element("category").Value = m.Category.ToString();
-            move.Element("accuarcy").Value = m.Accuracy.ToString();
-            move.Element("power").Value = m.Power.ToString();
-            move.Element("recover").Value = m.Recover.ToString();
-            move.Element("repetitions").Value = m.Repetitions.ToString();
-            move.Element("repetitionsInTurn").Value = m.RepetitionsInTurn.ToString();
-            move.Element("target").Value = m.Target.ToString();
-            move.Element("pp").Value = m.PP.ToString();
-            move.Element("contact").Value = m.Contact ? "true" : "false";
-            move.Element("priority").Value = m.Priority.ToString();
-            move.Element("effectCode").Value = m.EffectCode;
-            move.Element("effectProbability").Value = m.EffectProbability.ToString();
-
-            return move;
-        }
-
         private static int GenerateId()
         {
-            XDocument doc = GetXMLDocument();
+            XDocument doc = XMLTools.GetXMLDocument(path);
             IEnumerable<XElement> elements = doc.Root.Elements();
 
             return (Convert.ToInt32(elements.Last().Attribute("id").Value) + 1);
         }
         #endregion
 
-        #endregion
     }
 }

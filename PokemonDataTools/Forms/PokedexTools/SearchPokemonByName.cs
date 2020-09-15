@@ -16,22 +16,13 @@ namespace Forms.PokedexTools
         private Index index;
 
         public SearchPokemonByName(Index index, byte mode)
-        {          
+        {
             InitializeComponent();
             this.index = index;
             this.mode = mode;
-
-            if (mode == Updates)
-            {
-                label1.Text += "Update";
-                Text = "Update";
-            }
-            else if (mode == Remove)
-            {
-                label1.Text += "Remove";
-                Text = "Remove";
-            }
-        }
+            label1.Text += Mode[mode];
+            Text = Mode[mode];
+        }     
 
         private void button1_Click(object sender, EventArgs e)
         {

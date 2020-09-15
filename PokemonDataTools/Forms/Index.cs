@@ -1,4 +1,5 @@
-﻿using Forms.PokedexTools;
+﻿using Classes.Lists;
+using Forms.PokedexTools;
 using PokemonShowdown.Forms.PokedexTools;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,10 @@ namespace Forms
 {
     public partial class Index : Form
     {
+
+        Pokedex pokedex = new Pokedex(Pokedex.Load());
+        MovesList movesList = new MovesList(MovesList.LoadMoveFromMovesListXML();
+
         public Index()
         {
             InitializeComponent();

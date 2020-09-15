@@ -28,18 +28,12 @@ namespace Classes.Lists
         }
         #endregion
 
-        #region Methods
-
+        #region Methods CRUD
         public void Show()
         {
             for (int i = 0; i < PokemonList.Count; ++i)
                 Console.WriteLine(" -" + PokemonList[i].Id + ") " + PokemonList[i].Name);
         }
-        #endregion
-
-
-        #region Static Methods
-
 
         public static List<OPokemon> Load()
         {
@@ -72,9 +66,10 @@ namespace Classes.Lists
 
             return;
         }
+        #endregion
 
 
-
+        #region Static XML Methods
         public static OPokemon LoadPokemon(string name)
         {
             XDocument doc = XMLTools.GetXMLDocument(path);
@@ -92,7 +87,6 @@ namespace Classes.Lists
 
         private static OPokemon LoadPokemonFromXML(XElement e)
         {
-
             OPokemon p = new OPokemon();
             p.Id = Convert.ToInt32(e.Attribute("id").Value);
             p.PokedexNumber = Convert.ToInt32(e.Element("pokedexNumber").Value);
@@ -108,7 +102,6 @@ namespace Classes.Lists
             p.Rareness = Convert.ToByte(e.Element("rareness").Value);
             p.Happiness = Convert.ToByte(e.Element("happiness").Value);
             p.StepsToHatch = Convert.ToInt32(e.Element("stepsToHatch").Value);
-
 
             p.Types[0] = Convert.ToByte(e.Element("type1").Value);
             p.Types[0] = Convert.ToByte(e.Element("type2").Value);
