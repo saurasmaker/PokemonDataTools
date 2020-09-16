@@ -56,8 +56,15 @@
             this.numericUpDownHealthEVs = new System.Windows.Forms.NumericUpDown();
             this.groupBoxGivedEVs = new System.Windows.Forms.GroupBox();
             this.groupBoxAppearance = new System.Windows.Forms.GroupBox();
-            this.labelImage = new System.Windows.Forms.Label();
-            this.pictureBoxPoke = new System.Windows.Forms.PictureBox();
+            this.checkBoxIsLegendary = new System.Windows.Forms.CheckBox();
+            this.checkBoxIsMegaEvolution = new System.Windows.Forms.CheckBox();
+            this.numericUpDownHappiness = new System.Windows.Forms.NumericUpDown();
+            this.labelHappiness = new System.Windows.Forms.Label();
+            this.numericUpDownRareness = new System.Windows.Forms.NumericUpDown();
+            this.labelRareness = new System.Windows.Forms.Label();
+            this.textBoxHabitat = new System.Windows.Forms.TextBox();
+            this.labelPokedexNumber = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownWeight = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownHeight = new System.Windows.Forms.NumericUpDown();
             this.labelWeight = new System.Windows.Forms.Label();
@@ -102,7 +109,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHealthEVs)).BeginInit();
             this.groupBoxGivedEVs.SuspendLayout();
             this.groupBoxAppearance.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPoke)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHappiness)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRareness)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHeight)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -115,9 +124,9 @@
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
-            this.labelTitle.Location = new System.Drawing.Point(12, 9);
+            this.labelTitle.Location = new System.Drawing.Point(10, 8);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(83, 15);
+            this.labelTitle.Size = new System.Drawing.Size(74, 13);
             this.labelTitle.TabIndex = 0;
             this.labelTitle.Text = "Add Pokémon";
             // 
@@ -136,18 +145,18 @@
             this.groupBoxStats.Controls.Add(this.numericUpDownAttack);
             this.groupBoxStats.Controls.Add(this.labelHealth);
             this.groupBoxStats.Controls.Add(this.numericUpDownHealth);
-            this.groupBoxStats.Location = new System.Drawing.Point(346, 28);
+            this.groupBoxStats.Location = new System.Drawing.Point(297, 24);
             this.groupBoxStats.Name = "groupBoxStats";
-            this.groupBoxStats.Size = new System.Drawing.Size(189, 193);
+            this.groupBoxStats.Size = new System.Drawing.Size(162, 167);
             this.groupBoxStats.TabIndex = 3;
             this.groupBoxStats.TabStop = false;
             this.groupBoxStats.Text = "Stats";
             // 
             // numericUpDownSpecialDefense
             // 
-            this.numericUpDownSpecialDefense.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.numericUpDownSpecialDefense.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDownSpecialDefense.Location = new System.Drawing.Point(105, 133);
+            this.numericUpDownSpecialDefense.Location = new System.Drawing.Point(90, 115);
             this.numericUpDownSpecialDefense.Maximum = new decimal(new int[] {
             255,
             0,
@@ -159,7 +168,7 @@
             0,
             0});
             this.numericUpDownSpecialDefense.Name = "numericUpDownSpecialDefense";
-            this.numericUpDownSpecialDefense.Size = new System.Drawing.Size(78, 23);
+            this.numericUpDownSpecialDefense.Size = new System.Drawing.Size(67, 20);
             this.numericUpDownSpecialDefense.TabIndex = 1;
             this.numericUpDownSpecialDefense.Value = new decimal(new int[] {
             1,
@@ -170,17 +179,17 @@
             // labelSpeed
             // 
             this.labelSpeed.AutoSize = true;
-            this.labelSpeed.Location = new System.Drawing.Point(6, 164);
+            this.labelSpeed.Location = new System.Drawing.Point(5, 142);
             this.labelSpeed.Name = "labelSpeed";
-            this.labelSpeed.Size = new System.Drawing.Size(42, 15);
+            this.labelSpeed.Size = new System.Drawing.Size(41, 13);
             this.labelSpeed.TabIndex = 2;
             this.labelSpeed.Text = "Speed:";
             // 
             // numericUpDownSpeed
             // 
-            this.numericUpDownSpeed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.numericUpDownSpeed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDownSpeed.Location = new System.Drawing.Point(105, 162);
+            this.numericUpDownSpeed.Location = new System.Drawing.Point(90, 140);
             this.numericUpDownSpeed.Maximum = new decimal(new int[] {
             255,
             0,
@@ -192,7 +201,7 @@
             0,
             0});
             this.numericUpDownSpeed.Name = "numericUpDownSpeed";
-            this.numericUpDownSpeed.Size = new System.Drawing.Size(78, 23);
+            this.numericUpDownSpeed.Size = new System.Drawing.Size(67, 20);
             this.numericUpDownSpeed.TabIndex = 1;
             this.numericUpDownSpeed.Value = new decimal(new int[] {
             1,
@@ -203,26 +212,26 @@
             // labelSpecialDefense
             // 
             this.labelSpecialDefense.AutoSize = true;
-            this.labelSpecialDefense.Location = new System.Drawing.Point(6, 135);
+            this.labelSpecialDefense.Location = new System.Drawing.Point(5, 117);
             this.labelSpecialDefense.Name = "labelSpecialDefense";
-            this.labelSpecialDefense.Size = new System.Drawing.Size(92, 15);
+            this.labelSpecialDefense.Size = new System.Drawing.Size(65, 13);
             this.labelSpecialDefense.TabIndex = 2;
-            this.labelSpecialDefense.Text = "Special Defense:";
+            this.labelSpecialDefense.Text = "Special Def:";
             // 
             // labelSpecialAttack
             // 
             this.labelSpecialAttack.AutoSize = true;
-            this.labelSpecialAttack.Location = new System.Drawing.Point(6, 106);
+            this.labelSpecialAttack.Location = new System.Drawing.Point(5, 92);
             this.labelSpecialAttack.Name = "labelSpecialAttack";
-            this.labelSpecialAttack.Size = new System.Drawing.Size(84, 15);
+            this.labelSpecialAttack.Size = new System.Drawing.Size(79, 13);
             this.labelSpecialAttack.TabIndex = 2;
             this.labelSpecialAttack.Text = "Special Attack:";
             // 
             // numericUpDownSpecialAttack
             // 
-            this.numericUpDownSpecialAttack.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.numericUpDownSpecialAttack.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDownSpecialAttack.Location = new System.Drawing.Point(105, 104);
+            this.numericUpDownSpecialAttack.Location = new System.Drawing.Point(90, 90);
             this.numericUpDownSpecialAttack.Maximum = new decimal(new int[] {
             255,
             0,
@@ -234,7 +243,7 @@
             0,
             0});
             this.numericUpDownSpecialAttack.Name = "numericUpDownSpecialAttack";
-            this.numericUpDownSpecialAttack.Size = new System.Drawing.Size(78, 23);
+            this.numericUpDownSpecialAttack.Size = new System.Drawing.Size(67, 20);
             this.numericUpDownSpecialAttack.TabIndex = 1;
             this.numericUpDownSpecialAttack.Value = new decimal(new int[] {
             1,
@@ -245,17 +254,17 @@
             // labelDefense
             // 
             this.labelDefense.AutoSize = true;
-            this.labelDefense.Location = new System.Drawing.Point(6, 77);
+            this.labelDefense.Location = new System.Drawing.Point(5, 67);
             this.labelDefense.Name = "labelDefense";
-            this.labelDefense.Size = new System.Drawing.Size(52, 15);
+            this.labelDefense.Size = new System.Drawing.Size(50, 13);
             this.labelDefense.TabIndex = 2;
             this.labelDefense.Text = "Defense:";
             // 
             // numericUpDownDefense
             // 
-            this.numericUpDownDefense.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.numericUpDownDefense.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDownDefense.Location = new System.Drawing.Point(105, 75);
+            this.numericUpDownDefense.Location = new System.Drawing.Point(90, 65);
             this.numericUpDownDefense.Maximum = new decimal(new int[] {
             255,
             0,
@@ -267,7 +276,7 @@
             0,
             0});
             this.numericUpDownDefense.Name = "numericUpDownDefense";
-            this.numericUpDownDefense.Size = new System.Drawing.Size(78, 23);
+            this.numericUpDownDefense.Size = new System.Drawing.Size(67, 20);
             this.numericUpDownDefense.TabIndex = 1;
             this.numericUpDownDefense.Value = new decimal(new int[] {
             1,
@@ -278,17 +287,17 @@
             // labelAttack
             // 
             this.labelAttack.AutoSize = true;
-            this.labelAttack.Location = new System.Drawing.Point(6, 48);
+            this.labelAttack.Location = new System.Drawing.Point(5, 42);
             this.labelAttack.Name = "labelAttack";
-            this.labelAttack.Size = new System.Drawing.Size(44, 15);
+            this.labelAttack.Size = new System.Drawing.Size(41, 13);
             this.labelAttack.TabIndex = 2;
             this.labelAttack.Text = "Attack:";
             // 
             // numericUpDownAttack
             // 
-            this.numericUpDownAttack.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.numericUpDownAttack.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDownAttack.Location = new System.Drawing.Point(105, 46);
+            this.numericUpDownAttack.Location = new System.Drawing.Point(90, 40);
             this.numericUpDownAttack.Maximum = new decimal(new int[] {
             255,
             0,
@@ -300,7 +309,7 @@
             0,
             0});
             this.numericUpDownAttack.Name = "numericUpDownAttack";
-            this.numericUpDownAttack.Size = new System.Drawing.Size(78, 23);
+            this.numericUpDownAttack.Size = new System.Drawing.Size(67, 20);
             this.numericUpDownAttack.TabIndex = 1;
             this.numericUpDownAttack.Value = new decimal(new int[] {
             1,
@@ -311,17 +320,17 @@
             // labelHealth
             // 
             this.labelHealth.AutoSize = true;
-            this.labelHealth.Location = new System.Drawing.Point(6, 19);
+            this.labelHealth.Location = new System.Drawing.Point(5, 16);
             this.labelHealth.Name = "labelHealth";
-            this.labelHealth.Size = new System.Drawing.Size(45, 15);
+            this.labelHealth.Size = new System.Drawing.Size(41, 13);
             this.labelHealth.TabIndex = 2;
             this.labelHealth.Text = "Health:";
             // 
             // numericUpDownHealth
             // 
-            this.numericUpDownHealth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.numericUpDownHealth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDownHealth.Location = new System.Drawing.Point(105, 17);
+            this.numericUpDownHealth.Location = new System.Drawing.Point(90, 15);
             this.numericUpDownHealth.Maximum = new decimal(new int[] {
             255,
             0,
@@ -333,7 +342,7 @@
             0,
             0});
             this.numericUpDownHealth.Name = "numericUpDownHealth";
-            this.numericUpDownHealth.Size = new System.Drawing.Size(78, 23);
+            this.numericUpDownHealth.Size = new System.Drawing.Size(67, 20);
             this.numericUpDownHealth.TabIndex = 1;
             this.numericUpDownHealth.Value = new decimal(new int[] {
             1,
@@ -344,114 +353,114 @@
             // labelSpeedEVs
             // 
             this.labelSpeedEVs.AutoSize = true;
-            this.labelSpeedEVs.Location = new System.Drawing.Point(6, 164);
+            this.labelSpeedEVs.Location = new System.Drawing.Point(5, 142);
             this.labelSpeedEVs.Name = "labelSpeedEVs";
-            this.labelSpeedEVs.Size = new System.Drawing.Size(42, 15);
+            this.labelSpeedEVs.Size = new System.Drawing.Size(41, 13);
             this.labelSpeedEVs.TabIndex = 2;
             this.labelSpeedEVs.Text = "Speed:";
             // 
             // numericUpDownSpeedEVs
             // 
-            this.numericUpDownSpeedEVs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.numericUpDownSpeedEVs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDownSpeedEVs.Location = new System.Drawing.Point(105, 162);
+            this.numericUpDownSpeedEVs.Location = new System.Drawing.Point(90, 140);
             this.numericUpDownSpeedEVs.Name = "numericUpDownSpeedEVs";
-            this.numericUpDownSpeedEVs.Size = new System.Drawing.Size(78, 23);
+            this.numericUpDownSpeedEVs.Size = new System.Drawing.Size(67, 20);
             this.numericUpDownSpeedEVs.TabIndex = 1;
             // 
             // labelSpecialDefenseEVs
             // 
             this.labelSpecialDefenseEVs.AutoSize = true;
-            this.labelSpecialDefenseEVs.Location = new System.Drawing.Point(6, 135);
+            this.labelSpecialDefenseEVs.Location = new System.Drawing.Point(5, 117);
             this.labelSpecialDefenseEVs.Name = "labelSpecialDefenseEVs";
-            this.labelSpecialDefenseEVs.Size = new System.Drawing.Size(92, 15);
+            this.labelSpecialDefenseEVs.Size = new System.Drawing.Size(65, 13);
             this.labelSpecialDefenseEVs.TabIndex = 2;
-            this.labelSpecialDefenseEVs.Text = "Special Defense:";
+            this.labelSpecialDefenseEVs.Text = "Special Def:";
             // 
             // numericUpDownSpecialDefenseEVs
             // 
-            this.numericUpDownSpecialDefenseEVs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.numericUpDownSpecialDefenseEVs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDownSpecialDefenseEVs.Location = new System.Drawing.Point(105, 133);
+            this.numericUpDownSpecialDefenseEVs.Location = new System.Drawing.Point(90, 115);
             this.numericUpDownSpecialDefenseEVs.Name = "numericUpDownSpecialDefenseEVs";
-            this.numericUpDownSpecialDefenseEVs.Size = new System.Drawing.Size(78, 23);
+            this.numericUpDownSpecialDefenseEVs.Size = new System.Drawing.Size(67, 20);
             this.numericUpDownSpecialDefenseEVs.TabIndex = 1;
             // 
             // labelSpecialAttackEVs
             // 
             this.labelSpecialAttackEVs.AutoSize = true;
-            this.labelSpecialAttackEVs.Location = new System.Drawing.Point(6, 106);
+            this.labelSpecialAttackEVs.Location = new System.Drawing.Point(5, 92);
             this.labelSpecialAttackEVs.Name = "labelSpecialAttackEVs";
-            this.labelSpecialAttackEVs.Size = new System.Drawing.Size(84, 15);
+            this.labelSpecialAttackEVs.Size = new System.Drawing.Size(79, 13);
             this.labelSpecialAttackEVs.TabIndex = 2;
             this.labelSpecialAttackEVs.Text = "Special Attack:";
             // 
             // numericUpDownSpecialAttackEVs
             // 
-            this.numericUpDownSpecialAttackEVs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.numericUpDownSpecialAttackEVs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDownSpecialAttackEVs.Location = new System.Drawing.Point(105, 104);
+            this.numericUpDownSpecialAttackEVs.Location = new System.Drawing.Point(90, 90);
             this.numericUpDownSpecialAttackEVs.Name = "numericUpDownSpecialAttackEVs";
-            this.numericUpDownSpecialAttackEVs.Size = new System.Drawing.Size(78, 23);
+            this.numericUpDownSpecialAttackEVs.Size = new System.Drawing.Size(67, 20);
             this.numericUpDownSpecialAttackEVs.TabIndex = 1;
             // 
             // labelDefenseEVs
             // 
             this.labelDefenseEVs.AutoSize = true;
-            this.labelDefenseEVs.Location = new System.Drawing.Point(6, 77);
+            this.labelDefenseEVs.Location = new System.Drawing.Point(5, 67);
             this.labelDefenseEVs.Name = "labelDefenseEVs";
-            this.labelDefenseEVs.Size = new System.Drawing.Size(52, 15);
+            this.labelDefenseEVs.Size = new System.Drawing.Size(50, 13);
             this.labelDefenseEVs.TabIndex = 2;
             this.labelDefenseEVs.Text = "Defense:";
             // 
             // numericUpDownDefenseEVs
             // 
-            this.numericUpDownDefenseEVs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.numericUpDownDefenseEVs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDownDefenseEVs.Location = new System.Drawing.Point(105, 75);
+            this.numericUpDownDefenseEVs.Location = new System.Drawing.Point(90, 65);
             this.numericUpDownDefenseEVs.Name = "numericUpDownDefenseEVs";
-            this.numericUpDownDefenseEVs.Size = new System.Drawing.Size(78, 23);
+            this.numericUpDownDefenseEVs.Size = new System.Drawing.Size(67, 20);
             this.numericUpDownDefenseEVs.TabIndex = 1;
             // 
             // labelAttackEVs
             // 
             this.labelAttackEVs.AutoSize = true;
-            this.labelAttackEVs.Location = new System.Drawing.Point(6, 48);
+            this.labelAttackEVs.Location = new System.Drawing.Point(5, 42);
             this.labelAttackEVs.Name = "labelAttackEVs";
-            this.labelAttackEVs.Size = new System.Drawing.Size(44, 15);
+            this.labelAttackEVs.Size = new System.Drawing.Size(41, 13);
             this.labelAttackEVs.TabIndex = 2;
             this.labelAttackEVs.Text = "Attack:";
             // 
             // numericUpDownAttackEVs
             // 
-            this.numericUpDownAttackEVs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.numericUpDownAttackEVs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDownAttackEVs.Location = new System.Drawing.Point(105, 46);
+            this.numericUpDownAttackEVs.Location = new System.Drawing.Point(90, 40);
             this.numericUpDownAttackEVs.Name = "numericUpDownAttackEVs";
-            this.numericUpDownAttackEVs.Size = new System.Drawing.Size(78, 23);
+            this.numericUpDownAttackEVs.Size = new System.Drawing.Size(67, 20);
             this.numericUpDownAttackEVs.TabIndex = 1;
             // 
             // labelHealthEVs
             // 
             this.labelHealthEVs.AutoSize = true;
-            this.labelHealthEVs.Location = new System.Drawing.Point(6, 19);
+            this.labelHealthEVs.Location = new System.Drawing.Point(5, 16);
             this.labelHealthEVs.Name = "labelHealthEVs";
-            this.labelHealthEVs.Size = new System.Drawing.Size(45, 15);
+            this.labelHealthEVs.Size = new System.Drawing.Size(41, 13);
             this.labelHealthEVs.TabIndex = 2;
             this.labelHealthEVs.Text = "Health:";
             // 
             // numericUpDownHealthEVs
             // 
-            this.numericUpDownHealthEVs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.numericUpDownHealthEVs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDownHealthEVs.Location = new System.Drawing.Point(105, 17);
+            this.numericUpDownHealthEVs.Location = new System.Drawing.Point(90, 15);
             this.numericUpDownHealthEVs.Name = "numericUpDownHealthEVs";
-            this.numericUpDownHealthEVs.Size = new System.Drawing.Size(78, 23);
+            this.numericUpDownHealthEVs.Size = new System.Drawing.Size(67, 20);
             this.numericUpDownHealthEVs.TabIndex = 1;
             // 
             // groupBoxGivedEVs
             // 
-            this.groupBoxGivedEVs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.groupBoxGivedEVs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxGivedEVs.Controls.Add(this.labelSpeedEVs);
             this.groupBoxGivedEVs.Controls.Add(this.numericUpDownSpeedEVs);
@@ -465,20 +474,27 @@
             this.groupBoxGivedEVs.Controls.Add(this.numericUpDownAttackEVs);
             this.groupBoxGivedEVs.Controls.Add(this.labelHealthEVs);
             this.groupBoxGivedEVs.Controls.Add(this.numericUpDownHealthEVs);
-            this.groupBoxGivedEVs.Location = new System.Drawing.Point(346, 228);
+            this.groupBoxGivedEVs.Location = new System.Drawing.Point(297, 198);
             this.groupBoxGivedEVs.Name = "groupBoxGivedEVs";
-            this.groupBoxGivedEVs.Size = new System.Drawing.Size(189, 207);
+            this.groupBoxGivedEVs.Size = new System.Drawing.Size(162, 179);
             this.groupBoxGivedEVs.TabIndex = 3;
             this.groupBoxGivedEVs.TabStop = false;
             this.groupBoxGivedEVs.Text = "Gived EVs";
             // 
             // groupBoxAppearance
             // 
-            this.groupBoxAppearance.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.groupBoxAppearance.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxAppearance.Controls.Add(this.labelImage);
-            this.groupBoxAppearance.Controls.Add(this.pictureBoxPoke);
+            this.groupBoxAppearance.Controls.Add(this.checkBoxIsLegendary);
+            this.groupBoxAppearance.Controls.Add(this.checkBoxIsMegaEvolution);
+            this.groupBoxAppearance.Controls.Add(this.numericUpDownHappiness);
+            this.groupBoxAppearance.Controls.Add(this.labelHappiness);
+            this.groupBoxAppearance.Controls.Add(this.numericUpDownRareness);
+            this.groupBoxAppearance.Controls.Add(this.labelRareness);
+            this.groupBoxAppearance.Controls.Add(this.textBoxHabitat);
+            this.groupBoxAppearance.Controls.Add(this.labelPokedexNumber);
+            this.groupBoxAppearance.Controls.Add(this.numericUpDown1);
             this.groupBoxAppearance.Controls.Add(this.numericUpDownWeight);
             this.groupBoxAppearance.Controls.Add(this.numericUpDownHeight);
             this.groupBoxAppearance.Controls.Add(this.labelWeight);
@@ -486,60 +502,146 @@
             this.groupBoxAppearance.Controls.Add(this.textBoxCategory);
             this.groupBoxAppearance.Controls.Add(this.richTextBoxDescription);
             this.groupBoxAppearance.Controls.Add(this.textBoxName);
-            this.groupBoxAppearance.Location = new System.Drawing.Point(12, 27);
+            this.groupBoxAppearance.Location = new System.Drawing.Point(10, 23);
             this.groupBoxAppearance.Name = "groupBoxAppearance";
-            this.groupBoxAppearance.Size = new System.Drawing.Size(328, 406);
+            this.groupBoxAppearance.Size = new System.Drawing.Size(281, 352);
             this.groupBoxAppearance.TabIndex = 4;
             this.groupBoxAppearance.TabStop = false;
             this.groupBoxAppearance.Text = "Appearance";
             // 
-            // labelImage
+            // checkBoxIsLegendary
             // 
-            this.labelImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelImage.AutoSize = true;
-            this.labelImage.Location = new System.Drawing.Point(7, 230);
-            this.labelImage.Name = "labelImage";
-            this.labelImage.Size = new System.Drawing.Size(46, 15);
-            this.labelImage.TabIndex = 5;
-            this.labelImage.Text = "Image: ";
-            // 
-            // pictureBoxPoke
-            // 
-            this.pictureBoxPoke.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.checkBoxIsLegendary.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxPoke.BackColor = System.Drawing.Color.Gainsboro;
-            this.pictureBoxPoke.Location = new System.Drawing.Point(6, 248);
-            this.pictureBoxPoke.Name = "pictureBoxPoke";
-            this.pictureBoxPoke.Size = new System.Drawing.Size(315, 152);
-            this.pictureBoxPoke.TabIndex = 4;
-            this.pictureBoxPoke.TabStop = false;
-            this.pictureBoxPoke.Click += new System.EventHandler(this.pictureBoxPoke_Click);
-            this.pictureBoxPoke.MouseEnter += new System.EventHandler(this.pictureBoxPoke_MouseEnter);
-            this.pictureBoxPoke.MouseLeave += new System.EventHandler(this.pictureBoxPoke_MouseLeave);
+            this.checkBoxIsLegendary.AutoSize = true;
+            this.checkBoxIsLegendary.Location = new System.Drawing.Point(112, 280);
+            this.checkBoxIsLegendary.Name = "checkBoxIsLegendary";
+            this.checkBoxIsLegendary.Size = new System.Drawing.Size(76, 17);
+            this.checkBoxIsLegendary.TabIndex = 12;
+            this.checkBoxIsLegendary.Text = "Legendary";
+            this.checkBoxIsLegendary.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxIsMegaEvolution
+            // 
+            this.checkBoxIsMegaEvolution.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxIsMegaEvolution.AutoSize = true;
+            this.checkBoxIsMegaEvolution.Location = new System.Drawing.Point(6, 280);
+            this.checkBoxIsMegaEvolution.Name = "checkBoxIsMegaEvolution";
+            this.checkBoxIsMegaEvolution.Size = new System.Drawing.Size(100, 17);
+            this.checkBoxIsMegaEvolution.TabIndex = 11;
+            this.checkBoxIsMegaEvolution.Text = "Mega-Evolution";
+            this.checkBoxIsMegaEvolution.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDownHappiness
+            // 
+            this.numericUpDownHappiness.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numericUpDownHappiness.Location = new System.Drawing.Point(214, 247);
+            this.numericUpDownHappiness.Name = "numericUpDownHappiness";
+            this.numericUpDownHappiness.Size = new System.Drawing.Size(61, 20);
+            this.numericUpDownHappiness.TabIndex = 10;
+            // 
+            // labelHappiness
+            // 
+            this.labelHappiness.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelHappiness.AutoSize = true;
+            this.labelHappiness.Location = new System.Drawing.Point(145, 249);
+            this.labelHappiness.Name = "labelHappiness";
+            this.labelHappiness.Size = new System.Drawing.Size(63, 13);
+            this.labelHappiness.TabIndex = 9;
+            this.labelHappiness.Text = "Happiness: ";
+            // 
+            // numericUpDownRareness
+            // 
+            this.numericUpDownRareness.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numericUpDownRareness.Location = new System.Drawing.Point(70, 247);
+            this.numericUpDownRareness.Name = "numericUpDownRareness";
+            this.numericUpDownRareness.Size = new System.Drawing.Size(69, 20);
+            this.numericUpDownRareness.TabIndex = 8;
+            // 
+            // labelRareness
+            // 
+            this.labelRareness.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelRareness.AutoSize = true;
+            this.labelRareness.Location = new System.Drawing.Point(6, 249);
+            this.labelRareness.Name = "labelRareness";
+            this.labelRareness.Size = new System.Drawing.Size(58, 13);
+            this.labelRareness.TabIndex = 7;
+            this.labelRareness.Text = "Rareness: ";
+            // 
+            // textBoxHabitat
+            // 
+            this.textBoxHabitat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxHabitat.ForeColor = System.Drawing.Color.DarkGray;
+            this.textBoxHabitat.Location = new System.Drawing.Point(5, 220);
+            this.textBoxHabitat.Name = "textBoxHabitat";
+            this.textBoxHabitat.Size = new System.Drawing.Size(271, 20);
+            this.textBoxHabitat.TabIndex = 6;
+            this.textBoxHabitat.Text = "Habitat...";
+            this.textBoxHabitat.Enter += new System.EventHandler(this.textBoxHabitat_Enter);
+            this.textBoxHabitat.Leave += new System.EventHandler(this.textBoxHabitat_Leave);
+            // 
+            // labelPokedexNumber
+            // 
+            this.labelPokedexNumber.AutoSize = true;
+            this.labelPokedexNumber.Location = new System.Drawing.Point(6, 18);
+            this.labelPokedexNumber.Name = "labelPokedexNumber";
+            this.labelPokedexNumber.Size = new System.Drawing.Size(68, 13);
+            this.labelPokedexNumber.TabIndex = 5;
+            this.labelPokedexNumber.Text = "Pokédex nº: ";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numericUpDown1.Location = new System.Drawing.Point(80, 15);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(195, 20);
+            this.numericUpDown1.TabIndex = 4;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // numericUpDownWeight
             // 
             this.numericUpDownWeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.numericUpDownWeight.Location = new System.Drawing.Point(231, 197);
+            this.numericUpDownWeight.Location = new System.Drawing.Point(198, 194);
             this.numericUpDownWeight.Name = "numericUpDownWeight";
-            this.numericUpDownWeight.Size = new System.Drawing.Size(90, 23);
+            this.numericUpDownWeight.Size = new System.Drawing.Size(77, 20);
             this.numericUpDownWeight.TabIndex = 3;
             // 
             // numericUpDownHeight
             // 
             this.numericUpDownHeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.numericUpDownHeight.Location = new System.Drawing.Point(62, 197);
+            this.numericUpDownHeight.Location = new System.Drawing.Point(53, 194);
             this.numericUpDownHeight.Name = "numericUpDownHeight";
-            this.numericUpDownHeight.Size = new System.Drawing.Size(90, 23);
+            this.numericUpDownHeight.Size = new System.Drawing.Size(77, 20);
             this.numericUpDownHeight.TabIndex = 3;
             // 
             // labelWeight
             // 
             this.labelWeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelWeight.AutoSize = true;
-            this.labelWeight.Location = new System.Drawing.Point(174, 199);
+            this.labelWeight.Location = new System.Drawing.Point(145, 197);
             this.labelWeight.Name = "labelWeight";
-            this.labelWeight.Size = new System.Drawing.Size(51, 15);
+            this.labelWeight.Size = new System.Drawing.Size(47, 13);
             this.labelWeight.TabIndex = 2;
             this.labelWeight.Text = "Weight: ";
             // 
@@ -547,20 +649,20 @@
             // 
             this.labelHeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelHeight.AutoSize = true;
-            this.labelHeight.Location = new System.Drawing.Point(7, 199);
+            this.labelHeight.Location = new System.Drawing.Point(6, 197);
             this.labelHeight.Name = "labelHeight";
-            this.labelHeight.Size = new System.Drawing.Size(49, 15);
+            this.labelHeight.Size = new System.Drawing.Size(44, 13);
             this.labelHeight.TabIndex = 2;
             this.labelHeight.Text = "Height: ";
             // 
             // textBoxCategory
             // 
-            this.textBoxCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.textBoxCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxCategory.ForeColor = System.Drawing.Color.DarkGray;
-            this.textBoxCategory.Location = new System.Drawing.Point(6, 52);
+            this.textBoxCategory.Location = new System.Drawing.Point(5, 68);
             this.textBoxCategory.Name = "textBoxCategory";
-            this.textBoxCategory.Size = new System.Drawing.Size(315, 23);
+            this.textBoxCategory.Size = new System.Drawing.Size(271, 20);
             this.textBoxCategory.TabIndex = 0;
             this.textBoxCategory.Text = "Category...";
             this.textBoxCategory.Enter += new System.EventHandler(this.textBoxCategory_Enter);
@@ -568,27 +670,26 @@
             // 
             // richTextBoxDescription
             // 
-            this.richTextBoxDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.richTextBoxDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBoxDescription.ForeColor = System.Drawing.Color.DarkGray;
-            this.richTextBoxDescription.Location = new System.Drawing.Point(6, 81);
+            this.richTextBoxDescription.Location = new System.Drawing.Point(5, 93);
             this.richTextBoxDescription.Name = "richTextBoxDescription";
-            this.richTextBoxDescription.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.richTextBoxDescription.Size = new System.Drawing.Size(315, 110);
-            this.richTextBoxDescription.TabIndex = 1;
+            this.richTextBoxDescription.Size = new System.Drawing.Size(270, 93);
+            this.richTextBoxDescription.TabIndex = 13;
             this.richTextBoxDescription.Text = "Description...";
             this.richTextBoxDescription.Enter += new System.EventHandler(this.richTextBoxDescription_Enter);
             this.richTextBoxDescription.Leave += new System.EventHandler(this.richTextBoxDescription_Leave);
             // 
             // textBoxName
             // 
-            this.textBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.textBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxName.ForeColor = System.Drawing.Color.DarkGray;
-            this.textBoxName.Location = new System.Drawing.Point(7, 23);
+            this.textBoxName.Location = new System.Drawing.Point(6, 43);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(315, 23);
+            this.textBoxName.Size = new System.Drawing.Size(271, 20);
             this.textBoxName.TabIndex = 0;
             this.textBoxName.Text = "Name...";
             this.textBoxName.Enter += new System.EventHandler(this.textBoxName_Enter);
@@ -603,9 +704,9 @@
             this.groupBox1.Controls.Add(this.comboBoxType2);
             this.groupBox1.Controls.Add(this.labelTypes);
             this.groupBox1.Controls.Add(this.comboBoxType1);
-            this.groupBox1.Location = new System.Drawing.Point(541, 28);
+            this.groupBox1.Location = new System.Drawing.Point(464, 24);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(252, 253);
+            this.groupBox1.Size = new System.Drawing.Size(216, 219);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Combat";
@@ -618,9 +719,9 @@
             this.groupBox2.Controls.Add(this.comboBoxAbilityHidden);
             this.groupBox2.Controls.Add(this.comboBoxAbility2);
             this.groupBox2.Controls.Add(this.comboBoxAbility1);
-            this.groupBox2.Location = new System.Drawing.Point(6, 133);
+            this.groupBox2.Location = new System.Drawing.Point(5, 115);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(240, 112);
+            this.groupBox2.Size = new System.Drawing.Size(206, 97);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Abilities";
@@ -628,102 +729,102 @@
             // labelAbilityHidden
             // 
             this.labelAbilityHidden.AutoSize = true;
-            this.labelAbilityHidden.Location = new System.Drawing.Point(7, 85);
+            this.labelAbilityHidden.Location = new System.Drawing.Point(6, 74);
             this.labelAbilityHidden.Name = "labelAbilityHidden";
-            this.labelAbilityHidden.Size = new System.Drawing.Size(49, 15);
+            this.labelAbilityHidden.Size = new System.Drawing.Size(44, 13);
             this.labelAbilityHidden.TabIndex = 1;
             this.labelAbilityHidden.Text = "Hidden:";
             // 
             // labelAbility2
             // 
             this.labelAbility2.AutoSize = true;
-            this.labelAbility2.Location = new System.Drawing.Point(7, 54);
+            this.labelAbility2.Location = new System.Drawing.Point(6, 47);
             this.labelAbility2.Name = "labelAbility2";
-            this.labelAbility2.Size = new System.Drawing.Size(53, 15);
+            this.labelAbility2.Size = new System.Drawing.Size(46, 13);
             this.labelAbility2.TabIndex = 1;
             this.labelAbility2.Text = "Ability 2:";
             // 
             // labelAbility1
             // 
             this.labelAbility1.AutoSize = true;
-            this.labelAbility1.Location = new System.Drawing.Point(7, 23);
+            this.labelAbility1.Location = new System.Drawing.Point(6, 20);
             this.labelAbility1.Name = "labelAbility1";
-            this.labelAbility1.Size = new System.Drawing.Size(53, 15);
+            this.labelAbility1.Size = new System.Drawing.Size(46, 13);
             this.labelAbility1.TabIndex = 1;
             this.labelAbility1.Text = "Ability 1:";
             // 
             // comboBoxAbilityHidden
             // 
             this.comboBoxAbilityHidden.FormattingEnabled = true;
-            this.comboBoxAbilityHidden.Location = new System.Drawing.Point(62, 80);
+            this.comboBoxAbilityHidden.Location = new System.Drawing.Point(53, 69);
             this.comboBoxAbilityHidden.Name = "comboBoxAbilityHidden";
-            this.comboBoxAbilityHidden.Size = new System.Drawing.Size(178, 23);
+            this.comboBoxAbilityHidden.Size = new System.Drawing.Size(153, 21);
             this.comboBoxAbilityHidden.TabIndex = 0;
             // 
             // comboBoxAbility2
             // 
             this.comboBoxAbility2.FormattingEnabled = true;
-            this.comboBoxAbility2.Location = new System.Drawing.Point(62, 51);
+            this.comboBoxAbility2.Location = new System.Drawing.Point(53, 44);
             this.comboBoxAbility2.Name = "comboBoxAbility2";
-            this.comboBoxAbility2.Size = new System.Drawing.Size(178, 23);
+            this.comboBoxAbility2.Size = new System.Drawing.Size(153, 21);
             this.comboBoxAbility2.TabIndex = 0;
             // 
             // comboBoxAbility1
             // 
             this.comboBoxAbility1.FormattingEnabled = true;
-            this.comboBoxAbility1.Location = new System.Drawing.Point(62, 22);
+            this.comboBoxAbility1.Location = new System.Drawing.Point(53, 19);
             this.comboBoxAbility1.Name = "comboBoxAbility1";
-            this.comboBoxAbility1.Size = new System.Drawing.Size(178, 23);
+            this.comboBoxAbility1.Size = new System.Drawing.Size(153, 21);
             this.comboBoxAbility1.TabIndex = 0;
             // 
             // comboBoxLevelType
             // 
             this.comboBoxLevelType.FormattingEnabled = true;
-            this.comboBoxLevelType.Location = new System.Drawing.Point(6, 95);
+            this.comboBoxLevelType.Location = new System.Drawing.Point(5, 82);
             this.comboBoxLevelType.Name = "comboBoxLevelType";
-            this.comboBoxLevelType.Size = new System.Drawing.Size(240, 23);
+            this.comboBoxLevelType.Size = new System.Drawing.Size(206, 21);
             this.comboBoxLevelType.TabIndex = 0;
             // 
             // labelLevelType
             // 
             this.labelLevelType.AutoSize = true;
-            this.labelLevelType.Location = new System.Drawing.Point(6, 77);
+            this.labelLevelType.Location = new System.Drawing.Point(5, 67);
             this.labelLevelType.Name = "labelLevelType";
-            this.labelLevelType.Size = new System.Drawing.Size(65, 15);
+            this.labelLevelType.Size = new System.Drawing.Size(63, 13);
             this.labelLevelType.TabIndex = 2;
             this.labelLevelType.Text = "Level Type:";
             // 
             // comboBoxType2
             // 
             this.comboBoxType2.FormattingEnabled = true;
-            this.comboBoxType2.Location = new System.Drawing.Point(131, 40);
+            this.comboBoxType2.Location = new System.Drawing.Point(112, 35);
             this.comboBoxType2.Name = "comboBoxType2";
-            this.comboBoxType2.Size = new System.Drawing.Size(115, 23);
+            this.comboBoxType2.Size = new System.Drawing.Size(99, 21);
             this.comboBoxType2.TabIndex = 0;
             // 
             // labelTypes
             // 
             this.labelTypes.AutoSize = true;
-            this.labelTypes.Location = new System.Drawing.Point(6, 19);
+            this.labelTypes.Location = new System.Drawing.Point(5, 16);
             this.labelTypes.Name = "labelTypes";
-            this.labelTypes.Size = new System.Drawing.Size(43, 15);
+            this.labelTypes.Size = new System.Drawing.Size(42, 13);
             this.labelTypes.TabIndex = 1;
             this.labelTypes.Text = "Types: ";
             // 
             // comboBoxType1
             // 
             this.comboBoxType1.FormattingEnabled = true;
-            this.comboBoxType1.Location = new System.Drawing.Point(6, 40);
+            this.comboBoxType1.Location = new System.Drawing.Point(5, 35);
             this.comboBoxType1.Name = "comboBoxType1";
-            this.comboBoxType1.Size = new System.Drawing.Size(115, 23);
+            this.comboBoxType1.Size = new System.Drawing.Size(99, 21);
             this.comboBoxType1.TabIndex = 0;
             // 
             // buttonCancel
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCancel.Location = new System.Drawing.Point(547, 404);
+            this.buttonCancel.Location = new System.Drawing.Point(469, 350);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancel.Size = new System.Drawing.Size(64, 20);
             this.buttonCancel.TabIndex = 6;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -732,9 +833,9 @@
             // buttonAccept
             // 
             this.buttonAccept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAccept.Location = new System.Drawing.Point(712, 404);
+            this.buttonAccept.Location = new System.Drawing.Point(610, 350);
             this.buttonAccept.Name = "buttonAccept";
-            this.buttonAccept.Size = new System.Drawing.Size(75, 23);
+            this.buttonAccept.Size = new System.Drawing.Size(64, 20);
             this.buttonAccept.TabIndex = 7;
             this.buttonAccept.Text = "Accept";
             this.buttonAccept.UseVisualStyleBackColor = true;
@@ -749,9 +850,9 @@
             this.groupBoxGenres.Controls.Add(this.numericUpDownFemale);
             this.groupBoxGenres.Controls.Add(this.labelMale);
             this.groupBoxGenres.Controls.Add(this.numericUpDownMale);
-            this.groupBoxGenres.Location = new System.Drawing.Point(541, 288);
+            this.groupBoxGenres.Location = new System.Drawing.Point(464, 250);
             this.groupBoxGenres.Name = "groupBoxGenres";
-            this.groupBoxGenres.Size = new System.Drawing.Size(252, 110);
+            this.groupBoxGenres.Size = new System.Drawing.Size(216, 95);
             this.groupBoxGenres.TabIndex = 8;
             this.groupBoxGenres.TabStop = false;
             this.groupBoxGenres.Text = "Reproduction";
@@ -759,67 +860,69 @@
             // comboBoxEggGroup
             // 
             this.comboBoxEggGroup.FormattingEnabled = true;
-            this.comboBoxEggGroup.Location = new System.Drawing.Point(82, 70);
+            this.comboBoxEggGroup.Location = new System.Drawing.Point(70, 61);
             this.comboBoxEggGroup.Name = "comboBoxEggGroup";
-            this.comboBoxEggGroup.Size = new System.Drawing.Size(164, 23);
+            this.comboBoxEggGroup.Size = new System.Drawing.Size(141, 21);
             this.comboBoxEggGroup.TabIndex = 7;
             // 
             // labelEggGroup
             // 
             this.labelEggGroup.AutoSize = true;
-            this.labelEggGroup.Location = new System.Drawing.Point(6, 75);
+            this.labelEggGroup.Location = new System.Drawing.Point(5, 65);
             this.labelEggGroup.Name = "labelEggGroup";
-            this.labelEggGroup.Size = new System.Drawing.Size(69, 15);
+            this.labelEggGroup.Size = new System.Drawing.Size(64, 13);
             this.labelEggGroup.TabIndex = 6;
             this.labelEggGroup.Text = "Egg Group: ";
             // 
             // labelFemale
             // 
             this.labelFemale.AutoSize = true;
-            this.labelFemale.Location = new System.Drawing.Point(129, 23);
+            this.labelFemale.Location = new System.Drawing.Point(111, 20);
             this.labelFemale.Name = "labelFemale";
-            this.labelFemale.Size = new System.Drawing.Size(48, 15);
+            this.labelFemale.Size = new System.Drawing.Size(44, 13);
             this.labelFemale.TabIndex = 5;
             this.labelFemale.Text = "Female:";
             // 
             // numericUpDownFemale
             // 
-            this.numericUpDownFemale.Location = new System.Drawing.Point(129, 41);
+            this.numericUpDownFemale.Location = new System.Drawing.Point(111, 36);
             this.numericUpDownFemale.Name = "numericUpDownFemale";
-            this.numericUpDownFemale.Size = new System.Drawing.Size(115, 23);
+            this.numericUpDownFemale.Size = new System.Drawing.Size(99, 20);
             this.numericUpDownFemale.TabIndex = 3;
             this.numericUpDownFemale.Value = new decimal(new int[] {
             50,
             0,
             0,
             0});
+            this.numericUpDownFemale.ValueChanged += new System.EventHandler(this.numericUpDownFemale_ValueChanged);
             // 
             // labelMale
             // 
             this.labelMale.AutoSize = true;
-            this.labelMale.Location = new System.Drawing.Point(6, 23);
+            this.labelMale.Location = new System.Drawing.Point(5, 20);
             this.labelMale.Name = "labelMale";
-            this.labelMale.Size = new System.Drawing.Size(36, 15);
+            this.labelMale.Size = new System.Drawing.Size(33, 13);
             this.labelMale.TabIndex = 5;
             this.labelMale.Text = "Male:";
             // 
             // numericUpDownMale
             // 
-            this.numericUpDownMale.Location = new System.Drawing.Point(6, 41);
+            this.numericUpDownMale.Location = new System.Drawing.Point(5, 36);
             this.numericUpDownMale.Name = "numericUpDownMale";
-            this.numericUpDownMale.Size = new System.Drawing.Size(115, 23);
+            this.numericUpDownMale.Size = new System.Drawing.Size(99, 20);
             this.numericUpDownMale.TabIndex = 3;
             this.numericUpDownMale.Value = new decimal(new int[] {
             50,
             0,
             0,
             0});
+            this.numericUpDownMale.ValueChanged += new System.EventHandler(this.numericUpDownMale_ValueChanged);
             // 
             // AddOrUpdatePokemonForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(805, 444);
+            this.ClientSize = new System.Drawing.Size(690, 385);
             this.Controls.Add(this.groupBoxGenres);
             this.Controls.Add(this.buttonAccept);
             this.Controls.Add(this.buttonCancel);
@@ -849,7 +952,9 @@
             this.groupBoxGivedEVs.PerformLayout();
             this.groupBoxAppearance.ResumeLayout(false);
             this.groupBoxAppearance.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPoke)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHappiness)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRareness)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHeight)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -901,8 +1006,6 @@
         private System.Windows.Forms.NumericUpDown numericUpDownHeight;
         private System.Windows.Forms.Label labelWeight;
         private System.Windows.Forms.Label labelHeight;
-        private System.Windows.Forms.PictureBox pictureBoxPoke;
-        private System.Windows.Forms.Label labelImage;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox comboBoxType2;
         private System.Windows.Forms.Label labelTypes;
@@ -926,5 +1029,14 @@
         private System.Windows.Forms.NumericUpDown numericUpDownSpecialDefense;
         private System.Windows.Forms.ComboBox comboBoxEggGroup;
         private System.Windows.Forms.Label labelEggGroup;
+        private System.Windows.Forms.Label labelPokedexNumber;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.TextBox textBoxHabitat;
+        private System.Windows.Forms.NumericUpDown numericUpDownHappiness;
+        private System.Windows.Forms.Label labelHappiness;
+        private System.Windows.Forms.NumericUpDown numericUpDownRareness;
+        private System.Windows.Forms.Label labelRareness;
+        private System.Windows.Forms.CheckBox checkBoxIsLegendary;
+        private System.Windows.Forms.CheckBox checkBoxIsMegaEvolution;
     }
 }

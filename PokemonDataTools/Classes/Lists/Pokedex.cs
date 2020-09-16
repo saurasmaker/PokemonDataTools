@@ -10,9 +10,11 @@ using Classes.Tools;
 
 namespace Classes.Lists
 {
-    class Pokedex
+    public class Pokedex
     {
         private static string path = Directory.GetCurrentDirectory() + "\\Saves\\pokedex.xml";
+        
+        
         public List<OPokemon> PokemonList { get; set; }
 
 
@@ -27,6 +29,34 @@ namespace Classes.Lists
             this.PokemonList = pokemonList;
         }
         #endregion
+
+        public void AddPokemon(OPokemon pokemon)
+        {
+            PokemonList.Add(pokemon);
+
+            return;
+        }
+
+        public OPokemon SearchPokemon(string name)
+        {
+            for (int i = 0; i < PokemonList.Count; ++i)
+                if (PokemonList[i].Name.ToUpper().Equals(name.ToUpper()))
+                    return PokemonList[i];
+
+            return null;
+        }
+
+        public void RemovePokemon(string name)
+        {
+            for (int i = 0; i < PokemonList.Count; ++i)
+                if (PokemonList[i].Name.ToUpper().Equals(name.ToUpper()))
+                {
+                    PokemonList.RemoveAt(i);
+                    return;
+                }
+
+            return;
+        }
 
         #region Methods CRUD
         public void Show()

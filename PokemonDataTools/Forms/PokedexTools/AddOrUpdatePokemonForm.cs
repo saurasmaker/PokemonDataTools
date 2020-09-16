@@ -10,20 +10,25 @@ namespace Forms.PokedexTools
 {
     public partial class AddOrUpdatePokemonForm : Form
     {
+        private Pokedex pokedex;
         private OPokemon pokemon;
 
-        public AddOrUpdatePokemonForm()
+        public AddOrUpdatePokemonForm(Pokedex pokedex)
         {
+            this.pokedex = pokedex;
             InitializeComponent();
             InitializeComboBoxes();
         }
 
-        public AddOrUpdatePokemonForm(OPokemon pokemon)
+        public AddOrUpdatePokemonForm(Pokedex pokedex, OPokemon pokemon)
         {
             InitializeComponent();
             InitializeComboBoxes();
+
+            this.pokedex = pokedex;
             this.pokemon = pokemon;
             FillData(pokemon);
+
             labelTitle.Text = "Update Pokémon";
         }
 
@@ -72,7 +77,7 @@ namespace Forms.PokedexTools
                 {
                     SetDataInPokemon();
 
-                    //Pokedex.SavePokemonInPokedexXML(pokemon);
+                    pokedex.AddPokemon(pokemon);
 
                     MessageBox.Show("Congratulations. You added a Pokémon succesfuly.", "Pokémon Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     
@@ -98,11 +103,15 @@ namespace Forms.PokedexTools
                 {
                     SetDataInPokemon();
 
-                    //Pokedex(pokemon.Id, pokemon);
+                    for (int i = 0; i < pokedex.PokemonList.Count; ++i)
+                        if (pokedex.PokemonList[i].Id.Equals(pokemon.Id))
+                        {
+                            pokedex.PokemonList[i] = pokemon;
+                            MessageBox.Show("Congratulations. You Updated a Pokémon succesfuly.", "Pokémon Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Dispose();
+                        }
 
-                    MessageBox.Show("Congratulations. You Updated a Pokémon succesfuly.", "Pokémon Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    Dispose();
+                    MessageBox.Show("There was a problem updating the Pokémon. Please, check the Log for more information.", "Add Pokémon Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
                 catch (Exception)
@@ -124,7 +133,6 @@ namespace Forms.PokedexTools
             pokemon.Description = richTextBoxDescription.Text;
             pokemon.Weight = Convert.ToUInt16(numericUpDownWeight.Value);
             pokemon.Height = Convert.ToUInt16(numericUpDownHeight.Value);
-            //pokemon.PictureName = pictureBoxPoke.Name;
 
             pokemon.GenresPercentage[0] = Convert.ToByte(numericUpDownMale.Value);
             pokemon.GenresPercentage[1] = Convert.ToByte(numericUpDownFemale.Value);
@@ -192,6 +200,16 @@ namespace Forms.PokedexTools
                 MessageBox.Show("You can not create a Pokémon without an Egg Group.", "Field Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+
+            for(int i = 0; i < pokedex.PokemonList.Count; ++i)
+            {
+                if (pokedex.PokemonList[i].Name.ToUpper().Equals(textBoxName.Text.ToUpper()))
+                {
+                    MessageBox.Show("There cannot be two or more pokémon with the same name.", "Field Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+
 
 
             return true;
@@ -261,41 +279,7 @@ namespace Forms.PokedexTools
 
         #endregion
 
-        #region PictureBox Events
-        private void pictureBoxPoke_MouseLeave(object sender, EventArgs e)
-        {
-            Cursor = Cursors.Default;
-            pictureBoxPoke.BackColor = Color.Gainsboro;
-        }
-
-        private void pictureBoxPoke_MouseEnter(object sender, EventArgs e)
-        {
-            Cursor = Cursors.Hand;
-            pictureBoxPoke.BackColor = Color.LightGray;
-        }
-
-        private void pictureBoxPoke_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog ofdImagePoke = new OpenFileDialog(); ofdImagePoke.Filter = "Image Files (*.bmp;*.png;*.jpg)|*.bmp;*.png;*.jpg";
-            //Aquí incluiremos los filtros que queramos.
-            ofdImagePoke.FileName = "";
-            ofdImagePoke.Title = "Titulo del Dialogo";
-            ofdImagePoke.InitialDirectory = "C:\\";
-
-            if (ofdImagePoke.ShowDialog() == DialogResult.OK)
-            {
-                /// Si esto se cumple, capturamos la propiedad File Name y la guardamos en el control
-                String path = ofdImagePoke.FileName;
-                this.pictureBoxPoke.ImageLocation = path;
-
-                //Pueden usar tambien esta forma para cargar la Imagen solo activenla y comenten la linea donde se cargaba anteriormente 
-                //this.pictureBox1.ImageLocation = textBox1.Text;
-                pictureBoxPoke.SizeMode = PictureBoxSizeMode.StretchImage;
-            }
-        }
-        #endregion
-
-
+        #region Buttons
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Are you sure that you want to close this form? All changes realized will desapear.", "Close advise", MessageBoxButtons.YesNo);
@@ -314,6 +298,7 @@ namespace Forms.PokedexTools
 
             return;
         }
+        #endregion
 
         #region TextBoxes
         private void textBoxName_Enter(object sender, EventArgs e)
@@ -369,6 +354,37 @@ namespace Forms.PokedexTools
                 richTextBoxDescription.ForeColor = Color.DarkGray;
             }
         }
+
+        private void textBoxHabitat_Enter(object sender, EventArgs e)
+        {
+            if (textBoxHabitat.Text == "Habitat...")
+            {
+                textBoxHabitat.Text = "";
+                textBoxHabitat.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxHabitat_Leave(object sender, EventArgs e)
+        {
+            if (textBoxHabitat.Text == "")
+            {
+                textBoxHabitat.Text = "Habitat...";
+                textBoxHabitat.ForeColor = Color.DarkGray;
+            }
+        }
         #endregion
+
+        private void numericUpDownMale_ValueChanged(object sender, EventArgs e)
+        {
+            numericUpDownFemale.Value = (100-numericUpDownMale.Value);
+        }
+
+        private void numericUpDownFemale_ValueChanged(object sender, EventArgs e)
+        {
+            numericUpDownMale.Value = (100 - numericUpDownFemale.Value);
+
+        }
+
+
     }
 }

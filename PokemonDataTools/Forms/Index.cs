@@ -17,7 +17,9 @@ namespace Forms
     {
 
         Pokedex pokedex = new Pokedex(Pokedex.Load());
-        MovesList movesList = new MovesList(MovesList.LoadMoveFromMovesListXML();
+        MovesList movesList = new MovesList(MovesList.Load());
+        AbilitiesList abilitiesList = new AbilitiesList(AbilitiesList.Load());
+        ItemsList itemsList = new ItemsList(ItemsList.Load());
 
         public Index()
         {
@@ -51,6 +53,7 @@ namespace Forms
             ShowSubmenu(panelAbilitiesTools);
         }
 
+
         Form activeForm = null;
         public void OpenChildForm(Form childForm)
         {
@@ -65,6 +68,7 @@ namespace Forms
             childForm.BringToFront();
             childForm.Show();
 
+            return;
         }
 
         #region SubmenuTools
@@ -96,19 +100,45 @@ namespace Forms
 
         private void btnAddPokeToPokedex_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new AddOrUpdatePokemonForm());
+            if (pokedex == null)
+                MessageBox.Show("error");
+            else if (pokedex.PokemonList.Count.Equals(0))
+                MessageBox.Show("ERROR");
+            else
+                OpenChildForm(new AddOrUpdatePokemonForm(pokedex));
         }
 
         private void btnUpdatePokeFromPokedex_Click(object sender, EventArgs e)
         {
-            new SearchPokemonByName(this, SearchPokemonByName.Updates).Show();
+            if (pokedex == null)
+            {
+                if (MessageBox.Show("There is no project loaded. You cannot add a pokémon if there is no project in memory. Do you want to create a project?", "Project error.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    GenerateNewProyect();
+            }
+            else if (pokedex.PokemonList.Count.Equals(0))
+                MessageBox.Show("ERROR");
+            else
+                new SearchPokemonByName(this, SearchPokemonByName.Updates, pokedex).Show();
         }
 
         private void btnRemovePokeFromPokedex_Click(object sender, EventArgs e)
         {
-            new SearchPokemonByName(this, SearchPokemonByName.Remove).Show();
+            if (pokedex == null)
+                MessageBox.Show("error");
+            else if (pokedex.PokemonList.Count.Equals(0))
+                MessageBox.Show("ERROR");
+            else
+                new SearchPokemonByName(this, SearchPokemonByName.Remove, pokedex).Show();
         }
 
-        
+        public void GenerateNewProyect()
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+
+                textBox1.Text = fbd.SelectedPath;
+            }
+        }
     }
 }
