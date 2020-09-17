@@ -5,3 +5,5 @@
 15/09/2020 18:46:09 => Application initilizated.
 15/09/2020 19:00:22 => Application initilizated.
 15/09/2020 19:03:17 => Application initilizated.
+17/09/2020 17:24:23 => Application initilizated.
+17/09/2020 17:26:50 => Application initilizated.

@@ -10,7 +10,17 @@ namespace Classes.Lists
     class MovesList
     {
         #region Attributes
-        private static string path = Directory.GetCurrentDirectory() + "\\..\\..\\..\\saves\\moves.xml";
+        private static string defaultPath = Directory.GetCurrentDirectory() + "\\..\\..\\..\\saves\\moves.xml";
+        private string filePath;
+
+        public string FilePath
+        {
+            get { return filePath; }
+            set
+            {
+                filePath = value + "\\moves.xml";
+            }
+        }
 
         public List<PokeMove> Moves { get; set; }
         #endregion
@@ -28,33 +38,134 @@ namespace Classes.Lists
         #endregion
 
         #region CRUD Methods
-
-        public void Show()
+        public bool AddPokeMove(PokeMove move)
         {
-            for (int i = 0; i < Moves.Count; ++i)
+            try
             {
-                Console.WriteLine(Moves[i].Name);
+                Moves.Add(move);
+                return true;
             }
+            catch (Exception) { return false; }
         }
 
-        public static void Save(List<PokeMove> movesList)
+        public PokeMove SearchPokeMove(string name)
+        {
+            for (int i = 0; i < Moves.Count; ++i)
+                if (Moves[i].Name.ToUpper().Equals(name.ToUpper()))
+                    return Moves[i];
+
+            return null;
+        }
+
+        public bool RemovePokeMove(string name)
+        {
+            for (int i = 0; i < Moves.Count; ++i)
+                if (Moves[i].Name.ToUpper().Equals(name.ToUpper()))
+                {
+                    Moves.RemoveAt(i);
+                    return true;
+                }
+
+            return false;
+        }
+
+        public bool UpdatePokeMove(string name, PokeMove move)
+        {
+            for (int i = 0; i < Moves.Count; ++i)
+                if (Moves[i].Name.ToUpper().Equals(name.ToUpper()))
+                {
+                    Moves[i] = move;
+                    return true;
+                }
+
+            return false;
+        }
+
+        public string ShowPokeMove(string name)
+        {
+            for (int i = 0; i < Moves.Count; ++i)
+                if (Moves[i].Name.ToUpper().Equals(name.ToUpper()))
+                {
+                    return Moves[i].Name;
+                }
+
+            return "Pokemon not finded";
+        }
+
+        public string ShowAllPokeMoves()
+        {
+            string s = "---- MovesList ----";
+            for (int i = 0; i < Moves.Count; ++i)
+                s += ("\n -" + Moves[i].Id + ") " + Moves[i].Name);
+
+            return s;
+        }
+        #endregion
+
+        #region XML Instance CRUD
+        public void Save()
+        {
+            Console.WriteLine("\n\n Guardando cambios...");
+
+            XDocument doc = XMLTools.CreateXMLDocument();
+            XElement root = new XElement("moves");
+
+            foreach (PokeMove m in Moves)
+                root.Add(AddPokemoveDataInElement(m, doc));
+
+            doc.Add(root);
+
+            doc.Save(defaultPath);
+
+            return;
+        }
+
+        public List<PokeMove> Load()
+        {
+            XDocument doc = XMLTools.GetXMLDocument(filePath);
+            XElement root = doc.Root;
+            List<PokeMove> moves = new List<PokeMove>();
+            if (doc != null)
+            {
+                int i = 0;
+                foreach (XElement e in root.Elements("move"))
+                {
+                    i++;
+                    try
+                    {
+                        PokeMove newMove = LoadDataInMove(e);
+                        moves.Add(newMove);
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Movement in the position {0} could not be read", i);
+                    }
+                }
+            }
+
+            return moves;
+        }
+        #endregion
+
+        #region XML Default CRUD
+        public static void DefaultSave(List<PokeMove> movesList)
         {
             XDocument doc = XMLTools.CreateXMLDocument();
             XElement root = new XElement("moves");
 
             foreach (PokeMove m in movesList)
-                root.Add(AddDataMoveElement(m));
+                root.Add(AddPokemoveDataInElement(m, doc));
 
             doc.Add(root);
 
-            doc.Save(path);
+            doc.Save(defaultPath);
 
             return;
         }
 
-        public static List<PokeMove> Load()
+        public static List<PokeMove> DefaultLoad()
         {
-            XDocument doc = XMLTools.GetXMLDocument(path);
+            XDocument doc = XMLTools.GetXMLDocument(defaultPath);
             XElement root = doc.Root;
             List<PokeMove> moves = new List<PokeMove>();
             if (doc != null)
@@ -80,11 +191,10 @@ namespace Classes.Lists
         #endregion
 
         #region XML Methods
-
-        private static XElement AddDataMoveElement(PokeMove m)
+        private static XElement AddPokemoveDataInElement(PokeMove m, XDocument doc)
         {
             XElement move = new XElement("move");
-            move.Add(new XAttribute("id", GenerateId()));
+            move.Add(new XAttribute("id", GenerateId(doc)));
             move.Add(new XElement("name", m.Name));
             move.Add(new XElement("description", m.Description));
             move.Add(new XElement("type", m.Type));
@@ -125,9 +235,8 @@ namespace Classes.Lists
             return p;
         }
 
-        private static int GenerateId()
+        private static int GenerateId(XDocument doc)
         {
-            XDocument doc = XMLTools.GetXMLDocument(path);
             IEnumerable<XElement> elements = doc.Root.Elements();
 
             return (Convert.ToInt32(elements.Last().Attribute("id").Value) + 1);

@@ -9,7 +9,10 @@ namespace Classes.Attributes
         //5 generations of skills remain to be added
         public static string[] AbilitiesNames = new string[] {
             "none", "Water Absorb", "Volt Absorb", "Flash Fire"
-        }; 
+        };
+
+        public int Id { get; set; }
+        public String Name{ get; set; }
 
         public static byte WaterAbsorb = 0;
         public static byte VoltAbsorb = 1;

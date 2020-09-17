@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Classes;
@@ -12,6 +13,10 @@ namespace Forms.PokedexTools
     {
         private Pokedex pokedex;
         private OPokemon pokemon;
+
+        private List<OPokemon.MoveWillLearnByLevel> movesWillLearnByLevel;
+        private List<PokeMove> canLearnMoves;
+        private List<PokeMove> eggMoves;
 
         public AddOrUpdatePokemonForm(Pokedex pokedex)
         {
@@ -384,7 +389,6 @@ namespace Forms.PokedexTools
             numericUpDownMale.Value = (100 - numericUpDownFemale.Value);
 
         }
-
 
     }
 }

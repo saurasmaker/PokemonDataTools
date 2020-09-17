@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Xml.Linq;
 using Classes.Attributes;
 using Classes.Tools;
@@ -12,11 +13,21 @@ namespace Classes.Lists
 {
     public class Pokedex
     {
-        private static string path = Directory.GetCurrentDirectory() + "\\Saves\\pokedex.xml";
-        
-        
-        public List<OPokemon> PokemonList { get; set; }
 
+        #region Attributes
+        private static string defaultPath = Directory.GetCurrentDirectory() + "\\..\\..\\..\\Saves\\pokedex.xml";
+        private string filePath;
+
+        public string FilePath
+        {
+            get { return filePath; }
+            set
+            {
+                filePath = value + "\\pokedex.xml";
+            }
+        }
+        public List<OPokemon> PokemonList { get; set; }
+        #endregion
 
         #region Constructors
         public Pokedex()
@@ -30,11 +41,15 @@ namespace Classes.Lists
         }
         #endregion
 
-        public void AddPokemon(OPokemon pokemon)
+        #region CRUD Methods
+        public bool AddPokemon(OPokemon pokemon)
         {
-            PokemonList.Add(pokemon);
-
-            return;
+            try
+            {
+                PokemonList.Add(pokemon);
+                return true;
+            }
+            catch (Exception) { return false; }
         }
 
         public OPokemon SearchPokemon(string name)
@@ -46,30 +61,62 @@ namespace Classes.Lists
             return null;
         }
 
-        public void RemovePokemon(string name)
+        public bool RemovePokemon(string name)
         {
             for (int i = 0; i < PokemonList.Count; ++i)
                 if (PokemonList[i].Name.ToUpper().Equals(name.ToUpper()))
                 {
                     PokemonList.RemoveAt(i);
-                    return;
+                    return true;
                 }
+
+            return false;
+        }
+
+        public bool UpdatePokemon(string name, OPokemon pokemon)
+        {
+            for (int i = 0; i < PokemonList.Count; ++i)
+                if (PokemonList[i].Name.ToUpper().Equals(name.ToUpper()))
+                {
+                    PokemonList[i] = pokemon;
+                    return true;
+                }
+
+            return false;
+        }
+
+        public string ShowPokemon(string name)
+        {
+            for (int i = 0; i < PokemonList.Count; ++i)
+                if (PokemonList[i].Name.ToUpper().Equals(name.ToUpper()))
+                {
+                    return PokemonList[i].Name;
+                }
+
+            return "Pokemon not finded";
+        }
+
+        public string ShowAllPokemon()
+        {
+            string s = "---- Pokédex ----";
+            for (int i = 0; i < PokemonList.Count; ++i)
+                s += ("\n -" + PokemonList[i].Id + ") " + PokemonList[i].Name);
+
+            return s;
+        }
+        #endregion
+
+        #region XML Instance CRUD
+        public void Save()
+        {
+            Console.WriteLine("\n\n Guardando cambios...");
 
             return;
         }
 
-        #region Methods CRUD
-        public void Show()
+        public void Load()
         {
-            for (int i = 0; i < PokemonList.Count; ++i)
-                Console.WriteLine(" -" + PokemonList[i].Id + ") " + PokemonList[i].Name);
-        }
-
-        public static List<OPokemon> Load()
-        {
-            List<OPokemon> pokemon = new List<OPokemon>();
-
-            XDocument doc = XMLTools.GetXMLDocument(path);
+            XDocument doc = XMLTools.GetXMLDocument(FilePath);
             XElement root = doc.Root;
 
             if (doc != null)
@@ -78,7 +125,42 @@ namespace Classes.Lists
                 {
                     try
                     {
-                        OPokemon newPoke = LoadPokemonFromXML(e);
+                        OPokemon newPoke = LoadDataInPokemon(e);
+                        PokemonList.Add(newPoke);
+                    }
+                    catch (Exception)
+                    {
+                    }
+                }
+            }
+            return;
+        }
+
+
+        #endregion
+
+        #region XML Default CRUD
+        public void DefaultSave()
+        {
+            Console.WriteLine("\n\n Guardando cambios...");
+
+            return;
+        }
+
+        public static List<OPokemon> DefaultLoad()
+        {
+            List<OPokemon> pokemon = new List<OPokemon>();
+
+            XDocument doc = XMLTools.GetXMLDocument(defaultPath);
+            XElement root = doc.Root;
+
+            if (doc != null)
+            {
+                foreach (XElement e in root.Elements("pokemon"))
+                {
+                    try
+                    {
+                        OPokemon newPoke = LoadDataInPokemon(e);
                         pokemon.Add(newPoke);
                     }
                     catch (Exception)
@@ -89,33 +171,21 @@ namespace Classes.Lists
 
             return pokemon;
         }
-
-        public void Save()
-        {
-            Console.WriteLine("\n\n Guardando cambios...");
-
-            return;
-        }
         #endregion
 
-
-        #region Static XML Methods
-        public static OPokemon LoadPokemon(string name)
+        #region XML Methods
+        private static XElement AddPokemonDataInElement(OPokemon p, XDocument doc)
         {
-            XDocument doc = XMLTools.GetXMLDocument(path);
-            OPokemon p = null;
+            XElement pokemon = new XElement("pokemon");
+            pokemon.Add(new XAttribute("id", GenerateId(doc)));
+            pokemon.Add(new XElement("name", p.Name));
+            pokemon.Add(new XElement("description", p.Description));
 
-            if (doc != null)
-                foreach (XElement e in doc.Root.Elements())
-                    if (e.Element("name").Value.ToUpper().Equals(name.ToUpper()))
-                        p = LoadPokemonFromXML(e);
 
-            return p;
+            return pokemon;
         }
 
-        #region Private Methods
-
-        private static OPokemon LoadPokemonFromXML(XElement e)
+        private static OPokemon LoadDataInPokemon(XElement e)
         {
             OPokemon p = new OPokemon();
             p.Id = Convert.ToInt32(e.Attribute("id").Value);
@@ -189,15 +259,14 @@ namespace Classes.Lists
             return p;
         }
 
-        private static void AddPokemonToXML(XElement e)
+        private static int GenerateId(XDocument doc)
         {
+            IEnumerable<XElement> elements = doc.Root.Elements();
 
-            return;
+            return (Convert.ToInt32(elements.Last().Attribute("id").Value) + 1);
         }
-
         #endregion
 
-        #endregion
 
 
     }

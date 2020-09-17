@@ -73,6 +73,8 @@
             this.richTextBoxDescription = new System.Windows.Forms.RichTextBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.labelAbilityHidden = new System.Windows.Forms.Label();
             this.labelAbility2 = new System.Windows.Forms.Label();
@@ -88,12 +90,17 @@
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonAccept = new System.Windows.Forms.Button();
             this.groupBoxGenres = new System.Windows.Forms.GroupBox();
+            this.numericUpDownStepsToHatch = new System.Windows.Forms.NumericUpDown();
+            this.labelStepsToHatch = new System.Windows.Forms.Label();
             this.comboBoxEggGroup = new System.Windows.Forms.ComboBox();
             this.labelEggGroup = new System.Windows.Forms.Label();
             this.labelFemale = new System.Windows.Forms.Label();
             this.numericUpDownFemale = new System.Windows.Forms.NumericUpDown();
             this.labelMale = new System.Windows.Forms.Label();
             this.numericUpDownMale = new System.Windows.Forms.NumericUpDown();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBoxStats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpecialDefense)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpeed)).BeginInit();
@@ -115,8 +122,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHeight)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBoxGenres.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStepsToHatch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFemale)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMale)).BeginInit();
             this.SuspendLayout();
@@ -147,7 +156,7 @@
             this.groupBoxStats.Controls.Add(this.numericUpDownHealth);
             this.groupBoxStats.Location = new System.Drawing.Point(297, 24);
             this.groupBoxStats.Name = "groupBoxStats";
-            this.groupBoxStats.Size = new System.Drawing.Size(162, 167);
+            this.groupBoxStats.Size = new System.Drawing.Size(162, 180);
             this.groupBoxStats.TabIndex = 3;
             this.groupBoxStats.TabStop = false;
             this.groupBoxStats.Text = "Stats";
@@ -364,6 +373,11 @@
             this.numericUpDownSpeedEVs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDownSpeedEVs.Location = new System.Drawing.Point(90, 140);
+            this.numericUpDownSpeedEVs.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.numericUpDownSpeedEVs.Name = "numericUpDownSpeedEVs";
             this.numericUpDownSpeedEVs.Size = new System.Drawing.Size(67, 20);
             this.numericUpDownSpeedEVs.TabIndex = 1;
@@ -382,6 +396,11 @@
             this.numericUpDownSpecialDefenseEVs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDownSpecialDefenseEVs.Location = new System.Drawing.Point(90, 115);
+            this.numericUpDownSpecialDefenseEVs.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.numericUpDownSpecialDefenseEVs.Name = "numericUpDownSpecialDefenseEVs";
             this.numericUpDownSpecialDefenseEVs.Size = new System.Drawing.Size(67, 20);
             this.numericUpDownSpecialDefenseEVs.TabIndex = 1;
@@ -400,6 +419,11 @@
             this.numericUpDownSpecialAttackEVs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDownSpecialAttackEVs.Location = new System.Drawing.Point(90, 90);
+            this.numericUpDownSpecialAttackEVs.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.numericUpDownSpecialAttackEVs.Name = "numericUpDownSpecialAttackEVs";
             this.numericUpDownSpecialAttackEVs.Size = new System.Drawing.Size(67, 20);
             this.numericUpDownSpecialAttackEVs.TabIndex = 1;
@@ -418,6 +442,11 @@
             this.numericUpDownDefenseEVs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDownDefenseEVs.Location = new System.Drawing.Point(90, 65);
+            this.numericUpDownDefenseEVs.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.numericUpDownDefenseEVs.Name = "numericUpDownDefenseEVs";
             this.numericUpDownDefenseEVs.Size = new System.Drawing.Size(67, 20);
             this.numericUpDownDefenseEVs.TabIndex = 1;
@@ -436,6 +465,11 @@
             this.numericUpDownAttackEVs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDownAttackEVs.Location = new System.Drawing.Point(90, 40);
+            this.numericUpDownAttackEVs.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.numericUpDownAttackEVs.Name = "numericUpDownAttackEVs";
             this.numericUpDownAttackEVs.Size = new System.Drawing.Size(67, 20);
             this.numericUpDownAttackEVs.TabIndex = 1;
@@ -454,14 +488,18 @@
             this.numericUpDownHealthEVs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDownHealthEVs.Location = new System.Drawing.Point(90, 15);
+            this.numericUpDownHealthEVs.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.numericUpDownHealthEVs.Name = "numericUpDownHealthEVs";
             this.numericUpDownHealthEVs.Size = new System.Drawing.Size(67, 20);
             this.numericUpDownHealthEVs.TabIndex = 1;
             // 
             // groupBoxGivedEVs
             // 
-            this.groupBoxGivedEVs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxGivedEVs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxGivedEVs.Controls.Add(this.labelSpeedEVs);
             this.groupBoxGivedEVs.Controls.Add(this.numericUpDownSpeedEVs);
             this.groupBoxGivedEVs.Controls.Add(this.labelSpecialDefenseEVs);
@@ -474,9 +512,9 @@
             this.groupBoxGivedEVs.Controls.Add(this.numericUpDownAttackEVs);
             this.groupBoxGivedEVs.Controls.Add(this.labelHealthEVs);
             this.groupBoxGivedEVs.Controls.Add(this.numericUpDownHealthEVs);
-            this.groupBoxGivedEVs.Location = new System.Drawing.Point(297, 198);
+            this.groupBoxGivedEVs.Location = new System.Drawing.Point(297, 211);
             this.groupBoxGivedEVs.Name = "groupBoxGivedEVs";
-            this.groupBoxGivedEVs.Size = new System.Drawing.Size(162, 179);
+            this.groupBoxGivedEVs.Size = new System.Drawing.Size(162, 188);
             this.groupBoxGivedEVs.TabIndex = 3;
             this.groupBoxGivedEVs.TabStop = false;
             this.groupBoxGivedEVs.Text = "Gived EVs";
@@ -504,7 +542,7 @@
             this.groupBoxAppearance.Controls.Add(this.textBoxName);
             this.groupBoxAppearance.Location = new System.Drawing.Point(10, 23);
             this.groupBoxAppearance.Name = "groupBoxAppearance";
-            this.groupBoxAppearance.Size = new System.Drawing.Size(281, 352);
+            this.groupBoxAppearance.Size = new System.Drawing.Size(281, 376);
             this.groupBoxAppearance.TabIndex = 4;
             this.groupBoxAppearance.TabStop = false;
             this.groupBoxAppearance.Text = "Appearance";
@@ -514,7 +552,7 @@
             this.checkBoxIsLegendary.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxIsLegendary.AutoSize = true;
-            this.checkBoxIsLegendary.Location = new System.Drawing.Point(112, 280);
+            this.checkBoxIsLegendary.Location = new System.Drawing.Point(112, 353);
             this.checkBoxIsLegendary.Name = "checkBoxIsLegendary";
             this.checkBoxIsLegendary.Size = new System.Drawing.Size(76, 17);
             this.checkBoxIsLegendary.TabIndex = 12;
@@ -526,7 +564,7 @@
             this.checkBoxIsMegaEvolution.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxIsMegaEvolution.AutoSize = true;
-            this.checkBoxIsMegaEvolution.Location = new System.Drawing.Point(6, 280);
+            this.checkBoxIsMegaEvolution.Location = new System.Drawing.Point(6, 353);
             this.checkBoxIsMegaEvolution.Name = "checkBoxIsMegaEvolution";
             this.checkBoxIsMegaEvolution.Size = new System.Drawing.Size(100, 17);
             this.checkBoxIsMegaEvolution.TabIndex = 11;
@@ -537,7 +575,7 @@
             // 
             this.numericUpDownHappiness.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDownHappiness.Location = new System.Drawing.Point(214, 247);
+            this.numericUpDownHappiness.Location = new System.Drawing.Point(214, 320);
             this.numericUpDownHappiness.Name = "numericUpDownHappiness";
             this.numericUpDownHappiness.Size = new System.Drawing.Size(61, 20);
             this.numericUpDownHappiness.TabIndex = 10;
@@ -547,7 +585,7 @@
             this.labelHappiness.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelHappiness.AutoSize = true;
-            this.labelHappiness.Location = new System.Drawing.Point(145, 249);
+            this.labelHappiness.Location = new System.Drawing.Point(145, 322);
             this.labelHappiness.Name = "labelHappiness";
             this.labelHappiness.Size = new System.Drawing.Size(63, 13);
             this.labelHappiness.TabIndex = 9;
@@ -557,7 +595,7 @@
             // 
             this.numericUpDownRareness.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDownRareness.Location = new System.Drawing.Point(70, 247);
+            this.numericUpDownRareness.Location = new System.Drawing.Point(70, 320);
             this.numericUpDownRareness.Name = "numericUpDownRareness";
             this.numericUpDownRareness.Size = new System.Drawing.Size(69, 20);
             this.numericUpDownRareness.TabIndex = 8;
@@ -567,7 +605,7 @@
             this.labelRareness.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelRareness.AutoSize = true;
-            this.labelRareness.Location = new System.Drawing.Point(6, 249);
+            this.labelRareness.Location = new System.Drawing.Point(6, 322);
             this.labelRareness.Name = "labelRareness";
             this.labelRareness.Size = new System.Drawing.Size(58, 13);
             this.labelRareness.TabIndex = 7;
@@ -578,7 +616,7 @@
             this.textBoxHabitat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxHabitat.ForeColor = System.Drawing.Color.DarkGray;
-            this.textBoxHabitat.Location = new System.Drawing.Point(5, 220);
+            this.textBoxHabitat.Location = new System.Drawing.Point(5, 293);
             this.textBoxHabitat.Name = "textBoxHabitat";
             this.textBoxHabitat.Size = new System.Drawing.Size(271, 20);
             this.textBoxHabitat.TabIndex = 6;
@@ -621,25 +659,28 @@
             // 
             // numericUpDownWeight
             // 
-            this.numericUpDownWeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.numericUpDownWeight.Location = new System.Drawing.Point(198, 194);
+            this.numericUpDownWeight.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numericUpDownWeight.Location = new System.Drawing.Point(198, 267);
             this.numericUpDownWeight.Name = "numericUpDownWeight";
             this.numericUpDownWeight.Size = new System.Drawing.Size(77, 20);
             this.numericUpDownWeight.TabIndex = 3;
             // 
             // numericUpDownHeight
             // 
-            this.numericUpDownHeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.numericUpDownHeight.Location = new System.Drawing.Point(53, 194);
+            this.numericUpDownHeight.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numericUpDownHeight.Location = new System.Drawing.Point(53, 267);
             this.numericUpDownHeight.Name = "numericUpDownHeight";
             this.numericUpDownHeight.Size = new System.Drawing.Size(77, 20);
             this.numericUpDownHeight.TabIndex = 3;
             // 
             // labelWeight
             // 
-            this.labelWeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelWeight.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelWeight.AutoSize = true;
-            this.labelWeight.Location = new System.Drawing.Point(145, 197);
+            this.labelWeight.Location = new System.Drawing.Point(145, 270);
             this.labelWeight.Name = "labelWeight";
             this.labelWeight.Size = new System.Drawing.Size(47, 13);
             this.labelWeight.TabIndex = 2;
@@ -647,9 +688,10 @@
             // 
             // labelHeight
             // 
-            this.labelHeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelHeight.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelHeight.AutoSize = true;
-            this.labelHeight.Location = new System.Drawing.Point(6, 197);
+            this.labelHeight.Location = new System.Drawing.Point(6, 270);
             this.labelHeight.Name = "labelHeight";
             this.labelHeight.Size = new System.Drawing.Size(44, 13);
             this.labelHeight.TabIndex = 2;
@@ -676,7 +718,8 @@
             this.richTextBoxDescription.ForeColor = System.Drawing.Color.DarkGray;
             this.richTextBoxDescription.Location = new System.Drawing.Point(5, 93);
             this.richTextBoxDescription.Name = "richTextBoxDescription";
-            this.richTextBoxDescription.Size = new System.Drawing.Size(270, 93);
+            this.richTextBoxDescription.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
+            this.richTextBoxDescription.Size = new System.Drawing.Size(270, 161);
             this.richTextBoxDescription.TabIndex = 13;
             this.richTextBoxDescription.Text = "Description...";
             this.richTextBoxDescription.Enter += new System.EventHandler(this.richTextBoxDescription_Enter);
@@ -698,6 +741,8 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.numericUpDown2);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.comboBoxLevelType);
             this.groupBox1.Controls.Add(this.labelLevelType);
@@ -706,10 +751,36 @@
             this.groupBox1.Controls.Add(this.comboBoxType1);
             this.groupBox1.Location = new System.Drawing.Point(464, 24);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(216, 219);
+            this.groupBox1.Size = new System.Drawing.Size(216, 244);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Combat";
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(108, 112);
+            this.numericUpDown2.Maximum = new decimal(new int[] {
+            1661992959,
+            1808227885,
+            5,
+            0});
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(102, 20);
+            this.numericUpDown2.TabIndex = 11;
+            this.numericUpDown2.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 114);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Experience Gives: ";
             // 
             // groupBox2
             // 
@@ -719,9 +790,9 @@
             this.groupBox2.Controls.Add(this.comboBoxAbilityHidden);
             this.groupBox2.Controls.Add(this.comboBoxAbility2);
             this.groupBox2.Controls.Add(this.comboBoxAbility1);
-            this.groupBox2.Location = new System.Drawing.Point(5, 115);
+            this.groupBox2.Location = new System.Drawing.Point(6, 140);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(206, 97);
+            this.groupBox2.Size = new System.Drawing.Size(206, 94);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Abilities";
@@ -822,9 +893,9 @@
             // buttonCancel
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCancel.Location = new System.Drawing.Point(469, 350);
+            this.buttonCancel.Location = new System.Drawing.Point(546, 405);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(64, 20);
+            this.buttonCancel.Size = new System.Drawing.Size(64, 23);
             this.buttonCancel.TabIndex = 6;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -833,9 +904,9 @@
             // buttonAccept
             // 
             this.buttonAccept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAccept.Location = new System.Drawing.Point(610, 350);
+            this.buttonAccept.Location = new System.Drawing.Point(616, 405);
             this.buttonAccept.Name = "buttonAccept";
-            this.buttonAccept.Size = new System.Drawing.Size(64, 20);
+            this.buttonAccept.Size = new System.Drawing.Size(64, 23);
             this.buttonAccept.TabIndex = 7;
             this.buttonAccept.Text = "Accept";
             this.buttonAccept.UseVisualStyleBackColor = true;
@@ -844,18 +915,41 @@
             // groupBoxGenres
             // 
             this.groupBoxGenres.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxGenres.Controls.Add(this.numericUpDownStepsToHatch);
+            this.groupBoxGenres.Controls.Add(this.labelStepsToHatch);
             this.groupBoxGenres.Controls.Add(this.comboBoxEggGroup);
             this.groupBoxGenres.Controls.Add(this.labelEggGroup);
             this.groupBoxGenres.Controls.Add(this.labelFemale);
             this.groupBoxGenres.Controls.Add(this.numericUpDownFemale);
             this.groupBoxGenres.Controls.Add(this.labelMale);
             this.groupBoxGenres.Controls.Add(this.numericUpDownMale);
-            this.groupBoxGenres.Location = new System.Drawing.Point(464, 250);
+            this.groupBoxGenres.Location = new System.Drawing.Point(464, 274);
             this.groupBoxGenres.Name = "groupBoxGenres";
-            this.groupBoxGenres.Size = new System.Drawing.Size(216, 95);
+            this.groupBoxGenres.Size = new System.Drawing.Size(216, 125);
             this.groupBoxGenres.TabIndex = 8;
             this.groupBoxGenres.TabStop = false;
             this.groupBoxGenres.Text = "Reproduction";
+            // 
+            // numericUpDownStepsToHatch
+            // 
+            this.numericUpDownStepsToHatch.Location = new System.Drawing.Point(96, 93);
+            this.numericUpDownStepsToHatch.Name = "numericUpDownStepsToHatch";
+            this.numericUpDownStepsToHatch.Size = new System.Drawing.Size(114, 20);
+            this.numericUpDownStepsToHatch.TabIndex = 9;
+            this.numericUpDownStepsToHatch.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            // 
+            // labelStepsToHatch
+            // 
+            this.labelStepsToHatch.AutoSize = true;
+            this.labelStepsToHatch.Location = new System.Drawing.Point(6, 95);
+            this.labelStepsToHatch.Name = "labelStepsToHatch";
+            this.labelStepsToHatch.Size = new System.Drawing.Size(84, 13);
+            this.labelStepsToHatch.TabIndex = 8;
+            this.labelStepsToHatch.Text = "Steps to Hatch: ";
             // 
             // comboBoxEggGroup
             // 
@@ -918,11 +1012,44 @@
             0});
             this.numericUpDownMale.ValueChanged += new System.EventHandler(this.numericUpDownMale_ValueChanged);
             // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button1.Location = new System.Drawing.Point(10, 405);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Movimientos";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button2.Location = new System.Drawing.Point(91, 405);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(127, 23);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "Movimientos Por Nivel";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button3.Location = new System.Drawing.Point(224, 405);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(119, 23);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "Movimientos Huevo";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // AddOrUpdatePokemonForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(690, 385);
+            this.ClientSize = new System.Drawing.Size(690, 438);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBoxGenres);
             this.Controls.Add(this.buttonAccept);
             this.Controls.Add(this.buttonCancel);
@@ -959,10 +1086,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHeight)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBoxGenres.ResumeLayout(false);
             this.groupBoxGenres.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStepsToHatch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFemale)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMale)).EndInit();
             this.ResumeLayout(false);
@@ -1038,5 +1167,12 @@
         private System.Windows.Forms.Label labelRareness;
         private System.Windows.Forms.CheckBox checkBoxIsLegendary;
         private System.Windows.Forms.CheckBox checkBoxIsMegaEvolution;
+        private System.Windows.Forms.NumericUpDown numericUpDownStepsToHatch;
+        private System.Windows.Forms.Label labelStepsToHatch;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }
