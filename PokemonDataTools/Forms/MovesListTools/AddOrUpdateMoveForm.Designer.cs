@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBoxGeneral = new System.Windows.Forms.GroupBox();
+            this.labelEffectProbability = new System.Windows.Forms.Label();
+            this.numericUpDownEffectProbability = new System.Windows.Forms.NumericUpDown();
+            this.labelEffectCode = new System.Windows.Forms.Label();
             this.checkBoxContact = new System.Windows.Forms.CheckBox();
             this.numericUpDownPP = new System.Windows.Forms.NumericUpDown();
             this.labelPP = new System.Windows.Forms.Label();
@@ -38,7 +41,7 @@
             this.labelRepetitionsInTurn = new System.Windows.Forms.Label();
             this.labelRepetitions = new System.Windows.Forms.Label();
             this.numericUpDownRepetitions = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownPriority = new System.Windows.Forms.NumericUpDown();
             this.labelPriority = new System.Windows.Forms.Label();
             this.comboBoxTarget = new System.Windows.Forms.ComboBox();
             this.labelTarget = new System.Windows.Forms.Label();
@@ -53,21 +56,18 @@
             this.richTextBoxDescription = new System.Windows.Forms.RichTextBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.labelTitle = new System.Windows.Forms.Label();
-            this.labelEffectCode = new System.Windows.Forms.Label();
-            this.textBoxEffectCode = new System.Windows.Forms.TextBox();
-            this.labelEffectProbability = new System.Windows.Forms.Label();
-            this.numericUpDownEffectProbability = new System.Windows.Forms.NumericUpDown();
             this.buttonAddMove = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.comboBoxEffectCode = new System.Windows.Forms.ComboBox();
             this.groupBoxGeneral.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEffectProbability)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRecover)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRepetitionsInTurn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRepetitions)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPriority)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAccuarcy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPower)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEffectProbability)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxGeneral
@@ -75,9 +75,9 @@
             this.groupBoxGeneral.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxGeneral.Controls.Add(this.comboBoxEffectCode);
             this.groupBoxGeneral.Controls.Add(this.labelEffectProbability);
             this.groupBoxGeneral.Controls.Add(this.numericUpDownEffectProbability);
-            this.groupBoxGeneral.Controls.Add(this.textBoxEffectCode);
             this.groupBoxGeneral.Controls.Add(this.labelEffectCode);
             this.groupBoxGeneral.Controls.Add(this.checkBoxContact);
             this.groupBoxGeneral.Controls.Add(this.numericUpDownPP);
@@ -88,7 +88,7 @@
             this.groupBoxGeneral.Controls.Add(this.labelRepetitionsInTurn);
             this.groupBoxGeneral.Controls.Add(this.labelRepetitions);
             this.groupBoxGeneral.Controls.Add(this.numericUpDownRepetitions);
-            this.groupBoxGeneral.Controls.Add(this.numericUpDown1);
+            this.groupBoxGeneral.Controls.Add(this.numericUpDownPriority);
             this.groupBoxGeneral.Controls.Add(this.labelPriority);
             this.groupBoxGeneral.Controls.Add(this.comboBoxTarget);
             this.groupBoxGeneral.Controls.Add(this.labelTarget);
@@ -108,6 +108,34 @@
             this.groupBoxGeneral.TabIndex = 0;
             this.groupBoxGeneral.TabStop = false;
             this.groupBoxGeneral.Text = "General";
+            // 
+            // labelEffectProbability
+            // 
+            this.labelEffectProbability.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelEffectProbability.AutoSize = true;
+            this.labelEffectProbability.Location = new System.Drawing.Point(422, 360);
+            this.labelEffectProbability.Name = "labelEffectProbability";
+            this.labelEffectProbability.Size = new System.Drawing.Size(92, 13);
+            this.labelEffectProbability.TabIndex = 11;
+            this.labelEffectProbability.Text = "Effect Probability: ";
+            // 
+            // numericUpDownEffectProbability
+            // 
+            this.numericUpDownEffectProbability.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.numericUpDownEffectProbability.Location = new System.Drawing.Point(422, 377);
+            this.numericUpDownEffectProbability.Name = "numericUpDownEffectProbability";
+            this.numericUpDownEffectProbability.Size = new System.Drawing.Size(126, 20);
+            this.numericUpDownEffectProbability.TabIndex = 12;
+            // 
+            // labelEffectCode
+            // 
+            this.labelEffectCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelEffectCode.AutoSize = true;
+            this.labelEffectCode.Location = new System.Drawing.Point(285, 360);
+            this.labelEffectCode.Name = "labelEffectCode";
+            this.labelEffectCode.Size = new System.Drawing.Size(69, 13);
+            this.labelEffectCode.TabIndex = 9;
+            this.labelEffectCode.Text = "Effect Code: ";
             // 
             // checkBoxContact
             // 
@@ -202,13 +230,13 @@
             this.numericUpDownRepetitions.Size = new System.Drawing.Size(127, 20);
             this.numericUpDownRepetitions.TabIndex = 6;
             // 
-            // numericUpDown1
+            // numericUpDownPriority
             // 
-            this.numericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.numericUpDown1.Location = new System.Drawing.Point(146, 376);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(123, 20);
-            this.numericUpDown1.TabIndex = 6;
+            this.numericUpDownPriority.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.numericUpDownPriority.Location = new System.Drawing.Point(146, 376);
+            this.numericUpDownPriority.Name = "numericUpDownPriority";
+            this.numericUpDownPriority.Size = new System.Drawing.Size(123, 20);
+            this.numericUpDownPriority.TabIndex = 6;
             // 
             // labelPriority
             // 
@@ -329,6 +357,8 @@
             this.richTextBoxDescription.Size = new System.Drawing.Size(547, 207);
             this.richTextBoxDescription.TabIndex = 1;
             this.richTextBoxDescription.Text = "Description...";
+            this.richTextBoxDescription.Enter += new System.EventHandler(this.richTextBoxDescription_Enter);
+            this.richTextBoxDescription.Leave += new System.EventHandler(this.richTextBoxDescription_Leave);
             // 
             // textBoxName
             // 
@@ -340,6 +370,8 @@
             this.textBoxName.Size = new System.Drawing.Size(547, 20);
             this.textBoxName.TabIndex = 0;
             this.textBoxName.Text = "Name...";
+            this.textBoxName.Enter += new System.EventHandler(this.textBoxName_Enter);
+            this.textBoxName.Leave += new System.EventHandler(this.textBoxName_Leave);
             // 
             // labelTitle
             // 
@@ -350,44 +382,6 @@
             this.labelTitle.TabIndex = 1;
             this.labelTitle.Text = "Add Move";
             // 
-            // labelEffectCode
-            // 
-            this.labelEffectCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelEffectCode.AutoSize = true;
-            this.labelEffectCode.Location = new System.Drawing.Point(285, 360);
-            this.labelEffectCode.Name = "labelEffectCode";
-            this.labelEffectCode.Size = new System.Drawing.Size(69, 13);
-            this.labelEffectCode.TabIndex = 9;
-            this.labelEffectCode.Text = "Effect Code: ";
-            // 
-            // textBoxEffectCode
-            // 
-            this.textBoxEffectCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBoxEffectCode.ForeColor = System.Drawing.Color.DarkGray;
-            this.textBoxEffectCode.Location = new System.Drawing.Point(285, 376);
-            this.textBoxEffectCode.Name = "textBoxEffectCode";
-            this.textBoxEffectCode.Size = new System.Drawing.Size(127, 20);
-            this.textBoxEffectCode.TabIndex = 10;
-            this.textBoxEffectCode.Text = "Code...";
-            // 
-            // labelEffectProbability
-            // 
-            this.labelEffectProbability.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelEffectProbability.AutoSize = true;
-            this.labelEffectProbability.Location = new System.Drawing.Point(422, 360);
-            this.labelEffectProbability.Name = "labelEffectProbability";
-            this.labelEffectProbability.Size = new System.Drawing.Size(92, 13);
-            this.labelEffectProbability.TabIndex = 11;
-            this.labelEffectProbability.Text = "Effect Probability: ";
-            // 
-            // numericUpDownEffectProbability
-            // 
-            this.numericUpDownEffectProbability.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.numericUpDownEffectProbability.Location = new System.Drawing.Point(422, 377);
-            this.numericUpDownEffectProbability.Name = "numericUpDownEffectProbability";
-            this.numericUpDownEffectProbability.Size = new System.Drawing.Size(126, 20);
-            this.numericUpDownEffectProbability.TabIndex = 12;
-            // 
             // buttonAddMove
             // 
             this.buttonAddMove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -397,6 +391,7 @@
             this.buttonAddMove.TabIndex = 2;
             this.buttonAddMove.Text = "Add";
             this.buttonAddMove.UseVisualStyleBackColor = true;
+            this.buttonAddMove.Click += new System.EventHandler(this.buttonAddMove_Click);
             // 
             // buttonCancel
             // 
@@ -407,6 +402,19 @@
             this.buttonCancel.TabIndex = 3;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
+            // comboBoxEffectCode
+            // 
+            this.comboBoxEffectCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboBoxEffectCode.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBoxEffectCode.FormattingEnabled = true;
+            this.comboBoxEffectCode.Items.AddRange(new object[] {
+            "Effect Code..."});
+            this.comboBoxEffectCode.Location = new System.Drawing.Point(285, 377);
+            this.comboBoxEffectCode.Name = "comboBoxEffectCode";
+            this.comboBoxEffectCode.Size = new System.Drawing.Size(127, 21);
+            this.comboBoxEffectCode.TabIndex = 13;
             // 
             // AddOrUpdateMoveForm
             // 
@@ -422,14 +430,14 @@
             this.Text = "AddOrUpdateMoveForm";
             this.groupBoxGeneral.ResumeLayout(false);
             this.groupBoxGeneral.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEffectProbability)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRecover)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRepetitionsInTurn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRepetitions)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPriority)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAccuarcy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPower)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEffectProbability)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -449,7 +457,7 @@
         private System.Windows.Forms.Label labelPower;
         private System.Windows.Forms.NumericUpDown numericUpDownPower;
         private System.Windows.Forms.NumericUpDown numericUpDownAccuarcy;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numericUpDownPriority;
         private System.Windows.Forms.Label labelPriority;
         private System.Windows.Forms.ComboBox comboBoxTarget;
         private System.Windows.Forms.Label labelTarget;
@@ -464,9 +472,9 @@
         private System.Windows.Forms.CheckBox checkBoxContact;
         private System.Windows.Forms.Label labelEffectProbability;
         private System.Windows.Forms.NumericUpDown numericUpDownEffectProbability;
-        private System.Windows.Forms.TextBox textBoxEffectCode;
         private System.Windows.Forms.Label labelEffectCode;
         private System.Windows.Forms.Button buttonAddMove;
         private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.ComboBox comboBoxEffectCode;
     }
 }

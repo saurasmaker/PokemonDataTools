@@ -130,7 +130,6 @@ namespace Forms.PokedexTools
             return;
         }
 
-
         private void SetDataInPokemon()
         {
             pokemon.Name = textBoxName.Text;

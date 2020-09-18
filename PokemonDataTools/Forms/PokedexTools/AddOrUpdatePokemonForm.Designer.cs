@@ -159,7 +159,7 @@
             this.groupBoxStats.Size = new System.Drawing.Size(162, 180);
             this.groupBoxStats.TabIndex = 3;
             this.groupBoxStats.TabStop = false;
-            this.groupBoxStats.Text = "Stats";
+            this.groupBoxStats.Text = "Base Stats";
             // 
             // numericUpDownSpecialDefense
             // 
@@ -908,7 +908,7 @@
             this.buttonAccept.Name = "buttonAccept";
             this.buttonAccept.Size = new System.Drawing.Size(64, 23);
             this.buttonAccept.TabIndex = 7;
-            this.buttonAccept.Text = "Accept";
+            this.buttonAccept.Text = "Add";
             this.buttonAccept.UseVisualStyleBackColor = true;
             this.buttonAccept.Click += new System.EventHandler(this.buttonAccept_Click);
             // 

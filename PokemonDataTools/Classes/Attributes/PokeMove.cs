@@ -3,7 +3,7 @@
 namespace Classes
 {
 
-    class PokeMove
+    public class PokeMove
     {
         #region Static Attributes
 

@@ -7,7 +7,7 @@ using Classes.Tools;
 
 namespace Classes.Lists
 {
-    class MovesList
+    public class MovesList
     {
         #region Attributes
         private static string defaultPath = Directory.GetCurrentDirectory() + "\\..\\..\\..\\saves\\moves.xml";
