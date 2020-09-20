@@ -2,17 +2,13 @@
 using Forms.PokedexTools;
 using PokemonShowdown.Forms.PokedexTools;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using System.Xml.Serialization;
 using Tools;
 using Microsoft.VisualBasic;
 using System.IO;
-using System.Linq;
+using Forms.MovesListTools;
+using PokemonDataTools.Forms.MovesListTools;
+using Classes.Tools;
 
 namespace Forms
 {
@@ -105,7 +101,7 @@ namespace Forms
         #region Pokedex Tools
         private void btnShowPokeFromPokedex_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new ShowPokemonForm());
+            OpenChildForm(new ShowPokemonForm(pokedex));
         }
 
         private void btnAddPokeToPokedex_Click(object sender, EventArgs e)
@@ -115,9 +111,6 @@ namespace Forms
                 if (MessageBox.Show("There is no project loaded. You cannot add a pokémon if there is no project in memory. Do you want to create a project?", "Project error.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     GenerateNewProyect();
             }
-            else if (pokedex.PokemonList.Count.Equals(0))
-                MessageBox.Show("ERROR");
-
             else
                 OpenChildForm(new AddOrUpdatePokemonForm(pokedex));
         }
@@ -148,6 +141,45 @@ namespace Forms
         #endregion
 
         #region MovesList Tools
+        private void buttonCreateMove_Click(object sender, EventArgs e)
+        {
+            if (movesList == null)
+            {
+                if (MessageBox.Show("There is no project loaded. You cannot add a pokémon if there is no project in memory. Do you want to create a project?", "Project error.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    GenerateNewProyect();
+            }
+            else
+                OpenChildForm(new AddOrUpdateMoveForm(movesList));
+        }
+
+        private void buttonUpdateMove_Click(object sender, EventArgs e)
+        {
+            if (movesList == null)
+            {
+                if (MessageBox.Show("There is no project loaded. You cannot update a pokémon if there is no project in memory. Do you want to create a project?", "Project error.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    GenerateNewProyect();
+            }
+            else if (movesList.Moves.Count.Equals(0))
+                MessageBox.Show("You cannot update a pokemove if there is no pokemove in memory", "Project error.");
+
+            else
+                new SearchMoveByName(this, SearchMoveByName.Updates, movesList).Show();
+        }
+
+        private void buttonRemoveMove_Click(object sender, EventArgs e)
+        {
+            if (movesList == null)
+                MessageBox.Show("error");
+            else if (movesList.Moves.Count.Equals(0))
+                MessageBox.Show("ERROR");
+            else
+                new SearchMoveByName(this, SearchMoveByName.Remove, movesList).Show();
+        }
+
+        private void buttonShowMovesList_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ShowMoveForm(movesList));
+        }
         #endregion
 
         #region AbilitiesList Tools
@@ -161,6 +193,7 @@ namespace Forms
         {
             string projectName = Interaction.InputBox("What is the name of the project?", "Set Project name", "Project name...");
             FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.SelectedPath = XMLTools.DefaultPath;
             if (fbd.ShowDialog() == DialogResult.OK)
             {
                 projectPath = fbd.SelectedPath + "\\" + projectName;
@@ -170,6 +203,8 @@ namespace Forms
                 movesList = new MovesList();
                 abilitiesList = new AbilitiesList();
                 itemsList = new ItemsList();
+
+                pokedex.FilePath = movesList.FilePath = abilitiesList.FilePath = itemsList.FilePath = projectPath;
 
                 pokedex.Save();
                 movesList.Save();
@@ -183,6 +218,7 @@ namespace Forms
         public void LoadProject()
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.SelectedPath = XMLTools.DefaultPath;
             if (fbd.ShowDialog() == DialogResult.OK)
             {
                 pokedex = new Pokedex();
@@ -191,15 +227,49 @@ namespace Forms
                 itemsList = new ItemsList();
                 pokedex.FilePath = movesList.FilePath = abilitiesList.FilePath = itemsList.FilePath = fbd.SelectedPath;
 
-                pokedex.Load();
-                movesList.Load();
-                abilitiesList.Load();
-                itemsList.Load();
+                try
+                {
+                    pokedex.Load();
+                    movesList.Load();
+                    abilitiesList.Load();
+                    itemsList.Load();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Fatal Error. Project cannot load.");
+                    return;
+                }
+
+                MessageBox.Show("Project loaded succesfully.");
 
             }
 
             return;
         }
+
+        public void SaveProject()
+        {
+            pokedex.Save();
+            movesList.Save();
+            abilitiesList.Save();
+            itemsList.Save();
+        }
         #endregion
+
+
+        private void toolStripMenuItemNewProject_Click(object sender, EventArgs e)
+        {
+            GenerateNewProyect();
+        }
+
+        private void projectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadProject();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveProject();
+        }
     }
 }

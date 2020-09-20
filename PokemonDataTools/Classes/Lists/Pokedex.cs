@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Windows.Forms;
 using System.Xml.Linq;
 using Classes.Attributes;
 using Classes.Tools;
@@ -111,6 +112,15 @@ namespace Classes.Lists
         {
             Console.WriteLine("\n\n Guardando cambios...");
 
+            XDocument doc = XMLTools.CreateXMLDocument();
+            XElement root = new XElement("pokedex");
+
+            for (int i = 0; i < PokemonList.Count; ++i)
+                root.Add(AddPokemonDataInElement(PokemonList[i], root));
+
+            doc.Add(root);
+
+            doc.Save(FilePath);
             return;
         }
 
@@ -123,12 +133,12 @@ namespace Classes.Lists
             {
                 foreach (XElement e in root.Elements("pokemon"))
                 {
-                    try
+                    //try
                     {
                         OPokemon newPoke = LoadDataInPokemon(e);
                         PokemonList.Add(newPoke);
                     }
-                    catch (Exception)
+                    //catch (Exception)
                     {
                     }
                 }
@@ -174,10 +184,10 @@ namespace Classes.Lists
         #endregion
 
         #region XML Methods
-        private static XElement AddPokemonDataInElement(OPokemon p, XDocument doc)
+        private static XElement AddPokemonDataInElement(OPokemon p, XElement root)
         {
             XElement pokemon = new XElement("pokemon");
-            pokemon.Add(new XAttribute("id", GenerateId(doc)));
+            pokemon.Add(new XAttribute("id", GenerateId(root)));
             pokemon.Add(new XElement("name", p.Name));
             pokemon.Add(new XElement("description", p.Description));
 
@@ -259,11 +269,22 @@ namespace Classes.Lists
             return p;
         }
 
-        private static int GenerateId(XDocument doc)
+        private static int GenerateId(XElement root)
         {
-            IEnumerable<XElement> elements = doc.Root.Elements();
+            IEnumerable<XElement> elements;
+            try
+            {
+                elements = root.Elements();
+            }
+            catch (NullReferenceException)
+            {
+                return 0;
+            }
 
-            return (Convert.ToInt32(elements.Last().Attribute("id").Value) + 1);
+            if (elements.Any())
+                return (Convert.ToInt32(elements.Last().Attribute("id").Value) + 1);
+            else
+                return 0;
         }
         #endregion
 

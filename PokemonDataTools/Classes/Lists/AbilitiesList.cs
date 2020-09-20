@@ -114,12 +114,12 @@ namespace Classes.Lists
             XDocument doc = XMLTools.CreateXMLDocument();
             XElement root = new XElement("abilities");
 
-            foreach (PokeAbility a in Abilities)
-                root.Add(AddPokeabilityDataInElement(a, doc));
+            for(int i = 0; i < Abilities.Count; ++i)
+                root.Add(AddPokeabilityDataInElement(Abilities[i], root));
 
             doc.Add(root);
 
-            doc.Save(defaultPath);
+            doc.Save(FilePath);
 
             return;
         }
@@ -128,7 +128,7 @@ namespace Classes.Lists
         {
             XDocument doc = XMLTools.GetXMLDocument(filePath);
             XElement root = doc.Root;
-            List<PokeAbility> abilities = new List<PokeAbility>();
+
             if (doc != null)
             {
                 int i = 0;
@@ -138,7 +138,7 @@ namespace Classes.Lists
                     try
                     {
                         PokeAbility newAbility = LoadDataInAbility(e);
-                        abilities.Add(newAbility);
+                        Abilities.Add(newAbility);
                     }
                     catch (Exception)
                     {
@@ -147,7 +147,7 @@ namespace Classes.Lists
                 }
             }
 
-            return abilities;
+            return Abilities;
         }
         #endregion
 
@@ -158,7 +158,7 @@ namespace Classes.Lists
             XElement root = new XElement("abilities");
 
             foreach (PokeAbility a in abilitiesList)
-                root.Add(AddPokeabilityDataInElement(a, doc));
+                root.Add(AddPokeabilityDataInElement(a, root));
 
             doc.Add(root);
 
@@ -171,7 +171,7 @@ namespace Classes.Lists
         {
             XDocument doc = XMLTools.GetXMLDocument(defaultPath);
             XElement root = doc.Root;
-            List<PokeAbility> abilities = new List<PokeAbility>();
+            List<PokeAbility> pokeAbilities = new List<PokeAbility>();
             if (doc != null)
             {
                 int i = 0;
@@ -181,7 +181,7 @@ namespace Classes.Lists
                     try
                     {
                         PokeAbility newAbility = LoadDataInAbility(e);
-                        abilities.Add(newAbility);
+                        pokeAbilities.Add(newAbility);
                     }
                     catch (Exception)
                     {
@@ -190,16 +190,16 @@ namespace Classes.Lists
                 }
             }
 
-            return abilities;
+            return pokeAbilities;
         }
         #endregion
 
         #region XML Methods
 
-        private static XElement AddPokeabilityDataInElement(PokeAbility m, XDocument doc)
+        private static XElement AddPokeabilityDataInElement(PokeAbility m, XElement root)
         {
             XElement move = new XElement("move");
-            move.Add(new XAttribute("id", GenerateId(doc)));
+            move.Add(new XAttribute("id", GenerateId(root)));
             move.Add(new XElement("name", m.Name));
 
             return move;
@@ -214,12 +214,23 @@ namespace Classes.Lists
             return p;
         }
 
-        private static int GenerateId(XDocument doc)
+        private static int GenerateId(XElement root)
         {
-            IEnumerable<XElement> elements = doc.Root.Elements();
+            IEnumerable<XElement> elements;
+            try
+            {
+                elements = root.Elements();
+            }
+            catch (NullReferenceException)
+            {
+                return 0;
+            }
 
-            return (Convert.ToInt32(elements.Last().Attribute("id").Value) + 1);
+            if (elements.Any())
+                return (Convert.ToInt32(elements.Last().Attribute("id").Value) + 1);
+            else
+                return 0;
         }
-#endregion
+        #endregion
     }
 }

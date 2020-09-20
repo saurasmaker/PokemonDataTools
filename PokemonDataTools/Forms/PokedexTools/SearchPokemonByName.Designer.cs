@@ -29,46 +29,46 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBoxSearchPoke = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.comboBoxPoke = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(59, 25);
+            this.label1.Location = new System.Drawing.Point(51, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(192, 15);
+            this.label1.Size = new System.Drawing.Size(172, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Enter the name of the Pokémon to ";
-            // 
-            // textBoxSearchPoke
-            // 
-            this.textBoxSearchPoke.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxSearchPoke.Location = new System.Drawing.Point(59, 44);
-            this.textBoxSearchPoke.Name = "textBoxSearchPoke";
-            this.textBoxSearchPoke.Size = new System.Drawing.Size(264, 23);
-            this.textBoxSearchPoke.TabIndex = 1;
             // 
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.Location = new System.Drawing.Point(329, 43);
+            this.button1.Location = new System.Drawing.Point(282, 37);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(64, 20);
             this.button1.TabIndex = 2;
             this.button1.Text = "Search";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // comboBoxPoke
+            // 
+            this.comboBoxPoke.FormattingEnabled = true;
+            this.comboBoxPoke.Location = new System.Drawing.Point(54, 38);
+            this.comboBoxPoke.Name = "comboBoxPoke";
+            this.comboBoxPoke.Size = new System.Drawing.Size(222, 21);
+            this.comboBoxPoke.TabIndex = 3;
+            // 
             // SearchPokemonByName
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(459, 98);
+            this.ClientSize = new System.Drawing.Size(393, 85);
+            this.Controls.Add(this.comboBoxPoke);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBoxSearchPoke);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "SearchPokemonByName";
@@ -82,7 +82,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxSearchPoke;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBoxPoke;
     }
 }

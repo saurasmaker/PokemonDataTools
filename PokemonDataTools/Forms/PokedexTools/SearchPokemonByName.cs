@@ -25,21 +25,25 @@ namespace Forms.PokedexTools
             this.pokedex = pokedex;
             label1.Text += Mode[mode];
             Text = Mode[mode];
+
+            for (int i = 0; i < pokedex.PokemonList.Count; ++i)
+                comboBoxPoke.Items.Add(pokedex.PokemonList[i].Name);
+
         }     
 
         private void button1_Click(object sender, EventArgs e)
         {
             
-            OPokemon p = pokedex.SearchPokemon(textBoxSearchPoke.Text);
+            OPokemon p = pokedex.SearchPokemon(comboBoxPoke.Text);
             
             if (index != null && p != null)
                 if (mode == Updates)
                     index.OpenChildForm(new AddOrUpdatePokemonForm(pokedex, p));
                 else if (mode == Remove)
-                    try { pokedex.RemovePokemon(textBoxSearchPoke.Text); }
+                    try { pokedex.RemovePokemon(comboBoxPoke.Text); }
                     catch (Exception){ MessageBox.Show("There was an error removing " + p.Name + ". Check the Log for more information.", "Error at Remove"); }
                 else
-                    MessageBox.Show(textBoxSearchPoke.Text + "Not Finded");
+                    MessageBox.Show(comboBoxPoke.Text + "Not Finded");
 
             Dispose();
         }

@@ -83,6 +83,12 @@
     <Compile Include="Forms\MovesListTools\SearchMoveByName.Designer.cs">
       <DependentUpon>SearchMoveByName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MovesListTools\ShowMoveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MovesListTools\ShowMoveForm.Designer.cs">
+      <DependentUpon>ShowMoveForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PokedexTools\AddOrUpdatePokemonForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MovesListTools\SearchMoveByName.resx">
       <DependentUpon>SearchMoveByName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MovesListTools\ShowMoveForm.resx">
+      <DependentUpon>ShowMoveForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PokedexTools\AddOrUpdatePokemonForm.resx">
       <DependentUpon>AddOrUpdatePokemonForm.cs</DependentUpon>

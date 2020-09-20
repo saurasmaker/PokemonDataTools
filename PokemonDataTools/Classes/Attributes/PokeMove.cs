@@ -74,6 +74,12 @@ namespace Classes
             return;
         }
 
+        public string Show()
+        {
+            return "\n ----- Pokemove -----" +
+                " -Name: " + Name;
+        }
+
         #endregion
 
         #region Static Methods

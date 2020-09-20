@@ -6,6 +6,7 @@ namespace Classes.Tools
 {
     class XMLTools
     {
+        public static string DefaultPath = Directory.GetCurrentDirectory() + "\\..\\..\\..\\saves";
         public static XDocument CreateXMLDocument()
         {
 
@@ -14,7 +15,6 @@ namespace Classes.Tools
 
             XDocument doc = new XDocument();
 
-            doc.Add(new XComment("PlayerPosition"));
             doc.Add(new XProcessingInstruction("xml-stylesheet", "href = 'MyStyles.css' title = 'Compact' type = 'text/css'"));
 
             return doc;

@@ -95,6 +95,7 @@
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
+            this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.panelLeft.SuspendLayout();
             this.panelAbilitiesTools.SuspendLayout();
@@ -155,52 +156,55 @@
             this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newToolStripMenuItem.Text = "&New";
             // 
             // toolStripMenuItemNewProject
             // 
             this.toolStripMenuItemNewProject.Name = "toolStripMenuItemNewProject";
-            this.toolStripMenuItemNewProject.Size = new System.Drawing.Size(125, 22);
+            this.toolStripMenuItemNewProject.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemNewProject.Text = "Project";
+            this.toolStripMenuItemNewProject.Click += new System.EventHandler(this.toolStripMenuItemNewProject_Click);
             // 
             // toolStripMenuItemNewPokemon
             // 
             this.toolStripMenuItemNewPokemon.Name = "toolStripMenuItemNewPokemon";
-            this.toolStripMenuItemNewPokemon.Size = new System.Drawing.Size(125, 22);
+            this.toolStripMenuItemNewPokemon.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemNewPokemon.Text = "Pokémon";
             // 
             // toolStripMenuItemNewTeam
             // 
             this.toolStripMenuItemNewTeam.Name = "toolStripMenuItemNewTeam";
-            this.toolStripMenuItemNewTeam.Size = new System.Drawing.Size(125, 22);
+            this.toolStripMenuItemNewTeam.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemNewTeam.Text = "Team";
             // 
             // toolStripMenuItemNewMove
             // 
             this.toolStripMenuItemNewMove.Name = "toolStripMenuItemNewMove";
-            this.toolStripMenuItemNewMove.Size = new System.Drawing.Size(125, 22);
+            this.toolStripMenuItemNewMove.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemNewMove.Text = "Move";
             // 
             // toolStripMenuItemNewItem
             // 
             this.toolStripMenuItemNewItem.Name = "toolStripMenuItemNewItem";
-            this.toolStripMenuItemNewItem.Size = new System.Drawing.Size(125, 22);
+            this.toolStripMenuItemNewItem.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemNewItem.Text = "Item";
             // 
             // openToolStripMenuItem
             // 
+            this.openToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.projectToolStripMenuItem});
             this.openToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripMenuItem.Image")));
             this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "&Open";
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(177, 6);
             // 
             // saveToolStripMenuItem
             // 
@@ -208,19 +212,20 @@
             this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Text = "&Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveAsToolStripMenuItem.Text = "Save &As";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // printToolStripMenuItem
             // 
@@ -228,7 +233,7 @@
             this.printToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
             this.printToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.printToolStripMenuItem.Text = "&Print";
             // 
             // printPreviewToolStripMenuItem
@@ -236,18 +241,18 @@
             this.printPreviewToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printPreviewToolStripMenuItem.Image")));
             this.printPreviewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.printPreviewToolStripMenuItem.Name = "printPreviewToolStripMenuItem";
-            this.printPreviewToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.printPreviewToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.printPreviewToolStripMenuItem.Text = "Print Pre&view";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             // 
             // editToolStripMenuItem
@@ -626,6 +631,7 @@
             this.buttonShowMovesList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonShowMovesList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonShowMovesList.UseVisualStyleBackColor = false;
+            this.buttonShowMovesList.Click += new System.EventHandler(this.buttonShowMovesList_Click);
             // 
             // buttonRemoveMove
             // 
@@ -643,6 +649,7 @@
             this.buttonRemoveMove.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonRemoveMove.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonRemoveMove.UseVisualStyleBackColor = false;
+            this.buttonRemoveMove.Click += new System.EventHandler(this.buttonRemoveMove_Click);
             // 
             // buttonUpdateMove
             // 
@@ -659,6 +666,7 @@
             this.buttonUpdateMove.Text = "Update Move";
             this.buttonUpdateMove.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonUpdateMove.UseVisualStyleBackColor = false;
+            this.buttonUpdateMove.Click += new System.EventHandler(this.buttonUpdateMove_Click);
             // 
             // buttonCreateMove
             // 
@@ -675,6 +683,7 @@
             this.buttonCreateMove.Text = "Create Move";
             this.buttonCreateMove.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonCreateMove.UseVisualStyleBackColor = false;
+            this.buttonCreateMove.Click += new System.EventHandler(this.buttonCreateMove_Click);
             // 
             // buttonMovesTools
             // 
@@ -770,7 +779,7 @@
             this.btnAddPokeToPokedex.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
             this.btnAddPokeToPokedex.Size = new System.Drawing.Size(197, 35);
             this.btnAddPokeToPokedex.TabIndex = 0;
-            this.btnAddPokeToPokedex.Text = "Add Pokémon";
+            this.btnAddPokeToPokedex.Text = "Create Pokémon";
             this.btnAddPokeToPokedex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddPokeToPokedex.UseVisualStyleBackColor = false;
             this.btnAddPokeToPokedex.Click += new System.EventHandler(this.btnAddPokeToPokedex_Click);
@@ -819,6 +828,13 @@
             this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
             this.imageList.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList.Images.SetKeyName(0, "1280px-International_Pokémon_logo.svg.png");
+            // 
+            // projectToolStripMenuItem
+            // 
+            this.projectToolStripMenuItem.Name = "projectToolStripMenuItem";
+            this.projectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.projectToolStripMenuItem.Text = "Project";
+            this.projectToolStripMenuItem.Click += new System.EventHandler(this.projectToolStripMenuItem_Click);
             // 
             // Index
             // 
@@ -913,5 +929,6 @@
         private System.Windows.Forms.Button buttonUpdateHability;
         private System.Windows.Forms.Button buttonCreateHability;
         private System.Windows.Forms.Button buttonHabilities;
+        private System.Windows.Forms.ToolStripMenuItem projectToolStripMenuItem;
     }
 }

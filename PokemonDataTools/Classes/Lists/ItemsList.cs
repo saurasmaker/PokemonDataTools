@@ -28,7 +28,10 @@ namespace Classes.Lists
         #endregion
 
         #region Constructors
-        public ItemsList() { }
+        public ItemsList() 
+        {
+            Items = new List<PokeItem>();       
+        }
 
         public ItemsList(List<PokeItem> items) 
         {
@@ -110,12 +113,12 @@ namespace Classes.Lists
             XDocument doc = XMLTools.CreateXMLDocument();
             XElement root = new XElement("moves");
 
-            foreach (PokeItem i in Items)
-                root.Add(AddPokeItemDataInElement(i, doc));
+            for(int i = 0; i < Items.Count; ++i)
+                root.Add(AddPokeItemDataInElement(Items[i], root));               
 
             doc.Add(root);
 
-            doc.Save(defaultPath);
+            doc.Save(FilePath);
 
             return;
         }
@@ -124,7 +127,6 @@ namespace Classes.Lists
         {
             XDocument doc = XMLTools.GetXMLDocument(filePath);
             XElement root = doc.Root;
-            List<PokeItem> items = new List<PokeItem>();
             if (doc != null)
             {
                 int i = 0;
@@ -134,7 +136,7 @@ namespace Classes.Lists
                     try
                     {
                         PokeItem newItem = LoadDataInItem(e);
-                        items.Add(newItem);
+                        Items.Add(newItem);
                     }
                     catch (Exception)
                     {
@@ -143,7 +145,7 @@ namespace Classes.Lists
                 }
             }
 
-            return items;
+            return Items;
         }
         #endregion
 
@@ -154,7 +156,7 @@ namespace Classes.Lists
             XElement root = new XElement("items");
 
             foreach (PokeItem i in itemsList)
-                root.Add(AddPokeItemDataInElement(i, doc));
+                root.Add(AddPokeItemDataInElement(i, root));
 
             doc.Add(root);
 
@@ -191,10 +193,10 @@ namespace Classes.Lists
         #endregion
 
         #region XML Methods
-        private static XElement AddPokeItemDataInElement(PokeItem m, XDocument doc)
+        private static XElement AddPokeItemDataInElement(PokeItem m, XElement root)
         {
             XElement item = new XElement("item");
-            item.Add(new XAttribute("id", GenerateId(doc)));
+            item.Add(new XAttribute("id", GenerateId(root)));
             item.Add(new XElement("name", m.Name));
 
             return item;
@@ -209,12 +211,24 @@ namespace Classes.Lists
             return p;
         }
 
-        private static int GenerateId(XDocument doc)
+        private static int GenerateId(XElement root)
         {
-            IEnumerable<XElement> elements = doc.Root.Elements();
+            IEnumerable<XElement> elements;
+            try
+            {
+                elements = root.Elements();
+            }
+            catch (NullReferenceException)
+            {
+                return 0;
+            }
 
-            return (Convert.ToInt32(elements.Last().Attribute("id").Value) + 1);
+            if (elements.Any())
+                return (Convert.ToInt32(elements.Last().Attribute("id").Value) + 1);
+            else
+                return 0;
         }
         #endregion
     }
 }
+                                                                       

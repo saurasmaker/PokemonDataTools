@@ -110,21 +110,21 @@ namespace Classes.Lists
             XDocument doc = XMLTools.CreateXMLDocument();
             XElement root = new XElement("moves");
 
-            foreach (PokeMove m in Moves)
-                root.Add(AddPokemoveDataInElement(m, doc));
+            for(int i = 0; i < Moves.Count; ++i)
+                root.Add(AddPokemoveDataInElement(Moves[i], root));
 
             doc.Add(root);
 
-            doc.Save(defaultPath);
+            doc.Save(FilePath);
 
             return;
         }
 
         public List<PokeMove> Load()
         {
-            XDocument doc = XMLTools.GetXMLDocument(filePath);
+            XDocument doc = XMLTools.GetXMLDocument(FilePath);
             XElement root = doc.Root;
-            List<PokeMove> moves = new List<PokeMove>();
+          
             if (doc != null)
             {
                 int i = 0;
@@ -134,7 +134,7 @@ namespace Classes.Lists
                     try
                     {
                         PokeMove newMove = LoadDataInMove(e);
-                        moves.Add(newMove);
+                        Moves.Add(newMove);
                     }
                     catch (Exception)
                     {
@@ -143,7 +143,7 @@ namespace Classes.Lists
                 }
             }
 
-            return moves;
+            return Moves;
         }
         #endregion
 
@@ -154,7 +154,7 @@ namespace Classes.Lists
             XElement root = new XElement("moves");
 
             foreach (PokeMove m in movesList)
-                root.Add(AddPokemoveDataInElement(m, doc));
+                root.Add(AddPokemoveDataInElement(m, root));
 
             doc.Add(root);
 
@@ -191,16 +191,16 @@ namespace Classes.Lists
         #endregion
 
         #region XML Methods
-        private static XElement AddPokemoveDataInElement(PokeMove m, XDocument doc)
+        private static XElement AddPokemoveDataInElement(PokeMove m, XElement root)
         {
             XElement move = new XElement("move");
-            move.Add(new XAttribute("id", GenerateId(doc)));
+            move.Add(new XAttribute("id", GenerateId(root)));
             move.Add(new XElement("name", m.Name));
             move.Add(new XElement("description", m.Description));
             move.Add(new XElement("type", m.Type));
             move.Add(new XElement("category", m.Category));
             move.Add(new XElement("accuarcy", m.Accuracy));
-            move.Add(new XElement("damage", m.Power));
+            move.Add(new XElement("power", m.Power));
             move.Add(new XElement("recover", m.Recover));
             move.Add(new XElement("repetitions", m.Repetitions));
             move.Add(new XElement("repetitionsInTurn", m.RepetitionsInTurn));
@@ -235,11 +235,22 @@ namespace Classes.Lists
             return p;
         }
 
-        private static int GenerateId(XDocument doc)
+        private static int GenerateId(XElement root)
         {
-            IEnumerable<XElement> elements = doc.Root.Elements();
+            IEnumerable<XElement> elements;
+            try
+            {
+                elements = root.Elements();
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
 
-            return (Convert.ToInt32(elements.Last().Attribute("id").Value) + 1);
+            if(elements.Any())
+                return (Convert.ToInt32(elements.Last().Attribute("id").Value) + 1);
+            else
+                return 0;
         }
         #endregion
 
