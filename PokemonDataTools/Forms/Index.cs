@@ -193,6 +193,11 @@ namespace Forms
         {
             string projectName = Interaction.InputBox("What is the name of the project?", "Set Project name", "Project name...");
             FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.RootFolder = Environment.SpecialFolder.Desktop;
+
+            if (!Directory.Exists(XMLTools.DefaultPath))
+                Directory.CreateDirectory(XMLTools.DefaultPath);
+
             fbd.SelectedPath = XMLTools.DefaultPath;
             if (fbd.ShowDialog() == DialogResult.OK)
             {
@@ -218,6 +223,11 @@ namespace Forms
         public void LoadProject()
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.RootFolder = Environment.SpecialFolder.Desktop;
+
+            if (!Directory.Exists(XMLTools.DefaultPath))
+                Directory.CreateDirectory(XMLTools.DefaultPath);
+
             fbd.SelectedPath = XMLTools.DefaultPath;
             if (fbd.ShowDialog() == DialogResult.OK)
             {

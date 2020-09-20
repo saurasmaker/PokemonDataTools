@@ -65,7 +65,7 @@ namespace Forms.MovesListTools
         {
             if (CheckData())
             {
-                //try
+                try
                 {
                     SetDataInPokeMove();
 
@@ -75,11 +75,11 @@ namespace Forms.MovesListTools
 
                     Dispose();
                 }
-                /*catch (Exception e)
+                catch (Exception e)
                 {
                     Log.Execute("Error adding " + pokeMove.Name + ".", e);
                     MessageBox.Show("There was a problem adding the Pokemove. Please, check the Log for more information.", "Add Pokemove Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }*/
+                }
 
             }
 
@@ -90,7 +90,7 @@ namespace Forms.MovesListTools
         {
             if (CheckData())
             {
-                //try
+                try
                 {
                     SetDataInPokeMove();
 
@@ -100,14 +100,15 @@ namespace Forms.MovesListTools
                             movesList.Moves[i] = pokeMove;
                             MessageBox.Show("Congratulations. You Updated a Pokemove succesfuly.", "Pokemove Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             Dispose();
+                            return;
                         }
 
                     MessageBox.Show("There was a problem updating the Pokemove. Please, check the Log for more information.", "Update Pokemove Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                /*catch (Exception)
+                catch (Exception)
                 {
                     MessageBox.Show("There was a problem updating the Pokemove. Please, check the Log for more information.", "Update Pokemove Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }*/
+                }
             }
 
             return;
@@ -144,7 +145,7 @@ namespace Forms.MovesListTools
                 return false;
             }
 
-            if (comboBoxCategory.Text == null || comboBoxCategory.Text == "" || comboBoxCategory.SelectedIndex == 0)
+            if (comboBoxCategory.Text == null || comboBoxCategory.Text == "")
             {
                 MessageBox.Show("You can not create a Pokemove without Category.", "Field Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -162,7 +163,7 @@ namespace Forms.MovesListTools
                 return false;
             }
 
-            if(comboBoxCategory.SelectedIndex == PokeMove.State)
+            if(comboBoxCategory.SelectedIndex == PokeMove.State && numericUpDownPower.Value > 0)
             {
                 MessageBox.Show("You can not create a Pokemove that has 'state' category with more power than '0'.", "Field Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -180,7 +181,11 @@ namespace Forms.MovesListTools
             richTextBoxDescription.ForeColor = Color.Black;
 
             comboBoxCategory.SelectedIndex = pokeMove.Category;
-            comboBoxEffectCode.SelectedIndex =Convert.ToByte(pokeMove.EffectCode);
+            
+            for (int i = 0; i < comboBoxEffectCode.Items.Count; ++i)
+                if (comboBoxEffectCode.Items[i].ToString().ToUpper().Equals(pokeMove.EffectCode.ToUpper()))
+                    comboBoxEffectCode.SelectedIndex = i; 
+
             comboBoxType.SelectedIndex = pokeMove.Type;
             comboBoxTarget.SelectedIndex = pokeMove.Target;
 
@@ -192,6 +197,8 @@ namespace Forms.MovesListTools
             numericUpDownRepetitions.Value = pokeMove.Repetitions;
             numericUpDownRepetitionsInTurn.Value = pokeMove.RepetitionsInTurn;
             numericUpDownPriority.Value = pokeMove.Priority;
+
+            checkBoxContact.Checked = pokeMove.Contact;
         }
         
         #region TextBoxes

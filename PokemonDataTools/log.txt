@@ -1,0 +1,15 @@
+ =============================
+||*********** LOG ***********||
+ =============================
+20/09/2020 13:09:00 => Application initilizated.
+20/09/2020 13:14:15 => Application initilizated.
+20/09/2020 13:17:09 => Pokemove added.
+20/09/2020 13:18:32 => Application initilizated.
+20/09/2020 13:21:36 => Application initilizated.
+20/09/2020 13:22:33 => Application initilizated.
+20/09/2020 13:28:40 => Application initilizated.
+20/09/2020 13:29:15 => Pokemove updated
+20/09/2020 13:29:30 => Pokemove updated
+20/09/2020 13:30:37 => Application initilizated.
+20/09/2020 13:30:52 => Application initilizated.
+20/09/2020 13:31:24 => Pokemove updated

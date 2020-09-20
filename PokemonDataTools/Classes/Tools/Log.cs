@@ -7,7 +7,7 @@ namespace Tools
 {
     class Log
     {
-        private static string path = Directory.GetCurrentDirectory() + "\\..\\..\\..\\log.txt";
+        private static string path = Directory.GetCurrentDirectory() + "\\..\\..\\log.txt";
 
         public static void Execute(string msg)
         {

@@ -225,6 +225,8 @@ namespace Classes.Lists
             p.Accuracy = Convert.ToByte(e.Element("accuarcy").Value);
             p.Power = Convert.ToSByte(e.Element("power").Value);
             p.Recover = Convert.ToSByte(e.Element("recover").Value);
+            p.Repetitions = Convert.ToByte(e.Element("repetitions").Value);
+            p.RepetitionsInTurn = Convert.ToByte(e.Element("repetitionsInTurn").Value);
             p.Target = Convert.ToByte(e.Element("target").Value);
             p.PP = Convert.ToByte(e.Element("pp").Value);
             p.Contact = e.Element("contact").Value.Equals("true") ? true : false;

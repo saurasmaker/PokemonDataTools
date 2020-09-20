@@ -6,7 +6,7 @@ namespace Classes.Tools
 {
     class XMLTools
     {
-        public static string DefaultPath = Directory.GetCurrentDirectory() + "\\..\\..\\..\\saves";
+        public static string DefaultPath = Directory.GetCurrentDirectory() + "\\..\\..\\Saves";
         public static XDocument CreateXMLDocument()
         {
 

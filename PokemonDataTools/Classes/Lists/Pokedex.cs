@@ -133,12 +133,12 @@ namespace Classes.Lists
             {
                 foreach (XElement e in root.Elements("pokemon"))
                 {
-                    //try
+                    try
                     {
                         OPokemon newPoke = LoadDataInPokemon(e);
                         PokemonList.Add(newPoke);
                     }
-                    //catch (Exception)
+                    catch (Exception)
                     {
                     }
                 }
