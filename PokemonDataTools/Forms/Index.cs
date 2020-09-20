@@ -14,7 +14,8 @@ namespace Forms
 {
     public partial class Index : Form
     {
-        string projectPath = String.Empty;
+        string projectPath = string.Empty;
+        string projectName = string.Empty;
 
         Pokedex pokedex; //= new Pokedex(Pokedex.Load());
         MovesList movesList; //= new MovesList(MovesList.Load());
@@ -191,7 +192,7 @@ namespace Forms
         #region Project Tools
         public void GenerateNewProyect()
         {
-            string projectName = Interaction.InputBox("What is the name of the project?", "Set Project name", "Project name...");
+            projectName = Interaction.InputBox("What is the name of the project?", "Set Project name", "Project name...");
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.RootFolder = Environment.SpecialFolder.Desktop;
 
@@ -211,11 +212,20 @@ namespace Forms
 
                 pokedex.FilePath = movesList.FilePath = abilitiesList.FilePath = itemsList.FilePath = projectPath;
 
-                pokedex.Save();
-                movesList.Save();
-                abilitiesList.Save();
-                itemsList.Save();
+                try
+                {
+                    pokedex.Save();
+                    movesList.Save();
+                    abilitiesList.Save();
+                    itemsList.Save();
 
+                    MessageBox.Show("Project " + projectName + " generated succesfully.","Message Info.",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Log.Execute("Project " + projectName + " generated in " + projectPath);
+                }catch(Exception e)
+                {
+                    MessageBox.Show("Error to generate new project. Check the log for more information.", "Message Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Log.Execute("Error to generate new project.", e);
+                }
             }
             return;
         }
@@ -237,6 +247,10 @@ namespace Forms
                 itemsList = new ItemsList();
                 pokedex.FilePath = movesList.FilePath = abilitiesList.FilePath = itemsList.FilePath = fbd.SelectedPath;
 
+                projectPath = fbd.SelectedPath;
+                string[] split = projectPath.Split('\\');
+                projectName = split[split.Length-1];
+
                 try
                 {
                     pokedex.Load();
@@ -244,13 +258,16 @@ namespace Forms
                     abilitiesList.Load();
                     itemsList.Load();
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-                    MessageBox.Show("Fatal Error. Project cannot load.");
+                    MessageBox.Show("Fatal Error. Project cannot load. Check the log for more information.", "Message Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Log.Execute("Error loading project " + projectName + ".", e);
+
                     return;
                 }
 
-                MessageBox.Show("Project loaded succesfully.");
+                MessageBox.Show("Project loaded succesfully.", "Message Info.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Log.Execute("Project " + projectName + " loaded from " + projectPath);
 
             }
 
@@ -259,10 +276,40 @@ namespace Forms
 
         public void SaveProject()
         {
-            pokedex.Save();
-            movesList.Save();
-            abilitiesList.Save();
-            itemsList.Save();
+            try
+            {
+                try { pokedex.Save(); }
+                catch(Exception t) { Log.Execute("Error saving pokedex of " + projectName+ ".", t); }
+
+                try { movesList.Save(); }
+                catch (Exception t) { Log.Execute("Error saving moves list of " + projectName + ".", t); }
+
+
+                try { abilitiesList.Save(); }
+                catch (Exception t) { Log.Execute("Error saving abilities list of " + projectName + ".", t); }
+
+                try { itemsList.Save(); }
+                catch (Exception t) { Log.Execute("Error saving items list of " + projectName + ".", t); }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error to save project. Check the log for more information.", "Message Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Execute("Error saving project " + projectName + ".", e);
+            }
+
+            MessageBox.Show("Project saved succesfully.", "Message Info.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Log.Execute("Project " + projectName + " saved in " + projectPath);
+        }
+
+        private void CloseProject()
+        {
+            if (MessageBox.Show("Are you sure that you want to close this project?", "Message Question.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (MessageBox.Show("Do yo want to save the projecto before close?", "Message Question.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)                
+                    SaveProject();
+
+                Dispose();
+            }
         }
         #endregion
 

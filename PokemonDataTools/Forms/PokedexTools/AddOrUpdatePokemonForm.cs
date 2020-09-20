@@ -90,9 +90,8 @@ namespace Forms.PokedexTools
 
                 }catch(Exception e)
                 {
-                    Log.Execute("Error adding " + pokemon.Name + ".", e);
                     MessageBox.Show("There was a problem adding the Pokémon. Please, check the Log for more information.", "Add Pokémon Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                    Log.Execute("Error adding pokémon.", e);
                 }
 
             }
@@ -119,10 +118,10 @@ namespace Forms.PokedexTools
                     MessageBox.Show("There was a problem updating the Pokémon. Please, check the Log for more information.", "Add Pokémon Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
                     MessageBox.Show("There was a problem updating the Pokémon. Please, check the Log for more information.", "Add Pokémon Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                    Log.Execute("Error updating pokémon.", e);
                 }
 
             }

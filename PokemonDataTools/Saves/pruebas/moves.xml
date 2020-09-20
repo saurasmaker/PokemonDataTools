@@ -1,21 +1,3 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet href = 'MyStyles.css' title = 'Compact' type = 'text/css'?>
-<moves>
-  <move id="0">
-    <name>enamorar al nene</name>
-    <description>Pues enamora muy fuerte al nene jejjejee</description>
-    <type>18</type>
-    <category>1</category>
-    <accuarcy>23</accuarcy>
-    <power>0</power>
-    <recover>9</recover>
-    <repetitions>4</repetitions>
-    <repetitionsInTurn>1</repetitionsInTurn>
-    <target>0</target>
-    <pp>7</pp>
-    <contact>true</contact>
-    <priority>30</priority>
-    <effectCode>0</effectCode>
-    <effectProbability>100</effectProbability>
-  </move>
-</moves>
+<moves />

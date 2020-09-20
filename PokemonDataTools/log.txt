@@ -13,3 +13,4 @@
 20/09/2020 13:30:37 => Application initilizated.
 20/09/2020 13:30:52 => Application initilizated.
 20/09/2020 13:31:24 => Pokemove updated
+20/09/2020 13:32:26 => Application initilizated.

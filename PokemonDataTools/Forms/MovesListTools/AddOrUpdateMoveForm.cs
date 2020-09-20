@@ -72,13 +72,14 @@ namespace Forms.MovesListTools
                     movesList.AddPokeMove(pokeMove);
 
                     MessageBox.Show("Congratulations. You added a Pokemove succesfuly.", "Pokemove Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    Log.Execute("PokeMove " + pokeMove.Name + "with ID " + pokeMove.Id + " added. ");
                     Dispose();
                 }
                 catch (Exception e)
                 {
                     Log.Execute("Error adding " + pokeMove.Name + ".", e);
                     MessageBox.Show("There was a problem adding the Pokemove. Please, check the Log for more information.", "Add Pokemove Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Log.Execute("Error adding pokemove.", e);
                 }
 
             }
@@ -99,15 +100,17 @@ namespace Forms.MovesListTools
                         {
                             movesList.Moves[i] = pokeMove;
                             MessageBox.Show("Congratulations. You Updated a Pokemove succesfuly.", "Pokemove Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Log.Execute("PokeMove " + pokeMove.Name + "with ID " + pokeMove.Id + " updated. ");
                             Dispose();
                             return;
                         }
 
                     MessageBox.Show("There was a problem updating the Pokemove. Please, check the Log for more information.", "Update Pokemove Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
                     MessageBox.Show("There was a problem updating the Pokemove. Please, check the Log for more information.", "Update Pokemove Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Log.Execute("Error updating pokemove.", e);
                 }
             }
 
