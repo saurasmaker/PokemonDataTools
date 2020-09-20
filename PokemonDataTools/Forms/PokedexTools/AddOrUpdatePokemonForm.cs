@@ -85,7 +85,7 @@ namespace Forms.PokedexTools
                     pokedex.AddPokemon(pokemon);
 
                     MessageBox.Show("Congratulations. You added a Pokémon succesfuly.", "Pokémon Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+                    Log.Execute("Pokémon " + pokemon.Name + " with ID " + pokemon.Id + " added. ");
                     Dispose();
 
                 }catch(Exception e)
@@ -112,6 +112,7 @@ namespace Forms.PokedexTools
                         {
                             pokedex.PokemonList[i] = pokemon;
                             MessageBox.Show("Congratulations. You Updated a Pokémon succesfuly.", "Pokémon Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Log.Execute("Pokémon " + pokemon.Name + " with ID " + pokemon.Id + " updated. ");
                             Dispose();
                         }
 
@@ -295,9 +296,8 @@ namespace Forms.PokedexTools
         {
             if (pokemon != null) {
                 UpdatePokemon();
-                Log.Execute("Pokemon updated");
             }
-            else { AddPokemon(); Log.Execute("Pokémon added."); }
+            else { AddPokemon();}
 
             return;
         }

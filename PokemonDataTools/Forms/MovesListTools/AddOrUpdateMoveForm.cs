@@ -248,9 +248,8 @@ namespace Forms.MovesListTools
             if (pokeMove != null)
             {
                 UpdatePokeMove();
-                Log.Execute("Pokemove updated");
             }
-            else { AddPokeMove(); Log.Execute("Pokemove added."); }
+            else { AddPokeMove(); }
 
             return;
         }
