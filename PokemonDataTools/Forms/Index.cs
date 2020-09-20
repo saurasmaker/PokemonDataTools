@@ -9,6 +9,7 @@ using System.IO;
 using Forms.MovesListTools;
 using PokemonDataTools.Forms.MovesListTools;
 using Classes.Tools;
+using PokemonDataTools.Classes.Tools;
 
 namespace Forms
 {
@@ -313,7 +314,7 @@ namespace Forms
         }
         #endregion
 
-
+        #region ToolStrip
         private void toolStripMenuItemNewProject_Click(object sender, EventArgs e)
         {
             GenerateNewProyect();
@@ -328,5 +329,73 @@ namespace Forms
         {
             SaveProject();
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Dispose();
+        }
+
+        #region Essentials Translator
+        //Pokémon essentials translator
+        private void essentialsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = OpenTxtFile();
+            if (ofd.ShowDialog() == DialogResult.OK)
+                EssentialsTranslator.AbilitiesList(ofd.FileName);
+
+            return;
+        }
+
+        //Moves essentials translator
+        private void essentialsToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = OpenTxtFile();
+            if (ofd.ShowDialog() == DialogResult.OK)
+                EssentialsTranslator.AbilitiesList(ofd.FileName);
+
+            return;
+        }
+
+        //Abilities essentials translator
+        private void essentialsToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = OpenTxtFile();
+            if (ofd.ShowDialog() == DialogResult.OK)
+                EssentialsTranslator.AbilitiesList(ofd.FileName);
+
+            return;
+        }
+
+        //Items essentials translator
+        private void essentialsToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = OpenTxtFile();
+            if (ofd.ShowDialog() == DialogResult.OK)
+                EssentialsTranslator.AbilitiesList(ofd.FileName);
+
+            return;
+        }
+        #endregion //end of essentials translator
+
+        #endregion //end of Tool strip
+
+
+
+        #region Aux Tools
+        private OpenFileDialog OpenTxtFile()
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+
+            if (!Directory.Exists(XMLTools.DefaultPath))
+                Directory.CreateDirectory(XMLTools.DefaultPath);
+
+            ofd.InitialDirectory = XMLTools.DefaultPath;
+
+            return ofd;
+        }
+
+
+        #endregion
     }
 }

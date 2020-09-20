@@ -65,6 +65,7 @@
     <Compile Include="Classes\Lists\MovesList.cs" />
     <Compile Include="Classes\Lists\Pokedex.cs" />
     <Compile Include="Classes\OPokemon.cs" />
+    <Compile Include="Classes\Tools\EssentialsTranslator.cs" />
     <Compile Include="Forms\Index.cs">
       <SubType>Form</SubType>
     </Compile>
