@@ -163,7 +163,7 @@ namespace Forms.PokedexTools
             pokemon.Abilities[2] = Convert.ToByte(comboBoxAbilityHidden.SelectedIndex);
 
             pokemon.LevelType = Convert.ToByte(comboBoxLevelType.SelectedIndex);
-            pokemon.EggGroup = Convert.ToByte(comboBoxEggGroup.SelectedIndex);
+            pokemon.EggGroups[0] = Convert.ToByte(comboBoxEggGroup.SelectedIndex);
 
             return;
         }
@@ -230,8 +230,8 @@ namespace Forms.PokedexTools
             richTextBoxDescription.Text = pokemon.Description;
             richTextBoxDescription.ForeColor = Color.Black;
 
-            numericUpDownHeight.Value = pokemon.Height;
-            numericUpDownWeight.Value = pokemon.Weight;
+            numericUpDownHeight.Value = Convert.ToDecimal(pokemon.Height);
+            numericUpDownWeight.Value = Convert.ToDecimal(pokemon.Weight);
 
             try
             { numericUpDownHealth.Value = pokemon.Health;}

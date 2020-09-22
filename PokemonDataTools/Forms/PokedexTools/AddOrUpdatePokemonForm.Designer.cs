@@ -661,7 +661,13 @@
             // 
             this.numericUpDownWeight.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.numericUpDownWeight.DecimalPlaces = 2;
             this.numericUpDownWeight.Location = new System.Drawing.Point(198, 267);
+            this.numericUpDownWeight.Maximum = new decimal(new int[] {
+            1569325055,
+            23283064,
+            0,
+            0});
             this.numericUpDownWeight.Name = "numericUpDownWeight";
             this.numericUpDownWeight.Size = new System.Drawing.Size(77, 20);
             this.numericUpDownWeight.TabIndex = 3;
@@ -670,7 +676,13 @@
             // 
             this.numericUpDownHeight.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.numericUpDownHeight.DecimalPlaces = 2;
             this.numericUpDownHeight.Location = new System.Drawing.Point(53, 267);
+            this.numericUpDownHeight.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
             this.numericUpDownHeight.Name = "numericUpDownHeight";
             this.numericUpDownHeight.Size = new System.Drawing.Size(77, 20);
             this.numericUpDownHeight.TabIndex = 3;

@@ -27,7 +27,8 @@ namespace Forms.PokedexTools
             Text = Mode[mode];
 
             for (int i = 0; i < pokedex.PokemonList.Count; ++i)
-                comboBoxPoke.Items.Add(pokedex.PokemonList[i].Name);
+                if(pokedex.PokemonList[i].Name!=null)
+                    comboBoxPoke.Items.Add(pokedex.PokemonList[i].Name);
 
         }     
 

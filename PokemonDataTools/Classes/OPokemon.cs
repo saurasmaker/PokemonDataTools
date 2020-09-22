@@ -9,22 +9,25 @@ namespace Classes
     {
         public struct Evolution
         {
-            public int idPokemon;
-            public byte evolutionType;
+            public string namePokemon;
+            public string evolutionType;
+            public string need;
 
-            public Evolution(int idPokemon, byte evolutionType)
+            public Evolution(string namePokemon, string evolutionType, string need)
             {
-                this.idPokemon = idPokemon;
+                this.namePokemon = namePokemon;
                 this.evolutionType = evolutionType;
+                this.need = need;
+                
             }
         }
 
         public struct MoveWillLearnByLevel
         {
             public byte level;
-            public int idMove;
+            public string idMove;
 
-            public MoveWillLearnByLevel(byte level, int idMove)
+            public MoveWillLearnByLevel(byte level, string idMove)
             {
                 this.level = level;
                 this.idMove = idMove;
@@ -39,15 +42,15 @@ namespace Classes
         public string Category { get; set; }
         public string Habitat { get; set; }
         public string FileName { get; set; }
-        public ushort Height { get; set; }
-        public ushort Weight { get; set; }
+        public float Height { get; set; }
+        public float Weight { get; set; }
         public Color Color { get; set; }
         public byte Rareness { get; set; }
         public byte Happiness { get; set; }
         public int StepsToHatch { get; set; }
         public bool IsMega { get; set; }
         public bool IsLegendary { get; set; }
-        public byte[] Abilities { get; set; }
+        public short[] Abilities { get; set; }
 
         public List<Evolution> Evolutions { get; set; }
 
@@ -59,18 +62,17 @@ namespace Classes
         public byte SpecialDefense { get; set; }
         public byte Speed { get; set; }
 
-        public byte ExperienceGives { get; set; }
+        public short ExperienceGives { get; set; }
 
 
         private string description;
         private byte[] types;
         private byte[] givedEVs;
         private byte levelType;
-        private byte eggGroup;
+        private byte[] eggGroups;
         private byte[] genresPercentage;
         private List<MoveWillLearnByLevel> movesWillLearnByLevel;
-        private List<int> eggMoves; //Moves Id. Movements that the pokémon can learn by breeding.
-        private List<int> canLearnMoves; //Moves Id. Movements that the pokémon can learn byt MT or a tutor. 
+        private List<string> eggMoves; //Moves Id. Movements that the pokémon can learn by breeding.
 
         #endregion
 
@@ -78,11 +80,12 @@ namespace Classes
         public OPokemon()
         {
             Types = new byte[2] { 0, 0 };
+            EggMoves = new List<string>();
             GivedEVs = new byte[6] { 0, 0, 0, 0, 0, 0 };
             GenresPercentage = new byte[2] { 0, 0 };
-            Abilities = new byte[3] { 0, 0, 0 };
+            Abilities = new short[3] { 0, 0, 0 };
             MovesWillLearnByLevel = new List<MoveWillLearnByLevel>();
-            CanLearnMoves = new List<int>();
+            Evolutions = new List<Evolution>();
         }
         #endregion
 
@@ -113,7 +116,7 @@ namespace Classes
             "\n\n ---Reproduction---" +
             "\n  -Male: " + GenresPercentage[0] +
             "\n  -Female: " + GenresPercentage[1] +
-            "\n  -Egg Group: " + PokeEggGroup.EggGroupNames[EggGroup] +
+            "\n  -Egg Groups: " + PokeEggGroup.EggGroupNames[EggGroups[0]] + ", " + PokeEggGroup.EggGroupNames[EggGroups[1]] +
 
             "\n\n ---EVs it Gives--- " +
             "\n Health: " + GivedEVs[PokeStat.Health] +
@@ -207,15 +210,16 @@ namespace Classes
             }
         }
 
-        public byte EggGroup
+        public byte[] EggGroups
         {
             get
             {
-                return eggGroup;
+                return eggGroups;
             }
-            set
-            {
-                if (value < 16) eggGroup = value;
+            set {          
+                for(int i = 0; i < 2; ++i)
+                    if (!(value[i] < 16)) eggGroups = value;
+
                 else Console.WriteLine("Not valid Egg Group value");
             }
         }
@@ -227,18 +231,11 @@ namespace Classes
             set { movesWillLearnByLevel = value; }
         }
 
-        public List<int> EggMoves
+        public List<string> EggMoves
         {
-            get { if (eggMoves == null) eggMoves = new List<int>(); return eggMoves; }
+            get { if (eggMoves == null) eggMoves = new List<string>(); return eggMoves; }
             set { eggMoves = value; }
         }
-
-        public List<int> CanLearnMoves
-        {
-            get { if (canLearnMoves == null) canLearnMoves = new List<int>(); return canLearnMoves; }
-            set { canLearnMoves = value; }
-        }
-
 
         #endregion
 

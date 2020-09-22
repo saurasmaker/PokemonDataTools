@@ -341,7 +341,7 @@ namespace Forms
         {
             OpenFileDialog ofd = OpenTxtFile();
             if (ofd.ShowDialog() == DialogResult.OK)
-                EssentialsTranslator.AbilitiesList(ofd.FileName);
+                pokedex = EssentialsTranslator.Pokedex(ofd.FileName);
 
             return;
         }

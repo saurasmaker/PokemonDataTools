@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Windows.Forms;
 using System.Xml.Linq;
 using Classes.Attributes;
 using Classes.Tools;
@@ -236,22 +233,16 @@ namespace Classes.Lists
             {
                 string s = movesWillLearnByLevel[i].Value;
                 if (s != null)
-                    p.MovesWillLearnByLevel.Add(new OPokemon.MoveWillLearnByLevel(Convert.ToByte(movesWillLearnByLevel[i].Attribute("level").Value), Convert.ToInt32(s)));
-            }
-
-            List<XElement> canLearnMoves = e.Element("canLearnMoves").Elements("move").ToList();
-            for (int i = 0; i < canLearnMoves.Count; ++i)
-            {
-                string s = canLearnMoves[i].Value;
-                if (s != null)
-                    p.CanLearnMoves.Add(Convert.ToInt32(s));
+                    p.MovesWillLearnByLevel.Add(new OPokemon.MoveWillLearnByLevel(Convert.ToByte(movesWillLearnByLevel[i].Attribute("level").Value), s));
             }
 
             XElement genres = e.Element("genresPercentage");
             p.GenresPercentage[0] = Convert.ToByte(genres.Element("male").Value);
             p.GenresPercentage[1] = Convert.ToByte(genres.Element("female").Value);
 
-            p.EggGroup = Convert.ToByte(e.Element("eggGroup").Value);
+            List<XElement> eggGroups = e.Element("eggGroups").Elements("eggGroup").ToList();
+            p.EggGroups[0] = Convert.ToByte(eggGroups[0].Value);
+            p.EggGroups[1] = Convert.ToByte(eggGroups[1].Value);
 
             p.LevelType = Convert.ToByte(e.Element("levelType").Value);
             p.IsMega = Convert.ToBoolean(e.Element("isMega").Value);
@@ -287,8 +278,6 @@ namespace Classes.Lists
                 return 0;
         }
         #endregion
-
-
 
     }
 }

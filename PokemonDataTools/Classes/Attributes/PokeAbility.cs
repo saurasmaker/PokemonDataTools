@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Classes.Attributes
 {
-    class PokeAbility
+    public class PokeAbility
     {
         //5 generations of skills remain to be added
         public static string[] AbilitiesNames = new string[] {
