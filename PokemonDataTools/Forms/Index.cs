@@ -201,7 +201,7 @@ namespace Forms
                 Directory.CreateDirectory(XMLTools.DefaultPath);
 
             fbd.SelectedPath = XMLTools.DefaultPath;
-            if (fbd.ShowDialog() == DialogResult.OK)
+            if (projectName != string.Empty && fbd.ShowDialog() == DialogResult.OK )
             {
                 projectPath = fbd.SelectedPath + "\\" + projectName;
                 Directory.CreateDirectory(projectPath);

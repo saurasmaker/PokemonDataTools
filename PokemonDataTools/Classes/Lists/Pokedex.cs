@@ -118,6 +118,7 @@ namespace Classes.Lists
             doc.Add(root);
 
             doc.Save(FilePath);
+
             return;
         }
 
@@ -185,9 +186,72 @@ namespace Classes.Lists
         {
             XElement pokemon = new XElement("pokemon");
             pokemon.Add(new XAttribute("id", GenerateId(root)));
+            pokemon.Add(new XElement("pokedexNumber", p.PokedexNumber));
             pokemon.Add(new XElement("name", p.Name));
+            pokemon.Add(new XElement("category", p.Category));
+            pokemon.Add(new XElement("habitat", p.Habitat));
             pokemon.Add(new XElement("description", p.Description));
+            pokemon.Add(new XElement("filename", p.FileName));
+            pokemon.Add(new XElement("height", p.Health));
+            pokemon.Add(new XElement("weight", p.Weight));
+            pokemon.Add(new XElement("color", p.Color.Name));
+            pokemon.Add(new XElement("rareness", p.Rareness));
+            pokemon.Add(new XElement("happiness", p.Happiness));
+            pokemon.Add(new XElement("stepsToHatch", p.StepsToHatch));
 
+            pokemon.Add(new XElement("type1", p.Types[0]));
+            pokemon.Add(new XElement("type2", p.Types[1]));
+
+            pokemon.Add(new XElement("health", p.Health));
+            pokemon.Add(new XElement("attack", p.Attack));
+            pokemon.Add(new XElement("defense", p.Defense));
+            pokemon.Add(new XElement("specialAttack", p.SpecialAttack));
+            pokemon.Add(new XElement("specialDefense", p.SpecialDefense));
+            pokemon.Add(new XElement("seed", p.Speed));
+
+            XElement abilities = new XElement("abilities");
+            foreach (string a in p.Abilities)
+                abilities.Add(new XElement("ability", a));
+
+            pokemon.Add(abilities);
+            pokemon.Add(new XElement("hiddenAbility", p.HiddenAbility));
+
+            XElement movesWillLearnByLevel = new XElement("movesWillLearnByLevel");
+            for (int i = 0; i < p.MovesWillLearnByLevel.Count; ++i)
+            {
+                XElement move = new XElement("move",p.MovesWillLearnByLevel[i].idMove);
+                move.Add(new XAttribute("level", p.MovesWillLearnByLevel[i].level));
+                movesWillLearnByLevel.Add(move);
+            }
+            pokemon.Add(movesWillLearnByLevel);
+
+            XElement genresPercentaje = new XElement("genresPercentage");
+            genresPercentaje.Add(new XElement("male", p.GenresPercentage[0]));
+            genresPercentaje.Add(new XElement("female", p.GenresPercentage[1]));
+            pokemon.Add(genresPercentaje);
+
+            XElement eggMoves = new XElement("eggMoves");
+            for (int i = 0; i < p.EggMoves.Count; ++i)
+                genresPercentaje.Add(new XElement("move", p.EggMoves[i]));
+            pokemon.Add(eggMoves);
+
+            XElement eggGroups = new XElement("eggGroups");
+            for(int i = 0; i < p.EggGroups.Length; ++i)
+                genresPercentaje.Add(new XElement("eggGroup", p.GenresPercentage[i]));
+            pokemon.Add(eggGroups);
+
+            pokemon.Add(new XElement("levelType", p.LevelType));
+            pokemon.Add(new XElement("isMega", p.IsMega));
+            pokemon.Add(new XElement("isLegendary", p.IsLegendary));
+
+            pokemon.Add(new XElement("healthEV", p.GivedEVs[PokeStat.Health]));
+            pokemon.Add(new XElement("attackEV", p.GivedEVs[PokeStat.Attack]));
+            pokemon.Add(new XElement("defenseEV", p.GivedEVs[PokeStat.Defense]));
+            pokemon.Add(new XElement("specialAttackEV", p.GivedEVs[PokeStat.SpecialAttack]));
+            pokemon.Add(new XElement("specialDefenseEV", p.GivedEVs[PokeStat.SpecialDefense]));
+            pokemon.Add(new XElement("speedEV", p.GivedEVs[PokeStat.Speed]));
+
+            pokemon.Add(new XElement("experienceGives", p.ExperienceGives));
 
             return pokemon;
         }
@@ -200,9 +264,8 @@ namespace Classes.Lists
             p.Name = e.Element("name").Value;
             p.Category = e.Element("category").Value;
             p.Habitat = e.Element("habitat").Value;
-            p.FileName = e.Element("fileName").Value;
             p.Description = e.Element("description").Value;
-            p.FileName = e.Element("fileName").Value;
+            p.FileName = e.Element("name").Value.ToLower();
             p.Height = Convert.ToUInt16(e.Element("height").Value);
             p.Weight = Convert.ToUInt16(e.Element("weight").Value);
             p.Color = Color.FromName(e.Element("color").Value);
@@ -222,11 +285,9 @@ namespace Classes.Lists
 
             List<XElement> abilities = e.Element("abilities").Elements("ability").ToList();
             for (int i = 0; i < abilities.Count; ++i)
-            {
-                string s = abilities[i].Value;
-                if (s != null)
-                    p.Abilities[i] = Convert.ToByte(s);
-            }
+                p.Abilities[i] = abilities[i].Value;
+
+            p.HiddenAbility = e.Element("hiddenAbility").Value;
 
             List<XElement> movesWillLearnByLevel = e.Element("movesWillLearnByLevel").Elements("move").ToList();
             for (int i = 0; i < movesWillLearnByLevel.Count; ++i)
@@ -235,6 +296,10 @@ namespace Classes.Lists
                 if (s != null)
                     p.MovesWillLearnByLevel.Add(new OPokemon.MoveWillLearnByLevel(Convert.ToByte(movesWillLearnByLevel[i].Attribute("level").Value), s));
             }
+
+            List<XElement> eggMoves = e.Element("eggMoves").Elements("move").ToList();
+            for (int i = 0; i < eggMoves.Count; ++i)
+                    p.EggMoves.Add(eggMoves[i].Value);         
 
             XElement genres = e.Element("genresPercentage");
             p.GenresPercentage[0] = Convert.ToByte(genres.Element("male").Value);
@@ -255,7 +320,7 @@ namespace Classes.Lists
             p.GivedEVs[PokeStat.SpecialDefense] = Convert.ToByte(e.Element("specialDefenseEV").Value);
             p.GivedEVs[PokeStat.Speed] = Convert.ToByte(e.Element("speedEV").Value);
 
-            p.ExperienceGives = Convert.ToByte(e.Element("experienceGives").Value);
+            p.ExperienceGives = Convert.ToInt16(e.Element("experienceGives").Value);
 
             return p;
         }

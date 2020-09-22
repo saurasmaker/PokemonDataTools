@@ -50,7 +50,8 @@ namespace Classes
         public int StepsToHatch { get; set; }
         public bool IsMega { get; set; }
         public bool IsLegendary { get; set; }
-        public short[] Abilities { get; set; }
+        public string[] Abilities { get; set; }
+        public string HiddenAbility { get; set; }
 
         public List<Evolution> Evolutions { get; set; }
 
@@ -83,7 +84,7 @@ namespace Classes
             EggMoves = new List<string>();
             GivedEVs = new byte[6] { 0, 0, 0, 0, 0, 0 };
             GenresPercentage = new byte[2] { 0, 0 };
-            Abilities = new short[3] { 0, 0, 0 };
+            Abilities = new string[2] { "", ""};
             MovesWillLearnByLevel = new List<MoveWillLearnByLevel>();
             Evolutions = new List<Evolution>();
         }
@@ -101,9 +102,9 @@ namespace Classes
             "\n Types: " + PokeType.TypesNames[Types[0]] + " / " + PokeType.TypesNames[Types[1]] +
 
             "\n\n ---Abilities--- " +
-            "\n  -Ability 1: " + PokeAbility.AbilitiesNames[Abilities[0]] +
-            "\n  -Ability 2: " + PokeAbility.AbilitiesNames[Abilities[1]] +
-            "\n  -Hidden: " + PokeAbility.AbilitiesNames[Abilities[1]] +
+            "\n  -Ability 1: " + Abilities[0] +
+            "\n  -Ability 2: " + Abilities[1] +
+            "\n  -Hidden: " + Abilities[2] +
 
             "\n\n ---Base Stats--- " +
             "\n Health: " + Health +

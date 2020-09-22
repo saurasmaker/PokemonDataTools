@@ -40,3 +40,4 @@
  **El valor no puede ser nulo.
 Nombre del parámetro: outputFileName**
 21/09/2020 23:59:03 => Project asdf saved in D:\SauraSMaker\Escritorio\Proyectos PokemonTools\asdf
+22/09/2020 13:33:40 => Application initilizated.
