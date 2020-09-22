@@ -337,13 +337,60 @@ namespace PokemonDataTools.Classes.Tools
 
         public static MovesList MovesList(string path)
         {
+            MovesList moves = new MovesList();
 
-            return null;
+            string line;
+
+            StreamReader file = new StreamReader(path);
+            while ((line = file.ReadLine()) != null)
+            {
+                PokeMove p = new PokeMove();
+                string[] attributes = line.Split(',');
+                p.Id = Convert.ToInt32(attributes[0]);
+                p.Name = attributes[2];
+                p.EffectCode = attributes[3];
+                p.Power = Convert.ToSByte(attributes[4]);
+                
+                for(byte i = 0; i < PokeType.TypesNames.Length; ++i)
+                    if (PokeType.TypesNames[i].ToUpper().Equals(attributes[5]))
+                    {
+                        p.Type = i;
+                        break;
+                    }
+
+                for(byte i = 0; i < PokeMove.CategoryNames.Length; ++i)
+                    if (PokeMove.CategoryNames[i].ToUpper().Equals(attributes[6]))
+                    {
+                        p.Category = i;
+                        break;
+                    }
+
+                p.Accuracy = Convert.ToByte(attributes[7]);
+                p.PP = Convert.ToByte(attributes[8]);
+                p.EffectProbability = Convert.ToByte(attributes[9]);
+
+                switch (attributes[10])
+                {//En desarrollo
+                    case "00":
+                        p.Target = PokeMove.TargetAllPokemon;
+                        break;
+                }
+
+                p.Priority = Convert.ToByte(attributes[11]);
+
+                for (int i = 13; i < attributes.Length - 13; ++i)
+                    p.Description += attributes[i];
+
+                if (p.Name != null)
+                    moves.AddPokeMove(p);
+            }
+
+            return moves;
         }
 
         public static AbilitiesList AbilitiesList(string path)
         {
-
+            
 
             return null;
         }

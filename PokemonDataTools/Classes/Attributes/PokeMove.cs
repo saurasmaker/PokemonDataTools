@@ -7,6 +7,37 @@ namespace Classes
     {
         #region Static Attributes
 
+
+        /*
+         * Id
+         * Nombre interno
+         * Nombre
+         * Codigo efecto
+         * Poder
+         * tipo
+         * categoria
+         * precision
+         * pp
+         * effect probability
+         * objetivo
+         * prioridad
+         * 
+         * etiquetas:
+         * a - contacto
+         * b - se puede proteger con protect
+         * c - capamagica
+         * d - robo
+         * e - se puede copiar por mov espejoç
+         * f - aplica roca del rey
+         * g - si esta congelado y lo usa se descongela
+         * h - alta probabilidad de golpe critico
+         * i - cura
+         * j - perforacion
+         * k - es de sonido
+         * l - si gravedad -> no se puede usar
+         * 
+         * descripcion
+         */
         public static string[] CategoryNames = new string[] {
             "Physical", "Special", "State"
         };
@@ -43,6 +74,7 @@ namespace Classes
         private byte category;
         private byte accuracy; //Si está en '0' no se puede esquivar el movimiento. 
         private sbyte power;
+        private byte criticalProbability;
         private byte effectProbability;
 
         public int Id { get; set; }
@@ -50,12 +82,24 @@ namespace Classes
         public string Description { get; set; }
         public byte Repetitions { get; set; } //How many times the movement is repeated after the first use
         public byte RepetitionsInTurn { get; set; } //How many times the movement is repeated after the first use
-        public sbyte Recover { get; set; } //percentage of life gained based on damage done. If this attribute is negative, instead of recover will be a recoil of health.
+        public sbyte RecoverByDamage { get; set; } //percentage of life gained based on damage done. If this attribute is negative, instead of recover will be a recoil of health.
         public byte PP { get; set; }
-        public bool Contact { get; set; }
         public byte Target { get; set; }
         public byte Priority { get; set; }
         public string EffectCode { get; set; }
+
+        public bool Contact { get; set; }
+        public bool IsDance { get; set; }
+        public bool CanBeProtected { get; set; }
+        public bool AffectedByBounceEffect { get; set; }
+        public bool CanSteal { get; set; }
+        public bool CanCopy { get; set; }
+        public bool AffectedByKingsRock { get; set; }
+        public bool CanDefrost { get; set; }
+        public bool IsPerforation { get; set; }
+        public bool IsSound { get; set; }
+        public bool AffectedByGravity { get; set; }
+
 
         #endregion
 
@@ -151,9 +195,20 @@ namespace Classes
             }
         }
 
+        public byte CriticalEffectProbability
+        {
+            get { return criticalProbability; }
+            set
+            {
+                if (criticalProbability > 100)
+                    criticalProbability = 0;
+                else criticalProbability = value;
 
-        #endregion
+
+                #endregion
 
 
+            }
+        }
     }
 }

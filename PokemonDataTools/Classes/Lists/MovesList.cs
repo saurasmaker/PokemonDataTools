@@ -201,7 +201,7 @@ namespace Classes.Lists
             move.Add(new XElement("category", m.Category));
             move.Add(new XElement("accuarcy", m.Accuracy));
             move.Add(new XElement("power", m.Power));
-            move.Add(new XElement("recover", m.Recover));
+            move.Add(new XElement("recover", m.RecoverByDamage));
             move.Add(new XElement("repetitions", m.Repetitions));
             move.Add(new XElement("repetitionsInTurn", m.RepetitionsInTurn));
             move.Add(new XElement("target", m.Target));
@@ -224,7 +224,7 @@ namespace Classes.Lists
             p.Category = Convert.ToByte(e.Element("category").Value);
             p.Accuracy = Convert.ToByte(e.Element("accuarcy").Value);
             p.Power = Convert.ToSByte(e.Element("power").Value);
-            p.Recover = Convert.ToSByte(e.Element("recover").Value);
+            p.RecoverByDamage = Convert.ToSByte(e.Element("recover").Value);
             p.Repetitions = Convert.ToByte(e.Element("repetitions").Value);
             p.RepetitionsInTurn = Convert.ToByte(e.Element("repetitionsInTurn").Value);
             p.Target = Convert.ToByte(e.Element("target").Value);
