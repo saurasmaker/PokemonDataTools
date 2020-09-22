@@ -55,20 +55,12 @@ namespace Classes
 
         public List<Evolution> Evolutions { get; set; }
 
-        //Satats base of the pokémon.
-        public byte Health { get; set; }
-        public byte Attack { get; set; }
-        public byte SpecialAttack { get; set; }
-        public byte Defense { get; set; }
-        public byte SpecialDefense { get; set; }
-        public byte Speed { get; set; }
-
         public short ExperienceGives { get; set; }
-
 
         private string description;
         private byte[] types;
         private byte[] givedEVs;
+        private byte[] baseStats;
         private byte levelType;
         private byte[] eggGroups;
         private byte[] genresPercentage;
@@ -81,8 +73,10 @@ namespace Classes
         public OPokemon()
         {
             Types = new byte[2] { 0, 0 };
+            EggGroups = new byte[2] { 0, 0 };
             EggMoves = new List<string>();
             GivedEVs = new byte[6] { 0, 0, 0, 0, 0, 0 };
+            BaseStats = new byte[6] { 0, 0, 0, 0, 0, 0 };
             GenresPercentage = new byte[2] { 0, 0 };
             Abilities = new string[2] { "", ""};
             MovesWillLearnByLevel = new List<MoveWillLearnByLevel>();
@@ -93,33 +87,40 @@ namespace Classes
         #region Methods
         public string Show()
         {
-            return (
-            "\n ||----- " + Name + " -----||" +
+            string pokemonInfo = "\n ||----- " + Name + " -----||" +
             "\n Category: " + Category +
             "\n Description: " + Description +
             "\n Height: " + Height +
             "\n Weight: " + Weight +
             "\n Types: " + PokeType.TypesNames[Types[0]] + " / " + PokeType.TypesNames[Types[1]] +
+            "\n\n ---Abilities--- ";
 
-            "\n\n ---Abilities--- " +
-            "\n  -Ability 1: " + Abilities[0] +
-            "\n  -Ability 2: " + Abilities[1] +
-            "\n  -Hidden: " + Abilities[2] +
+            for (int i = 0; i < Abilities.Length; ++i)
+                pokemonInfo += "\n  -Ability" + i + ": " + Abilities[i];
 
+            pokemonInfo += "\n  -Hidden: " + HiddenAbility;
+
+            pokemonInfo +=
             "\n\n ---Base Stats--- " +
-            "\n Health: " + Health +
-            "\n Attack: " + Attack +
-            "\n Special Attack: " + SpecialAttack +
-            "\n Defense: " + Defense +
-            "\n Special Defense: " + SpecialDefense +
-            "\n Speed: " + Speed +
+            "\n Health: " + BaseStats[PokeStat.Health] +
+            "\n Attack: " + BaseStats[PokeStat.Attack] +
+            "\n Defense: " + BaseStats[PokeStat.Defense] +
+            "\n Special Attack: " + BaseStats[PokeStat.SpecialAttack] +
+            "\n Special Defense: " + BaseStats[PokeStat.SpecialDefense] +
+            "\n Speed: " + BaseStats[PokeStat.Speed] +
 
             "\n\n ---Reproduction---" +
             "\n  -Male: " + GenresPercentage[0] +
             "\n  -Female: " + GenresPercentage[1] +
-            "\n  -Egg Groups: " + PokeEggGroup.EggGroupNames[EggGroups[0]] + ", " + PokeEggGroup.EggGroupNames[EggGroups[1]] +
+            "\n  -Egg Groups: ";
 
-            "\n\n ---EVs it Gives--- " +
+            for (int i = 0; i < eggGroups.Length; ++i)
+            {
+                if (i != 0) pokemonInfo += ", " + PokeEggGroup.EggGroupNames[EggGroups[i]];
+                else pokemonInfo += PokeEggGroup.EggGroupNames[EggGroups[i]];
+            }
+
+            pokemonInfo += "\n\n ---EVs it Gives--- " +
             "\n Health: " + GivedEVs[PokeStat.Health] +
             "\n Attack: " + GivedEVs[PokeStat.Attack] +
             "\n Special Attack: " + GivedEVs[PokeStat.SpecialAttack] +
@@ -127,8 +128,9 @@ namespace Classes
             "\n Special Defense: " + GivedEVs[PokeStat.SpecialDefense] +
             "\n Speed: " + GivedEVs[PokeStat.Speed] +
 
-            "\n\n Level Type: " + PokeLevelType.LevelTypesNames[LevelType] + "\n"
-            );
+            "\n\n Level Type: " + PokeLevelType.LevelTypesNames[LevelType] + "\n";
+
+            return pokemonInfo;
         }
 
 
@@ -184,6 +186,24 @@ namespace Classes
                         return;
                     }
                     else givedEVs[i] = value[i];
+
+            }
+        }
+
+        public byte[] BaseStats
+        {
+            get { return baseStats; }
+            set
+            {
+                baseStats = new byte[6] { 0, 0, 0, 0, 0, 0 };
+
+                for (byte i = 0; i < 6; ++i)
+                    if (value[i] > 255)
+                    {
+                        Console.WriteLine("Not valid EVs {0} in position {1}", PokeStat.StatsNames[i], i);
+                        return;
+                    }
+                    else baseStats[i] = value[i];
 
             }
         }

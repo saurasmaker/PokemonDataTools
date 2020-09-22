@@ -140,6 +140,20 @@ namespace Forms
             else
                 new SearchPokemonByName(this, SearchPokemonByName.Remove, pokedex).Show();
         }
+
+        private void btnShowPokedex_Click(object sender, EventArgs e)
+        {
+            if (pokedex == null)
+            {
+                if (MessageBox.Show("There is no project loaded. You cannot show a pokémon if there is no project in memory. Do you want to create a project?", "Project error.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    GenerateNewProyect();
+            }
+            else if (pokedex.PokemonList.Count.Equals(0))
+                MessageBox.Show("You cannot show a pokémon if there is no pokemon in memory", "Project error.");
+
+            else
+                OpenChildForm(new ShowPokemonForm(pokedex));
+        }
         #endregion
 
         #region MovesList Tools
@@ -397,5 +411,7 @@ namespace Forms
 
 
         #endregion
+
+        
     }
 }

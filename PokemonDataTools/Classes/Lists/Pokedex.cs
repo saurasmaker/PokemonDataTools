@@ -192,7 +192,7 @@ namespace Classes.Lists
             pokemon.Add(new XElement("habitat", p.Habitat));
             pokemon.Add(new XElement("description", p.Description));
             pokemon.Add(new XElement("filename", p.FileName));
-            pokemon.Add(new XElement("height", p.Health));
+            pokemon.Add(new XElement("height", p.Height));
             pokemon.Add(new XElement("weight", p.Weight));
             pokemon.Add(new XElement("color", p.Color.Name));
             pokemon.Add(new XElement("rareness", p.Rareness));
@@ -202,12 +202,12 @@ namespace Classes.Lists
             pokemon.Add(new XElement("type1", p.Types[0]));
             pokemon.Add(new XElement("type2", p.Types[1]));
 
-            pokemon.Add(new XElement("health", p.Health));
-            pokemon.Add(new XElement("attack", p.Attack));
-            pokemon.Add(new XElement("defense", p.Defense));
-            pokemon.Add(new XElement("specialAttack", p.SpecialAttack));
-            pokemon.Add(new XElement("specialDefense", p.SpecialDefense));
-            pokemon.Add(new XElement("seed", p.Speed));
+            pokemon.Add(new XElement("health", p.BaseStats[PokeStat.Health]));
+            pokemon.Add(new XElement("attack", p.BaseStats[PokeStat.Attack]));
+            pokemon.Add(new XElement("defense", p.BaseStats[PokeStat.Defense]));
+            pokemon.Add(new XElement("specialAttack", p.BaseStats[PokeStat.SpecialAttack]));
+            pokemon.Add(new XElement("specialDefense", p.BaseStats[PokeStat.SpecialDefense]));
+            pokemon.Add(new XElement("seed", p.BaseStats[PokeStat.Speed]));
 
             XElement abilities = new XElement("abilities");
             foreach (string a in p.Abilities)
@@ -276,12 +276,12 @@ namespace Classes.Lists
             p.Types[0] = Convert.ToByte(e.Element("type1").Value);
             p.Types[0] = Convert.ToByte(e.Element("type2").Value);
 
-            p.Health = Convert.ToByte(e.Element("health").Value);
-            p.Attack = Convert.ToByte(e.Element("attack").Value);
-            p.SpecialAttack = Convert.ToByte(e.Element("specialAttack").Value);
-            p.Defense = Convert.ToByte(e.Element("defense").Value);
-            p.SpecialDefense = Convert.ToByte(e.Element("specialDefense").Value);
-            p.Speed = Convert.ToByte(e.Element("speed").Value);
+            p.BaseStats[PokeStat.Health] = Convert.ToByte(e.Element("health").Value);
+            p.BaseStats[PokeStat.Attack] = Convert.ToByte(e.Element("attack").Value);
+            p.BaseStats[PokeStat.Defense] = Convert.ToByte(e.Element("defense").Value);
+            p.BaseStats[PokeStat.SpecialAttack] = Convert.ToByte(e.Element("specialAttack").Value);
+            p.BaseStats[PokeStat.SpecialDefense] = Convert.ToByte(e.Element("specialDefense").Value);
+            p.BaseStats[PokeStat.Speed] = Convert.ToByte(e.Element("speed").Value);
 
             List<XElement> abilities = e.Element("abilities").Elements("ability").ToList();
             for (int i = 0; i < abilities.Count; ++i)

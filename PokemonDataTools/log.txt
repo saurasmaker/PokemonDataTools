@@ -41,3 +41,14 @@
 Nombre del parámetro: outputFileName**
 21/09/2020 23:59:03 => Project asdf saved in D:\SauraSMaker\Escritorio\Proyectos PokemonTools\asdf
 22/09/2020 13:33:40 => Application initilizated.
+22/09/2020 14:33:00 => Application initilizated.
+22/09/2020 14:33:29 => Project pruebas loaded from D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+22/09/2020 14:35:13 => Application initilizated.
+22/09/2020 14:35:29 => Project pruebas loaded from D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+22/09/2020 14:46:20 => Application initilizated.
+22/09/2020 14:46:57 => Project pruebas loaded from D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+22/09/2020 14:47:51 => Application initilizated.
+22/09/2020 14:48:35 => Application initilizated.
+22/09/2020 14:48:56 => Project pruebas loaded from D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+22/09/2020 14:50:22 => Application initilizated.
+22/09/2020 14:51:46 => Project pruebas loaded from D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas

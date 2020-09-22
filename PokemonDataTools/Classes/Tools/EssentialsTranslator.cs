@@ -56,22 +56,22 @@ namespace PokemonDataTools.Classes.Tools
                                 p.Types[1] = i;
 
                         string[] stats = file.ReadLine().Split('=')[1].Split(',');
-                        p.Health = Convert.ToByte(stats[PokeStat.Health]);
-                        p.Attack = Convert.ToByte(stats[PokeStat.Attack]);
-                        p.Defense = Convert.ToByte(stats[PokeStat.Defense]);
-                        p.SpecialAttack = Convert.ToByte(stats[PokeStat.SpecialAttack]);
-                        p.SpecialDefense = Convert.ToByte(stats[PokeStat.SpecialDefense]);
-                        p.Speed = Convert.ToByte(stats[PokeStat.Speed]);
+                        p.BaseStats[PokeStat.Health] = Convert.ToByte(stats[PokeStat.Health]);
+                        p.BaseStats[PokeStat.Attack] = Convert.ToByte(stats[PokeStat.Attack]);
+                        p.BaseStats[PokeStat.Defense] = Convert.ToByte(stats[PokeStat.Defense]);
+                        p.BaseStats[PokeStat.SpecialAttack] = Convert.ToByte(stats[PokeStat.SpecialAttack]);
+                        p.BaseStats[PokeStat.SpecialDefense] = Convert.ToByte(stats[PokeStat.SpecialDefense]);
+                        p.BaseStats[PokeStat.Speed] = Convert.ToByte(stats[PokeStat.Speed]);
                     }
                     else
                     {
                         string[] stats = type2[1].Split(',');
-                        p.Health = Convert.ToByte(stats[PokeStat.Health]);
-                        p.Attack = Convert.ToByte(stats[PokeStat.Attack]);
-                        p.Defense = Convert.ToByte(stats[PokeStat.Defense]);
-                        p.SpecialAttack = Convert.ToByte(stats[PokeStat.SpecialAttack]);
-                        p.SpecialDefense = Convert.ToByte(stats[PokeStat.SpecialDefense]);
-                        p.Speed = Convert.ToByte(stats[PokeStat.Speed]);
+                        p.BaseStats[PokeStat.Health] = Convert.ToByte(stats[PokeStat.Health]);
+                        p.BaseStats[PokeStat.Attack] = Convert.ToByte(stats[PokeStat.Attack]);
+                        p.BaseStats[PokeStat.Defense] = Convert.ToByte(stats[PokeStat.Defense]);
+                        p.BaseStats[PokeStat.SpecialAttack] = Convert.ToByte(stats[PokeStat.SpecialAttack]);
+                        p.BaseStats[PokeStat.SpecialDefense] = Convert.ToByte(stats[PokeStat.SpecialDefense]);
+                        p.BaseStats[PokeStat.Speed] = Convert.ToByte(stats[PokeStat.Speed]);
                     }
 
                     string genreRate = file.ReadLine().Split('=')[1];
@@ -144,7 +144,7 @@ namespace PokemonDataTools.Classes.Tools
                     for (byte i = 0; i < abilities.Length; ++i)
                         for (short j = 0; j < PokeAbility.AbilitiesNames.Length; ++j)
                             if(abilities[i].ToUpper().Equals(PokeAbility.AbilitiesNames[j].ToUpper()))
-                                p.Abilities[i] = j;
+                                p.Abilities[i] = abilities[j];
 
                     string isHiddenAbility = file.ReadLine();
                     if (isHiddenAbility.Split('=')[0].Equals("HiddenAbility"))
@@ -152,7 +152,7 @@ namespace PokemonDataTools.Classes.Tools
                         string hiddenAbility = isHiddenAbility.Split('=')[1];
                         for (short j = 0; j < PokeAbility.AbilitiesNames.Length; ++j)
                             if (hiddenAbility.ToUpper().Equals(PokeAbility.AbilitiesNames[j].ToUpper()))
-                                p.Abilities[2] = j;
+                                p.Abilities[2] = abilities[j];
 
                         string[] moves = file.ReadLine().Split('=')[1].Split(',');
                         for (int i = 0; i < moves.Length; ++i)

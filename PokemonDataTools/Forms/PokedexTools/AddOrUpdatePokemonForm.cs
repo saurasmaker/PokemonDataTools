@@ -141,12 +141,12 @@ namespace Forms.PokedexTools
             pokemon.GenresPercentage[0] = Convert.ToByte(numericUpDownMale.Value);
             pokemon.GenresPercentage[1] = Convert.ToByte(numericUpDownFemale.Value);
 
-            pokemon.Health = Convert.ToByte(numericUpDownHealth.Value);
-            pokemon.Attack = Convert.ToByte(numericUpDownAttack.Value);
-            pokemon.SpecialAttack = Convert.ToByte(numericUpDownSpecialAttack.Value);
-            pokemon.Defense = Convert.ToByte(numericUpDownDefense.Value);
-            pokemon.SpecialDefense = Convert.ToByte(numericUpDownSpecialDefense.Value);
-            pokemon.Speed = Convert.ToByte(numericUpDownSpeed.Value);
+            pokemon.BaseStats[PokeStat.Health] = Convert.ToByte(numericUpDownHealth.Value);
+            pokemon.BaseStats[PokeStat.Attack] = Convert.ToByte(numericUpDownAttack.Value);
+            pokemon.BaseStats[PokeStat.SpecialAttack] = Convert.ToByte(numericUpDownSpecialAttack.Value);
+            pokemon.BaseStats[PokeStat.Defense] = Convert.ToByte(numericUpDownDefense.Value);
+            pokemon.BaseStats[PokeStat.SpecialDefense] = Convert.ToByte(numericUpDownSpecialDefense.Value);
+            pokemon.BaseStats[PokeStat.Speed] = Convert.ToByte(numericUpDownSpeed.Value);
 
             pokemon.GivedEVs[PokeStat.Health] = Convert.ToByte(numericUpDownHealthEVs.Value);
             pokemon.GivedEVs[PokeStat.Attack] = Convert.ToByte(numericUpDownAttackEVs.Value);
@@ -158,9 +158,9 @@ namespace Forms.PokedexTools
             pokemon.Types[0] = Convert.ToByte(comboBoxType1.SelectedIndex);
             pokemon.Types[1] = Convert.ToByte(comboBoxType2.SelectedIndex);
 
-            pokemon.Abilities[0] = Convert.ToByte(comboBoxAbility1.SelectedIndex);
-            pokemon.Abilities[1] = Convert.ToByte(comboBoxAbility2.SelectedIndex);
-            pokemon.Abilities[2] = Convert.ToByte(comboBoxAbilityHidden.SelectedIndex);
+            pokemon.Abilities[0] = comboBoxAbility1.Text;
+            pokemon.Abilities[1] =comboBoxAbility2.Text;
+            pokemon.HiddenAbility = comboBoxAbilityHidden.Text;
 
             pokemon.LevelType = Convert.ToByte(comboBoxLevelType.SelectedIndex);
             pokemon.EggGroups[0] = Convert.ToByte(comboBoxEggGroup.SelectedIndex);
@@ -234,27 +234,27 @@ namespace Forms.PokedexTools
             numericUpDownWeight.Value = Convert.ToDecimal(pokemon.Weight);
 
             try
-            { numericUpDownHealth.Value = pokemon.Health;}
+            { numericUpDownHealth.Value = pokemon.BaseStats[PokeStat.Health]; }
             catch (Exception)
             {numericUpDownHealth.Value = 1;}
             try
-            { numericUpDownAttack.Value = pokemon.Attack; }
+            { numericUpDownAttack.Value = pokemon.BaseStats[PokeStat.Attack]; }
             catch (Exception)
             { numericUpDownAttack.Value = 1; }
             try
-            { numericUpDownDefense.Value = pokemon.Defense; }
+            { numericUpDownDefense.Value = pokemon.BaseStats[PokeStat.Defense]; }
             catch (Exception)
             { numericUpDownDefense.Value = 1; }
             try
-            { numericUpDownSpecialAttack.Value = pokemon.SpecialAttack; }
+            { numericUpDownSpecialAttack.Value = pokemon.BaseStats[PokeStat.SpecialAttack]; }
             catch (Exception)
             { numericUpDownSpecialAttack.Value = 1; }
             try
-            { numericUpDownSpecialDefense.Value = pokemon.SpecialDefense; }
+            { numericUpDownSpecialDefense.Value = pokemon.BaseStats[PokeStat.SpecialDefense]; }
             catch (Exception)
             { numericUpDownSpecialDefense.Value = 1; }
             try
-            { numericUpDownSpeed.Value = pokemon.Speed; }
+            { numericUpDownSpeed.Value = pokemon.BaseStats[PokeStat.Speed]; }
             catch (Exception)
             { numericUpDownSpeed.Value = 1; }
 
@@ -265,9 +265,17 @@ namespace Forms.PokedexTools
             numericUpDownSpecialDefenseEVs.Value = pokemon.GivedEVs[PokeStat.SpecialDefense];
             numericUpDownSpeedEVs.Value = pokemon.GivedEVs[PokeStat.Speed];
 
-            comboBoxAbility1.SelectedIndex = pokemon.Abilities[0];
-            comboBoxAbility2.SelectedIndex = pokemon.Abilities[1];
-            comboBoxAbilityHidden.SelectedIndex = pokemon.Abilities[2];
+            for(int i = 0; i < comboBoxAbility1.Items.Count; ++i)
+                if(comboBoxAbility1.Items[i].ToString().ToUpper().Equals(pokemon.Abilities[0].ToUpper()))
+                    comboBoxAbility1.SelectedIndex = i;
+            
+            for (int i = 0; i < comboBoxAbility2.Items.Count; ++i)
+                if (comboBoxAbility2.Items[i].ToString().ToUpper().Equals(pokemon.Abilities[1].ToUpper()))
+                    comboBoxAbility2.SelectedIndex = i;
+
+            for (int i = 0; i < comboBoxAbilityHidden.Items.Count; ++i)
+                if (comboBoxAbilityHidden.Items[i].ToString().ToUpper().Equals(pokemon.HiddenAbility.ToUpper()))
+                    comboBoxAbilityHidden.SelectedIndex = i;
 
             comboBoxLevelType.SelectedIndex = pokemon.LevelType;
 
