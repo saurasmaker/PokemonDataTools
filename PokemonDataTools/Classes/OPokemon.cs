@@ -22,6 +22,12 @@ namespace Classes
             }
         }
 
+        public struct WildItem
+        {
+            public int itemId;
+            public byte probabilityPercentage;
+        }
+
         public struct MoveWillLearnByLevel
         {
             public byte level;
@@ -50,8 +56,8 @@ namespace Classes
         public int StepsToHatch { get; set; }
         public bool IsMega { get; set; }
         public bool IsLegendary { get; set; }
-        public string[] Abilities { get; set; }
-        public string HiddenAbility { get; set; }
+        public int[] Abilities { get; set; }
+        public int HiddenAbility { get; set; }
 
         public List<Evolution> Evolutions { get; set; }
 
@@ -65,6 +71,7 @@ namespace Classes
         private byte[] eggGroups;
         private byte[] genresPercentage;
         private List<MoveWillLearnByLevel> movesWillLearnByLevel;
+        private List<WildItem> wildItems;
         private List<string> eggMoves; //Moves Id. Movements that the pokémon can learn by breeding.
 
         #endregion
@@ -78,8 +85,9 @@ namespace Classes
             GivedEVs = new byte[6] { 0, 0, 0, 0, 0, 0 };
             BaseStats = new byte[6] { 0, 0, 0, 0, 0, 0 };
             GenresPercentage = new byte[2] { 0, 0 };
-            Abilities = new string[2] { "", ""};
+            Abilities = new int[2] { 0, 0};
             MovesWillLearnByLevel = new List<MoveWillLearnByLevel>();
+            WildItems = new List<WildItem>();
             Evolutions = new List<Evolution>();
         }
         #endregion
@@ -119,6 +127,16 @@ namespace Classes
                 if (i != 0) pokemonInfo += ", " + PokeEggGroup.EggGroupNames[EggGroups[i]];
                 else pokemonInfo += PokeEggGroup.EggGroupNames[EggGroups[i]];
             }
+
+            pokemonInfo +=
+                "\n\n ---Moves---";
+            for (int i = 0; i < movesWillLearnByLevel.Count; ++i)
+                pokemonInfo += "\n  -" + movesWillLearnByLevel[i].idMove + " (lvl " + movesWillLearnByLevel[i].level + ")";
+
+            pokemonInfo +=
+                "\n\n ---Egg Moves---";
+            for (int i = 0; i < eggMoves.Count; ++i)
+                pokemonInfo += "\n  -" + eggMoves[i];
 
             pokemonInfo += "\n\n ---EVs it Gives--- " +
             "\n Health: " + GivedEVs[PokeStat.Health] +
@@ -237,11 +255,13 @@ namespace Classes
             {
                 return eggGroups;
             }
-            set {          
-                for(int i = 0; i < 2; ++i)
-                    if (!(value[i] < 16)) eggGroups = value;
+            set {
+                for (int i = 0; i < 2; ++i) {
+                    if (value[i] < 16) eggGroups = value;
+                    else Console.WriteLine("Not valid Egg Group value");
+                }
 
-                else Console.WriteLine("Not valid Egg Group value");
+                
             }
         }
 
@@ -250,6 +270,12 @@ namespace Classes
         {
             get { if (movesWillLearnByLevel == null) movesWillLearnByLevel = new List<MoveWillLearnByLevel>(); return movesWillLearnByLevel; }
             set { movesWillLearnByLevel = value; }
+        }
+
+        public List<WildItem> WildItems
+        {
+            get { if (wildItems == null) wildItems = new List<WildItem>(); return wildItems; }
+            set { wildItems = value; }
         }
 
         public List<string> EggMoves

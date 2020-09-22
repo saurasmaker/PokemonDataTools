@@ -210,7 +210,7 @@ namespace Classes.Lists
             pokemon.Add(new XElement("seed", p.BaseStats[PokeStat.Speed]));
 
             XElement abilities = new XElement("abilities");
-            foreach (string a in p.Abilities)
+            foreach (int a in p.Abilities)
                 abilities.Add(new XElement("ability", a));
 
             pokemon.Add(abilities);
@@ -285,9 +285,9 @@ namespace Classes.Lists
 
             List<XElement> abilities = e.Element("abilities").Elements("ability").ToList();
             for (int i = 0; i < abilities.Count; ++i)
-                p.Abilities[i] = abilities[i].Value;
+                p.Abilities[i] = Convert.ToInt16(abilities[i].Value);
 
-            p.HiddenAbility = e.Element("hiddenAbility").Value;
+            p.HiddenAbility = Convert.ToInt16(e.Element("hiddenAbility").Value);
 
             List<XElement> movesWillLearnByLevel = e.Element("movesWillLearnByLevel").Elements("move").ToList();
             for (int i = 0; i < movesWillLearnByLevel.Count; ++i)

@@ -114,7 +114,7 @@ namespace Forms
                     GenerateNewProyect();
             }
             else
-                OpenChildForm(new AddOrUpdatePokemonForm(pokedex));
+                OpenChildForm(new AddOrUpdatePokemonForm(pokedex, movesList, abilitiesList));
         }
 
         private void btnUpdatePokeFromPokedex_Click(object sender, EventArgs e)
@@ -128,7 +128,7 @@ namespace Forms
                 MessageBox.Show("You cannot update a pokémon if there is no pokemon in memory", "Project error.");
 
             else
-                new SearchPokemonByName(this, SearchPokemonByName.Updates, pokedex).Show();
+                new SearchPokemonByName(this, SearchPokemonByName.Updates, pokedex, movesList, abilitiesList).Show();
         }
 
         private void btnRemovePokeFromPokedex_Click(object sender, EventArgs e)
@@ -138,7 +138,7 @@ namespace Forms
             else if (pokedex.PokemonList.Count.Equals(0))
                 MessageBox.Show("ERROR");
             else
-                new SearchPokemonByName(this, SearchPokemonByName.Remove, pokedex).Show();
+                new SearchPokemonByName(this, SearchPokemonByName.Remove, pokedex, movesList, abilitiesList).Show();
         }
 
         private void btnShowPokedex_Click(object sender, EventArgs e)
@@ -355,7 +355,7 @@ namespace Forms
         {
             OpenFileDialog ofd = OpenTxtFile();
             if (ofd.ShowDialog() == DialogResult.OK)
-                pokedex = EssentialsTranslator.Pokedex(ofd.FileName);
+                pokedex = EssentialsTranslator.Pokedex(movesList, abilitiesList, itemsList, ofd.FileName);
 
             return;
         }

@@ -13,23 +13,29 @@ namespace Forms.PokedexTools
     {
         private Pokedex pokedex;
         private OPokemon pokemon;
+        private AbilitiesList abilities;
+        private MovesList moves;
 
         private List<OPokemon.MoveWillLearnByLevel> movesWillLearnByLevel;
         private List<PokeMove> canLearnMoves;
         private List<PokeMove> eggMoves;
 
-        public AddOrUpdatePokemonForm(Pokedex pokedex)
+        public AddOrUpdatePokemonForm(Pokedex pokedex, MovesList moves, AbilitiesList abilities)
         {
+            this.moves = moves;
+            this.abilities = abilities;
             this.pokedex = pokedex;
             InitializeComponent();
             InitializeComboBoxes();
         }
 
-        public AddOrUpdatePokemonForm(Pokedex pokedex, OPokemon pokemon)
+        public AddOrUpdatePokemonForm(Pokedex pokedex, OPokemon pokemon, MovesList moves, AbilitiesList abilities)
         {
             InitializeComponent();
             InitializeComboBoxes();
 
+            this.moves = moves;
+            this.abilities = abilities;
             this.pokedex = pokedex;
             this.pokemon = pokemon;
             FillData(pokemon);
@@ -40,10 +46,10 @@ namespace Forms.PokedexTools
         #region Methods
         private void InitializeComboBoxes()
         {
-            for (int i = 0; i < PokeAbility.AbilitiesNames.Length; i++) {             
-                comboBoxAbility1.Items.Add(PokeAbility.AbilitiesNames[i]);
-                comboBoxAbility2.Items.Add(PokeAbility.AbilitiesNames[i]);
-                comboBoxAbilityHidden.Items.Add(PokeAbility.AbilitiesNames[i]);
+            for (int i = 0; i < abilities.Abilities.Count; i++) {             
+                comboBoxAbility1.Items.Add(abilities.Abilities[i].Name);
+                comboBoxAbility2.Items.Add(abilities.Abilities[i].Name);
+                comboBoxAbilityHidden.Items.Add(abilities.Abilities[i].Name);
             }
             comboBoxAbility1.SelectedIndex = 0;
             comboBoxAbility2.SelectedIndex = 0;
@@ -158,9 +164,26 @@ namespace Forms.PokedexTools
             pokemon.Types[0] = Convert.ToByte(comboBoxType1.SelectedIndex);
             pokemon.Types[1] = Convert.ToByte(comboBoxType2.SelectedIndex);
 
-            pokemon.Abilities[0] = comboBoxAbility1.Text;
-            pokemon.Abilities[1] =comboBoxAbility2.Text;
-            pokemon.HiddenAbility = comboBoxAbilityHidden.Text;
+            for (int i = 0; i < abilities.Abilities.Count; ++i)
+                if (abilities.Abilities[i].Name.ToUpper().Equals(comboBoxAbility1.Text.ToUpper()))
+                {
+                    pokemon.Abilities[0] = abilities.Abilities[i].Id;
+                    break;
+                }
+
+            for (int i = 0; i < abilities.Abilities.Count; ++i)
+                if (abilities.Abilities[i].Name.ToUpper().Equals(comboBoxAbility2.Text.ToUpper()))
+                {
+                    pokemon.Abilities[0] = abilities.Abilities[i].Id;
+                    break;
+                }
+
+            for (int i = 0; i < abilities.Abilities.Count; ++i)
+                if (abilities.Abilities[i].Name.ToUpper().Equals(comboBoxAbilityHidden.Text.ToUpper()))
+                {
+                    pokemon.HiddenAbility = abilities.Abilities[i].Id;
+                    break;
+                }
 
             pokemon.LevelType = Convert.ToByte(comboBoxLevelType.SelectedIndex);
             pokemon.EggGroups[0] = Convert.ToByte(comboBoxEggGroup.SelectedIndex);
@@ -266,15 +289,15 @@ namespace Forms.PokedexTools
             numericUpDownSpeedEVs.Value = pokemon.GivedEVs[PokeStat.Speed];
 
             for(int i = 0; i < comboBoxAbility1.Items.Count; ++i)
-                if(comboBoxAbility1.Items[i].ToString().ToUpper().Equals(pokemon.Abilities[0].ToUpper()))
+                if(comboBoxAbility1.Items[i].ToString().ToUpper().Equals(abilities.Abilities[pokemon.Abilities[0]].Name.ToUpper()))
                     comboBoxAbility1.SelectedIndex = i;
             
             for (int i = 0; i < comboBoxAbility2.Items.Count; ++i)
-                if (comboBoxAbility2.Items[i].ToString().ToUpper().Equals(pokemon.Abilities[1].ToUpper()))
+                if (comboBoxAbility2.Items[i].ToString().ToUpper().Equals(abilities.Abilities[pokemon.Abilities[1]].Name.ToUpper()))
                     comboBoxAbility2.SelectedIndex = i;
 
             for (int i = 0; i < comboBoxAbilityHidden.Items.Count; ++i)
-                if (comboBoxAbilityHidden.Items[i].ToString().ToUpper().Equals(pokemon.HiddenAbility.ToUpper()))
+                if (comboBoxAbilityHidden.Items[i].ToString().ToUpper().Equals(abilities.Abilities[pokemon.HiddenAbility].Name.ToUpper()))
                     comboBoxAbilityHidden.SelectedIndex = i;
 
             comboBoxLevelType.SelectedIndex = pokemon.LevelType;

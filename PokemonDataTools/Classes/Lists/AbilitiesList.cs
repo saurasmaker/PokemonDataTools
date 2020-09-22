@@ -9,7 +9,7 @@ using Classes.Tools;
 
 namespace Classes.Lists
 {
-    class AbilitiesList
+    public class AbilitiesList
     {
         #region Attributes
         private static string defaultPath = Directory.GetCurrentDirectory() + "\\..\\..\\..\\saves\\abilities.xml";
