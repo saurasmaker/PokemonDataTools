@@ -408,41 +408,22 @@ namespace Forms
             fbd.SelectedPath = XMLTools.DefaultPath;
             if (fbd.ShowDialog() == DialogResult.OK)
             {
-                try
-                {
+                //try { 
                     EssentialsTranslator.ItemsList(itemsList, fbd.SelectedPath);
-                }
-                catch (Exception t) {
-                    MessageBox.Show("Error translating items. Check the log for more information.", "Message Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Log.Execute("Error translating items " + projectName + ".", t);
-                }
-                try
-                {
                     EssentialsTranslator.AbilitiesList(abilitiesList, fbd.SelectedPath);
-                }
-                catch (Exception t) {
-                    MessageBox.Show("Error translating abilities. Check the log for more information.", "Message Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Log.Execute("Error translating abilities " + projectName + ".", t);
-                }
-                try
-                {
                     EssentialsTranslator.MovesList(movesList, fbd.SelectedPath);
-                }
-                catch (Exception t) {
-                    MessageBox.Show("Error translating moves. Check the log for more information.", "Message Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Log.Execute("Error translating moves " + projectName + ".", t);
-                }
-                try
-                {
                     EssentialsTranslator.Pokedex(pokedex, movesList, abilitiesList, itemsList, fbd.SelectedPath);
-                }
-                catch (Exception t) {
-                    MessageBox.Show("Error translatting pokédex. Check the log for more information.", "Message Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Log.Execute("Error translatting pokédex " + projectName + ".", t);
-                }
 
-                MessageBox.Show("Project " + projectName + " translated from essentials succesfully.", "Message Info.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Log.Execute("Project " + projectName + " translated in " + fbd.SelectedPath);
+                    MessageBox.Show("Project " + projectName + " translated from essentials succesfully.", "Message Info.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Log.Execute("Project " + projectName + " translated in " + fbd.SelectedPath);
+                /*}
+                catch (Exception t)
+                {
+                    MessageBox.Show("Error translatting project. Check the log for more information.", "Message Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Log.Execute("Error translatting project " + projectName + ".", t);
+                }*/
+
+                
             }
         }
 
