@@ -109,7 +109,9 @@ namespace Classes
                     if (abilitiesList.Abilities[j].Id.Equals(Abilities[i]))
                         pokemonInfo += "\n  -Ability " + (i+1) + ": " + abilitiesList.Abilities[j].Name;
 
-            pokemonInfo += "\n  -Hidden: " + abilitiesList.Abilities[HiddenAbility].Name;
+            for (int i = 0; i < abilitiesList.Abilities.Count; ++i)
+                if (abilitiesList.Abilities[i].Id.Equals(HiddenAbility))
+                    pokemonInfo += "\n  -Hidden: " + abilitiesList.Abilities[i].Name;
 
             pokemonInfo +=
             "\n\n ---Base Stats--- " +
@@ -138,12 +140,15 @@ namespace Classes
                     if(movesList.Moves[j].Id.Equals(movesWillLearnByLevel[i].idMove)) 
                         pokemonInfo += "\n  -" + movesList.Moves[j].Name + " (lvl " + movesWillLearnByLevel[i].level + ")";
 
-            pokemonInfo +=
-                "\n\n ---Egg Moves---";
-            for (int i = 0; i < eggMoves.Count; ++i)
-                for (int j = 0; j < movesList.Moves.Count; ++j)
-                    if (movesList.Moves[j].Id.Equals(eggMoves[i]))
-                        pokemonInfo += "\n  -" + movesList.Moves[j].Name;
+            if (eggMoves.Count > 0)
+            {
+                pokemonInfo +=
+                    "\n\n ---Egg Moves---";
+                for (int i = 0; i < eggMoves.Count; ++i)
+                    for (int j = 0; j < movesList.Moves.Count; ++j)
+                        if (movesList.Moves[j].Id.Equals(eggMoves[i]))
+                            pokemonInfo += "\n  -" + movesList.Moves[j].Name;
+            }
 
             pokemonInfo += "\n\n ---EVs it Gives--- " +
             "\n Health: " + GivedEVs[PokeStat.Health] +
@@ -154,6 +159,16 @@ namespace Classes
             "\n Speed: " + GivedEVs[PokeStat.Speed] +
 
             "\n\n Level Type: " + PokeLevelType.LevelTypesNames[LevelType] + "\n";
+
+            if (Evolutions.Count > 0)
+            {
+                pokemonInfo +=
+                   "\n\n ---Evolution---";
+                for (int i = 0; i < Evolutions.Count; ++i)
+                    pokemonInfo += "\n\n Pokemon: " + Evolutions[i].namePokemon +
+                    "\n Kind: " + Evolutions[i].evolutionType +
+                    "\n Need: " + Evolutions[i].need;
+            }
 
             return pokemonInfo;
         }
