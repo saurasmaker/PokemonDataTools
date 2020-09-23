@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,18 +14,9 @@ namespace Classes.Lists
     {
         #region Attributes
         private static string defaultPath = Directory.GetCurrentDirectory() + "\\..\\..\\..\\saves\\abilities.xml";
-        private string filePath;
 
-        public string FilePath
-        {
-            get { return filePath; }
-            set
-            {
-                filePath = value + "\\abilities.xml";
-            }
-        }
+        public string FilePath { get; set; }
 
-       
         public List<PokeAbility> Abilities { get; set; }
         #endregion
 
@@ -119,35 +111,38 @@ namespace Classes.Lists
 
             doc.Add(root);
 
-            doc.Save(FilePath);
+            doc.Save(FilePath + "\\abilities.xml");
 
             return;
         }
 
-        public List<PokeAbility> Load()
+        public void Load()
         {
-            XDocument doc = XMLTools.GetXMLDocument(filePath);
-            XElement root = doc.Root;
+            XDocument doc = XMLTools.GetXMLDocument(FilePath);
 
             if (doc != null)
             {
-                int i = 0;
-                foreach (XElement e in root.Elements("ability"))
+                XElement root = doc.Root;
+
+                if (doc != null)
                 {
-                    i++;
-                    try
+                    int i = 0;
+                    foreach (XElement e in root.Elements("ability"))
                     {
-                        PokeAbility newAbility = LoadDataInAbility(e);
-                        Abilities.Add(newAbility);
-                    }
-                    catch (Exception)
-                    {
-                        Console.WriteLine("Ability in the position {0} could not be read", i);
+                        i++;
+                        try
+                        {
+                            PokeAbility newAbility = LoadDataInAbility(e);
+                            Abilities.Add(newAbility);
+                        }
+                        catch (Exception)
+                        {
+                            Console.WriteLine("Ability in the position {0} could not be read", i);
+                        }
                     }
                 }
             }
-
-            return Abilities;
+            return;
         }
         #endregion
 

@@ -1,3 +1,1639 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet href = 'MyStyles.css' title = 'Compact' type = 'text/css'?>
-<moves />
+<moves>
+  <item id="0">
+    <name>Repelente</name>
+  </item>
+  <item id="1">
+    <name>Super Repel</name>
+  </item>
+  <item id="2">
+    <name>Max Repel</name>
+  </item>
+  <item id="3">
+    <name>Flauta Negra</name>
+  </item>
+  <item id="4">
+    <name>Flauta Blanca</name>
+  </item>
+  <item id="5">
+    <name>Miel</name>
+  </item>
+  <item id="6">
+    <name>Cuerda Huida</name>
+  </item>
+  <item id="7">
+    <name>Parte Roja</name>
+  </item>
+  <item id="8">
+    <name>Parte Amarilla</name>
+  </item>
+  <item id="9">
+    <name>Parte Azul</name>
+  </item>
+  <item id="10">
+    <name>Parte Verde</name>
+  </item>
+  <item id="11">
+    <name>Piedra Fuego</name>
+  </item>
+  <item id="12">
+    <name>Piedra Trueno</name>
+  </item>
+  <item id="13">
+    <name>Piedra Agua</name>
+  </item>
+  <item id="14">
+    <name>Piedra Hoja</name>
+  </item>
+  <item id="15">
+    <name>Piedra Lunar</name>
+  </item>
+  <item id="16">
+    <name>Piedra Solar</name>
+  </item>
+  <item id="17">
+    <name>Piedra Noche</name>
+  </item>
+  <item id="18">
+    <name>Piedra Alba</name>
+  </item>
+  <item id="19">
+    <name>Shiny Stone</name>
+  </item>
+  <item id="20">
+    <name>Red Apricorn</name>
+  </item>
+  <item id="21">
+    <name>Ylw Apricorn</name>
+  </item>
+  <item id="22">
+    <name>Bonguri Azul</name>
+  </item>
+  <item id="23">
+    <name>Grn Apricorn</name>
+  </item>
+  <item id="24">
+    <name>Pnk Apricorn</name>
+  </item>
+  <item id="25">
+    <name>Wht Apricorn</name>
+  </item>
+  <item id="26">
+    <name>Bonguri Negr</name>
+  </item>
+  <item id="27">
+    <name>Fósil Hélix</name>
+  </item>
+  <item id="28">
+    <name>Fósil Domo</name>
+  </item>
+  <item id="29">
+    <name>Ambar Viejo</name>
+  </item>
+  <item id="30">
+    <name>Root Fossil</name>
+  </item>
+  <item id="31">
+    <name>Claw Fossil</name>
+  </item>
+  <item id="32">
+    <name>Skull Fossil</name>
+  </item>
+  <item id="33">
+    <name>Fosil Coraza</name>
+  </item>
+  <item id="34">
+    <name>Cover Fossil</name>
+  </item>
+  <item id="35">
+    <name>Plume Fossil</name>
+  </item>
+  <item id="36">
+    <name>Pretty Wing</name>
+  </item>
+  <item id="37">
+    <name>Miniseta</name>
+  </item>
+  <item id="38">
+    <name>Seta Grande</name>
+  </item>
+  <item id="39">
+    <name>Seta Aroma</name>
+  </item>
+  <item id="40">
+    <name>Perla</name>
+  </item>
+  <item id="41">
+    <name>Perla Grande</name>
+  </item>
+  <item id="42">
+    <name>Pearl String</name>
+  </item>
+  <item id="43">
+    <name>Polvoestelar</name>
+  </item>
+  <item id="44">
+    <name>Trozo Estrella</name>
+  </item>
+  <item id="45">
+    <name>Fragmento Cometa</name>
+  </item>
+  <item id="46">
+    <name>Pepita</name>
+  </item>
+  <item id="47">
+    <name>Maxipepita</name>
+  </item>
+  <item id="48">
+    <name>Heart Scale</name>
+  </item>
+  <item id="49">
+    <name>Slowpoke Tail</name>
+  </item>
+  <item id="50">
+    <name>Rare Bone</name>
+  </item>
+  <item id="51">
+    <name>Relic Copper</name>
+  </item>
+  <item id="52">
+    <name>Relic Silver</name>
+  </item>
+  <item id="53">
+    <name>Relic Gold</name>
+  </item>
+  <item id="54">
+    <name>Relic Vase</name>
+  </item>
+  <item id="55">
+    <name>Relic Band</name>
+  </item>
+  <item id="56">
+    <name>Relic Statue</name>
+  </item>
+  <item id="57">
+    <name>Relic Crown</name>
+  </item>
+  <item id="58">
+    <name>Growth Mulch</name>
+  </item>
+  <item id="59">
+    <name>Damp Mulch</name>
+  </item>
+  <item id="60">
+    <name>Stable Mulch</name>
+  </item>
+  <item id="61">
+    <name>Gooey Mulch</name>
+  </item>
+  <item id="62">
+    <name>Shoal Salt</name>
+  </item>
+  <item id="63">
+    <name>Shoal Shell</name>
+  </item>
+  <item id="64">
+    <name>Piedra Espíritu</name>
+  </item>
+  <item id="65">
+    <name>Globo</name>
+  </item>
+  <item id="66">
+    <name>Bright Powder</name>
+  </item>
+  <item id="67">
+    <name>Eviolite</name>
+  </item>
+  <item id="68">
+    <name>Float Stone</name>
+  </item>
+  <item id="69">
+    <name>Destiny Knot</name>
+  </item>
+  <item id="70">
+    <name>Rocky Helmet</name>
+  </item>
+  <item id="71">
+    <name>Eject Button</name>
+  </item>
+  <item id="72">
+    <name>Red Card</name>
+  </item>
+  <item id="73">
+    <name>Shed Shell</name>
+  </item>
+  <item id="74">
+    <name>Bola Humo</name>
+  </item>
+  <item id="75">
+    <name>Lucky Egg</name>
+  </item>
+  <item id="76">
+    <name>Repartir Exp.</name>
+  </item>
+  <item id="77">
+    <name>Moneda Amuleto</name>
+  </item>
+  <item id="78">
+    <name>Soothe Bell</name>
+  </item>
+  <item id="79">
+    <name>Cleanse Tag</name>
+  </item>
+  <item id="80">
+    <name>Choice Band</name>
+  </item>
+  <item id="81">
+    <name>Choice Specs</name>
+  </item>
+  <item id="82">
+    <name>Choice Scarf</name>
+  </item>
+  <item id="83">
+    <name>Heat Rock</name>
+  </item>
+  <item id="84">
+    <name>Damp Rock</name>
+  </item>
+  <item id="85">
+    <name>Smooth Rock</name>
+  </item>
+  <item id="86">
+    <name>Icy Rock</name>
+  </item>
+  <item id="87">
+    <name>Light Clay</name>
+  </item>
+  <item id="88">
+    <name>Grip Claw</name>
+  </item>
+  <item id="89">
+    <name>Banda Atad.</name>
+  </item>
+  <item id="90">
+    <name>Raiz Grande</name>
+  </item>
+  <item id="91">
+    <name>Lodo Negro</name>
+  </item>
+  <item id="92">
+    <name>Restos</name>
+  </item>
+  <item id="93">
+    <name>Shell Bell</name>
+  </item>
+  <item id="94">
+    <name>Mental Herb</name>
+  </item>
+  <item id="95">
+    <name>White Herb</name>
+  </item>
+  <item id="96">
+    <name>Power Herb</name>
+  </item>
+  <item id="97">
+    <name>Tuberculo</name>
+  </item>
+  <item id="98">
+    <name>Cell Battery</name>
+  </item>
+  <item id="99">
+    <name>Life Orb</name>
+  </item>
+  <item id="100">
+    <name>Expert Belt</name>
+  </item>
+  <item id="101">
+    <name>Metronome</name>
+  </item>
+  <item id="102">
+    <name>Muscle Band</name>
+  </item>
+  <item id="103">
+    <name>Wise Glasses</name>
+  </item>
+  <item id="104">
+    <name>Razor Claw</name>
+  </item>
+  <item id="105">
+    <name>Scope Lens</name>
+  </item>
+  <item id="106">
+    <name>Wide Lens</name>
+  </item>
+  <item id="107">
+    <name>Zoom Lens</name>
+  </item>
+  <item id="108">
+    <name>King's Rock</name>
+  </item>
+  <item id="109">
+    <name>Razor Fang</name>
+  </item>
+  <item id="110">
+    <name>Lagging Tail</name>
+  </item>
+  <item id="111">
+    <name>Quick Claw</name>
+  </item>
+  <item id="112">
+    <name>Focus Band</name>
+  </item>
+  <item id="113">
+    <name>Focus Sash</name>
+  </item>
+  <item id="114">
+    <name>Flame Orb</name>
+  </item>
+  <item id="115">
+    <name>Toxic Orb</name>
+  </item>
+  <item id="116">
+    <name>Sticky Barb</name>
+  </item>
+  <item id="117">
+    <name>Iron Ball</name>
+  </item>
+  <item id="118">
+    <name>Ring Target</name>
+  </item>
+  <item id="119">
+    <name>Macho Brace</name>
+  </item>
+  <item id="120">
+    <name>Power Weight</name>
+  </item>
+  <item id="121">
+    <name>Power Bracer</name>
+  </item>
+  <item id="122">
+    <name>Power Belt</name>
+  </item>
+  <item id="123">
+    <name>Power Lens</name>
+  </item>
+  <item id="124">
+    <name>Power Band</name>
+  </item>
+  <item id="125">
+    <name>Power Anklet</name>
+  </item>
+  <item id="126">
+    <name>Lax Incense</name>
+  </item>
+  <item id="127">
+    <name>Full Incense</name>
+  </item>
+  <item id="128">
+    <name>Luck Incense</name>
+  </item>
+  <item id="129">
+    <name>Pure Incense</name>
+  </item>
+  <item id="130">
+    <name>Sea Incense</name>
+  </item>
+  <item id="131">
+    <name>Wave Incense</name>
+  </item>
+  <item id="132">
+    <name>Rose Incense</name>
+  </item>
+  <item id="133">
+    <name>Odd Incense</name>
+  </item>
+  <item id="134">
+    <name>Rock Incense</name>
+  </item>
+  <item id="135">
+    <name>Charcoal</name>
+  </item>
+  <item id="136">
+    <name>Mystic Water</name>
+  </item>
+  <item id="137">
+    <name>Magnet</name>
+  </item>
+  <item id="138">
+    <name>Miracle Seed</name>
+  </item>
+  <item id="139">
+    <name>Never-Melt Ice</name>
+  </item>
+  <item id="140">
+    <name>Cint. Negro</name>
+  </item>
+  <item id="141">
+    <name>Poison Barb</name>
+  </item>
+  <item id="142">
+    <name>Soft Sand</name>
+  </item>
+  <item id="143">
+    <name>Sharp Beak</name>
+  </item>
+  <item id="144">
+    <name>Twisted Spoon</name>
+  </item>
+  <item id="145">
+    <name>Silver Powder</name>
+  </item>
+  <item id="146">
+    <name>Hard Stone</name>
+  </item>
+  <item id="147">
+    <name>Spell Tag</name>
+  </item>
+  <item id="148">
+    <name>Dragon Fang</name>
+  </item>
+  <item id="149">
+    <name>Gafas de Sol</name>
+  </item>
+  <item id="150">
+    <name>Metal Coat</name>
+  </item>
+  <item id="151">
+    <name>Silk Scarf</name>
+  </item>
+  <item id="152">
+    <name>Flame Plate</name>
+  </item>
+  <item id="153">
+    <name>Splash Plate</name>
+  </item>
+  <item id="154">
+    <name>Zap Plate</name>
+  </item>
+  <item id="155">
+    <name>Meadow Plate</name>
+  </item>
+  <item id="156">
+    <name>Icicle Plate</name>
+  </item>
+  <item id="157">
+    <name>Fist Plate</name>
+  </item>
+  <item id="158">
+    <name>Toxic Plate</name>
+  </item>
+  <item id="159">
+    <name>Earth Plate</name>
+  </item>
+  <item id="160">
+    <name>Sky Plate</name>
+  </item>
+  <item id="161">
+    <name>Mind Plate</name>
+  </item>
+  <item id="162">
+    <name>Insect Plate</name>
+  </item>
+  <item id="163">
+    <name>Stone Plate</name>
+  </item>
+  <item id="164">
+    <name>Spooky Plate</name>
+  </item>
+  <item id="165">
+    <name>Draco Plate</name>
+  </item>
+  <item id="166">
+    <name>Dread Plate</name>
+  </item>
+  <item id="167">
+    <name>Iron Plate</name>
+  </item>
+  <item id="168">
+    <name>Fire Gem</name>
+  </item>
+  <item id="169">
+    <name>Water Gem</name>
+  </item>
+  <item id="170">
+    <name>Electric Gem</name>
+  </item>
+  <item id="171">
+    <name>Grass Gem</name>
+  </item>
+  <item id="172">
+    <name>Ice Gem</name>
+  </item>
+  <item id="173">
+    <name>Fighting Gem</name>
+  </item>
+  <item id="174">
+    <name>Poison Gem</name>
+  </item>
+  <item id="175">
+    <name>Ground Gem</name>
+  </item>
+  <item id="176">
+    <name>Flying Gem</name>
+  </item>
+  <item id="177">
+    <name>Psychic Gem</name>
+  </item>
+  <item id="178">
+    <name>Bug Gem</name>
+  </item>
+  <item id="179">
+    <name>Rock Gem</name>
+  </item>
+  <item id="180">
+    <name>Ghost Gem</name>
+  </item>
+  <item id="181">
+    <name>Dragon Gem</name>
+  </item>
+  <item id="182">
+    <name>Dark Gem</name>
+  </item>
+  <item id="183">
+    <name>Steel Gem</name>
+  </item>
+  <item id="184">
+    <name>Normal Gem</name>
+  </item>
+  <item id="185">
+    <name>Light Ball</name>
+  </item>
+  <item id="186">
+    <name>Lucky Punch</name>
+  </item>
+  <item id="187">
+    <name>Metal Powder</name>
+  </item>
+  <item id="188">
+    <name>Quick Powder</name>
+  </item>
+  <item id="189">
+    <name>Thick Club</name>
+  </item>
+  <item id="190">
+    <name>Stick</name>
+  </item>
+  <item id="191">
+    <name>Soul Dew</name>
+  </item>
+  <item id="192">
+    <name>Deep Sea Tooth</name>
+  </item>
+  <item id="193">
+    <name>Deep Sea Scale</name>
+  </item>
+  <item id="194">
+    <name>Diamansfera</name>
+  </item>
+  <item id="195">
+    <name>Lustrous Orb</name>
+  </item>
+  <item id="196">
+    <name>Griseous Orb</name>
+  </item>
+  <item id="197">
+    <name>Douse Drive</name>
+  </item>
+  <item id="198">
+    <name>Shock Drive</name>
+  </item>
+  <item id="199">
+    <name>Burn Drive</name>
+  </item>
+  <item id="200">
+    <name>Chill Drive</name>
+  </item>
+  <item id="201">
+    <name>Everstone</name>
+  </item>
+  <item id="202">
+    <name>Dragon Scale</name>
+  </item>
+  <item id="203">
+    <name>Up-Grade</name>
+  </item>
+  <item id="204">
+    <name>Dubious Disc</name>
+  </item>
+  <item id="205">
+    <name>Protector</name>
+  </item>
+  <item id="206">
+    <name>Electirizer</name>
+  </item>
+  <item id="207">
+    <name>Magmarizer</name>
+  </item>
+  <item id="208">
+    <name>Reaper Cloth</name>
+  </item>
+  <item id="209">
+    <name>Prism Scale</name>
+  </item>
+  <item id="210">
+    <name>Oval Stone</name>
+  </item>
+  <item id="211">
+    <name>Red Scarf</name>
+  </item>
+  <item id="212">
+    <name>Blue Scarf</name>
+  </item>
+  <item id="213">
+    <name>Pink Scarf</name>
+  </item>
+  <item id="214">
+    <name>Green Scarf</name>
+  </item>
+  <item id="215">
+    <name>Yellow Scarf</name>
+  </item>
+  <item id="216">
+    <name>Potion</name>
+  </item>
+  <item id="217">
+    <name>Super Potion</name>
+  </item>
+  <item id="218">
+    <name>Hyper Potion</name>
+  </item>
+  <item id="219">
+    <name>Max Potion</name>
+  </item>
+  <item id="220">
+    <name>Full Restore</name>
+  </item>
+  <item id="221">
+    <name>Sacred Ash</name>
+  </item>
+  <item id="222">
+    <name>Despertar</name>
+  </item>
+  <item id="223">
+    <name>Antidoto</name>
+  </item>
+  <item id="224">
+    <name>Burn Heal</name>
+  </item>
+  <item id="225">
+    <name>Paralyze Heal</name>
+  </item>
+  <item id="226">
+    <name>Ice Heal</name>
+  </item>
+  <item id="227">
+    <name>Full Heal</name>
+  </item>
+  <item id="228">
+    <name>Lava Cookie</name>
+  </item>
+  <item id="229">
+    <name>Old Gateau</name>
+  </item>
+  <item id="230">
+    <name>Casteliacone</name>
+  </item>
+  <item id="231">
+    <name>Revive</name>
+  </item>
+  <item id="232">
+    <name>Max Revive</name>
+  </item>
+  <item id="233">
+    <name>Zumo de Baya</name>
+  </item>
+  <item id="234">
+    <name>Rage Candy Bar</name>
+  </item>
+  <item id="235">
+    <name>Sweet Heart</name>
+  </item>
+  <item id="236">
+    <name>Fresh Water</name>
+  </item>
+  <item id="237">
+    <name>Soda Pop</name>
+  </item>
+  <item id="238">
+    <name>Lemonade</name>
+  </item>
+  <item id="239">
+    <name>Moomoo Milk</name>
+  </item>
+  <item id="240">
+    <name>Energy Powder</name>
+  </item>
+  <item id="241">
+    <name>Energy Root</name>
+  </item>
+  <item id="242">
+    <name>Heal Powder</name>
+  </item>
+  <item id="243">
+    <name>Revival Herb</name>
+  </item>
+  <item id="244">
+    <name>Ether</name>
+  </item>
+  <item id="245">
+    <name>Max Ether</name>
+  </item>
+  <item id="246">
+    <name>Elixir</name>
+  </item>
+  <item id="247">
+    <name>Max Elixir</name>
+  </item>
+  <item id="248">
+    <name>PP Up</name>
+  </item>
+  <item id="249">
+    <name>PP Max</name>
+  </item>
+  <item id="250">
+    <name>HP Up</name>
+  </item>
+  <item id="251">
+    <name>Protein</name>
+  </item>
+  <item id="252">
+    <name>Iron</name>
+  </item>
+  <item id="253">
+    <name>Calcium</name>
+  </item>
+  <item id="254">
+    <name>Zinc</name>
+  </item>
+  <item id="255">
+    <name>Carbos</name>
+  </item>
+  <item id="256">
+    <name>Health Wing</name>
+  </item>
+  <item id="257">
+    <name>Muscle Wing</name>
+  </item>
+  <item id="258">
+    <name>Resist Wing</name>
+  </item>
+  <item id="259">
+    <name>Genius Wing</name>
+  </item>
+  <item id="260">
+    <name>Clever Wing</name>
+  </item>
+  <item id="261">
+    <name>Swift Wing</name>
+  </item>
+  <item id="262">
+    <name>Rare Candy</name>
+  </item>
+  <item id="263">
+    <name>Master Ball</name>
+  </item>
+  <item id="264">
+    <name>Ultra Ball</name>
+  </item>
+  <item id="265">
+    <name>Great Ball</name>
+  </item>
+  <item id="266">
+    <name>Poké Ball</name>
+  </item>
+  <item id="267">
+    <name>Safari Ball</name>
+  </item>
+  <item id="268">
+    <name>Sport Ball</name>
+  </item>
+  <item id="269">
+    <name>Net Ball</name>
+  </item>
+  <item id="270">
+    <name>Dive Ball</name>
+  </item>
+  <item id="271">
+    <name>Nest Ball</name>
+  </item>
+  <item id="272">
+    <name>Repeat Ball</name>
+  </item>
+  <item id="273">
+    <name>Timer Ball</name>
+  </item>
+  <item id="274">
+    <name>Luxury Ball</name>
+  </item>
+  <item id="275">
+    <name>Premier Ball</name>
+  </item>
+  <item id="276">
+    <name>Dusk Ball</name>
+  </item>
+  <item id="277">
+    <name>Heal Ball</name>
+  </item>
+  <item id="278">
+    <name>Quick Ball</name>
+  </item>
+  <item id="279">
+    <name>Cherish Ball</name>
+  </item>
+  <item id="280">
+    <name>Fast Ball</name>
+  </item>
+  <item id="281">
+    <name>Level Ball</name>
+  </item>
+  <item id="282">
+    <name>Lure Ball</name>
+  </item>
+  <item id="283">
+    <name>Heavy Ball</name>
+  </item>
+  <item id="284">
+    <name>Love Ball</name>
+  </item>
+  <item id="285">
+    <name>Friend Ball</name>
+  </item>
+  <item id="286">
+    <name>Moon Ball</name>
+  </item>
+  <item id="287">
+    <name>MT01</name>
+  </item>
+  <item id="288">
+    <name>TM02</name>
+  </item>
+  <item id="289">
+    <name>TM03</name>
+  </item>
+  <item id="290">
+    <name>TM04</name>
+  </item>
+  <item id="291">
+    <name>TM05</name>
+  </item>
+  <item id="292">
+    <name>TM06</name>
+  </item>
+  <item id="293">
+    <name>TM07</name>
+  </item>
+  <item id="294">
+    <name>TM08</name>
+  </item>
+  <item id="295">
+    <name>TM09</name>
+  </item>
+  <item id="296">
+    <name>TM10</name>
+  </item>
+  <item id="297">
+    <name>TM11</name>
+  </item>
+  <item id="298">
+    <name>TM12</name>
+  </item>
+  <item id="299">
+    <name>TM13</name>
+  </item>
+  <item id="300">
+    <name>TM14</name>
+  </item>
+  <item id="301">
+    <name>TM15</name>
+  </item>
+  <item id="302">
+    <name>TM16</name>
+  </item>
+  <item id="303">
+    <name>TM17</name>
+  </item>
+  <item id="304">
+    <name>TM18</name>
+  </item>
+  <item id="305">
+    <name>TM19</name>
+  </item>
+  <item id="306">
+    <name>TM20</name>
+  </item>
+  <item id="307">
+    <name>TM21</name>
+  </item>
+  <item id="308">
+    <name>TM22</name>
+  </item>
+  <item id="309">
+    <name>TM23</name>
+  </item>
+  <item id="310">
+    <name>TM24</name>
+  </item>
+  <item id="311">
+    <name>TM25</name>
+  </item>
+  <item id="312">
+    <name>TM26</name>
+  </item>
+  <item id="313">
+    <name>TM27</name>
+  </item>
+  <item id="314">
+    <name>TM28</name>
+  </item>
+  <item id="315">
+    <name>TM29</name>
+  </item>
+  <item id="316">
+    <name>TM30</name>
+  </item>
+  <item id="317">
+    <name>TM31</name>
+  </item>
+  <item id="318">
+    <name>TM32</name>
+  </item>
+  <item id="319">
+    <name>TM33</name>
+  </item>
+  <item id="320">
+    <name>TM34</name>
+  </item>
+  <item id="321">
+    <name>TM35</name>
+  </item>
+  <item id="322">
+    <name>TM36</name>
+  </item>
+  <item id="323">
+    <name>TM37</name>
+  </item>
+  <item id="324">
+    <name>TM38</name>
+  </item>
+  <item id="325">
+    <name>TM39</name>
+  </item>
+  <item id="326">
+    <name>TM40</name>
+  </item>
+  <item id="327">
+    <name>TM41</name>
+  </item>
+  <item id="328">
+    <name>TM42</name>
+  </item>
+  <item id="329">
+    <name>TM43</name>
+  </item>
+  <item id="330">
+    <name>TM44</name>
+  </item>
+  <item id="331">
+    <name>TM45</name>
+  </item>
+  <item id="332">
+    <name>TM46</name>
+  </item>
+  <item id="333">
+    <name>TM47</name>
+  </item>
+  <item id="334">
+    <name>TM48</name>
+  </item>
+  <item id="335">
+    <name>TM49</name>
+  </item>
+  <item id="336">
+    <name>TM50</name>
+  </item>
+  <item id="337">
+    <name>TM51</name>
+  </item>
+  <item id="338">
+    <name>TM52</name>
+  </item>
+  <item id="339">
+    <name>TM53</name>
+  </item>
+  <item id="340">
+    <name>TM54</name>
+  </item>
+  <item id="341">
+    <name>TM55</name>
+  </item>
+  <item id="342">
+    <name>TM56</name>
+  </item>
+  <item id="343">
+    <name>TM57</name>
+  </item>
+  <item id="344">
+    <name>TM58</name>
+  </item>
+  <item id="345">
+    <name>TM59</name>
+  </item>
+  <item id="346">
+    <name>TM60</name>
+  </item>
+  <item id="347">
+    <name>TM61</name>
+  </item>
+  <item id="348">
+    <name>TM62</name>
+  </item>
+  <item id="349">
+    <name>TM63</name>
+  </item>
+  <item id="350">
+    <name>TM64</name>
+  </item>
+  <item id="351">
+    <name>TM65</name>
+  </item>
+  <item id="352">
+    <name>TM66</name>
+  </item>
+  <item id="353">
+    <name>TM67</name>
+  </item>
+  <item id="354">
+    <name>TM68</name>
+  </item>
+  <item id="355">
+    <name>TM69</name>
+  </item>
+  <item id="356">
+    <name>TM70</name>
+  </item>
+  <item id="357">
+    <name>TM71</name>
+  </item>
+  <item id="358">
+    <name>TM72</name>
+  </item>
+  <item id="359">
+    <name>TM73</name>
+  </item>
+  <item id="360">
+    <name>TM74</name>
+  </item>
+  <item id="361">
+    <name>TM75</name>
+  </item>
+  <item id="362">
+    <name>TM76</name>
+  </item>
+  <item id="363">
+    <name>TM77</name>
+  </item>
+  <item id="364">
+    <name>TM78</name>
+  </item>
+  <item id="365">
+    <name>TM79</name>
+  </item>
+  <item id="366">
+    <name>TM80</name>
+  </item>
+  <item id="367">
+    <name>TM81</name>
+  </item>
+  <item id="368">
+    <name>TM82</name>
+  </item>
+  <item id="369">
+    <name>TM83</name>
+  </item>
+  <item id="370">
+    <name>TM84</name>
+  </item>
+  <item id="371">
+    <name>TM85</name>
+  </item>
+  <item id="372">
+    <name>TM86</name>
+  </item>
+  <item id="373">
+    <name>TM87</name>
+  </item>
+  <item id="374">
+    <name>TM88</name>
+  </item>
+  <item id="375">
+    <name>TM89</name>
+  </item>
+  <item id="376">
+    <name>TM90</name>
+  </item>
+  <item id="377">
+    <name>TM91</name>
+  </item>
+  <item id="378">
+    <name>TM92</name>
+  </item>
+  <item id="379">
+    <name>TM93</name>
+  </item>
+  <item id="380">
+    <name>TM94</name>
+  </item>
+  <item id="381">
+    <name>TM95</name>
+  </item>
+  <item id="382">
+    <name>HM01</name>
+  </item>
+  <item id="383">
+    <name>TM97</name>
+  </item>
+  <item id="384">
+    <name>HM03</name>
+  </item>
+  <item id="385">
+    <name>HM04</name>
+  </item>
+  <item id="386">
+    <name>HM05</name>
+  </item>
+  <item id="387">
+    <name>HM06</name>
+  </item>
+  <item id="388">
+    <name>Cheri Berry</name>
+  </item>
+  <item id="389">
+    <name>Chesto Berry</name>
+  </item>
+  <item id="390">
+    <name>Pecha Berry</name>
+  </item>
+  <item id="391">
+    <name>Rawst Berry</name>
+  </item>
+  <item id="392">
+    <name>Baya Perasi</name>
+  </item>
+  <item id="393">
+    <name>Leppa Berry</name>
+  </item>
+  <item id="394">
+    <name>Baya Aranja</name>
+  </item>
+  <item id="395">
+    <name>Persim Berry</name>
+  </item>
+  <item id="396">
+    <name>Lum Berry</name>
+  </item>
+  <item id="397">
+    <name>Baya Zidra</name>
+  </item>
+  <item id="398">
+    <name>Figy Berry</name>
+  </item>
+  <item id="399">
+    <name>Wiki Berry</name>
+  </item>
+  <item id="400">
+    <name>Mago Berry</name>
+  </item>
+  <item id="401">
+    <name>Baya Guaya</name>
+  </item>
+  <item id="402">
+    <name>Iapapa Berry</name>
+  </item>
+  <item id="403">
+    <name>Razz Berry</name>
+  </item>
+  <item id="404">
+    <name>Bluk Berry</name>
+  </item>
+  <item id="405">
+    <name>Nanab Berry</name>
+  </item>
+  <item id="406">
+    <name>Wepear Berry</name>
+  </item>
+  <item id="407">
+    <name>Pinap Berry</name>
+  </item>
+  <item id="408">
+    <name>Pomeg Berry</name>
+  </item>
+  <item id="409">
+    <name>Kelpsy Berry</name>
+  </item>
+  <item id="410">
+    <name>Qualot Berry</name>
+  </item>
+  <item id="411">
+    <name>Hondew Berry</name>
+  </item>
+  <item id="412">
+    <name>Grepa Berry</name>
+  </item>
+  <item id="413">
+    <name>Tamato Berry</name>
+  </item>
+  <item id="414">
+    <name>Cornn Berry</name>
+  </item>
+  <item id="415">
+    <name>Magost Berry</name>
+  </item>
+  <item id="416">
+    <name>Rabuta Berry</name>
+  </item>
+  <item id="417">
+    <name>Nomel Berry</name>
+  </item>
+  <item id="418">
+    <name>Spelon Berry</name>
+  </item>
+  <item id="419">
+    <name>Pamtre Berry</name>
+  </item>
+  <item id="420">
+    <name>Watmel Berry</name>
+  </item>
+  <item id="421">
+    <name>Durin Berry</name>
+  </item>
+  <item id="422">
+    <name>Baya Andano</name>
+  </item>
+  <item id="423">
+    <name>Occa Berry</name>
+  </item>
+  <item id="424">
+    <name>Passho Berry</name>
+  </item>
+  <item id="425">
+    <name>Wacan Berry</name>
+  </item>
+  <item id="426">
+    <name>Rindo Berry</name>
+  </item>
+  <item id="427">
+    <name>Yache Berry</name>
+  </item>
+  <item id="428">
+    <name>Chople Berry</name>
+  </item>
+  <item id="429">
+    <name>Kebia Berry</name>
+  </item>
+  <item id="430">
+    <name>Shuca Berry</name>
+  </item>
+  <item id="431">
+    <name>Coba Berry</name>
+  </item>
+  <item id="432">
+    <name>Payapa Berry</name>
+  </item>
+  <item id="433">
+    <name>Tanga Berry</name>
+  </item>
+  <item id="434">
+    <name>Charti Berry</name>
+  </item>
+  <item id="435">
+    <name>Kasib Berry</name>
+  </item>
+  <item id="436">
+    <name>Haban Berry</name>
+  </item>
+  <item id="437">
+    <name>Colbur Berry</name>
+  </item>
+  <item id="438">
+    <name>Baya Bariba</name>
+  </item>
+  <item id="439">
+    <name>Chilan Berry</name>
+  </item>
+  <item id="440">
+    <name>Liechi Berry</name>
+  </item>
+  <item id="441">
+    <name>Ganlon Berry</name>
+  </item>
+  <item id="442">
+    <name>Salac Berry</name>
+  </item>
+  <item id="443">
+    <name>Petaya Berry</name>
+  </item>
+  <item id="444">
+    <name>Baya Aricoc</name>
+  </item>
+  <item id="445">
+    <name>Lansat Berry</name>
+  </item>
+  <item id="446">
+    <name>Starf Berry</name>
+  </item>
+  <item id="447">
+    <name>Baya Enigma</name>
+  </item>
+  <item id="448">
+    <name>Micle Berry</name>
+  </item>
+  <item id="449">
+    <name>Custap Berry</name>
+  </item>
+  <item id="450">
+    <name>Jaboca Berry</name>
+  </item>
+  <item id="451">
+    <name>Rowap Berry</name>
+  </item>
+  <item id="452">
+    <name>Grass Mail</name>
+  </item>
+  <item id="453">
+    <name>Flame Mail</name>
+  </item>
+  <item id="454">
+    <name>Bubble Mail</name>
+  </item>
+  <item id="455">
+    <name>Carta Bloom</name>
+  </item>
+  <item id="456">
+    <name>Tunnel Mail</name>
+  </item>
+  <item id="457">
+    <name>Steel Mail</name>
+  </item>
+  <item id="458">
+    <name>Heart Mail</name>
+  </item>
+  <item id="459">
+    <name>Snow Mail</name>
+  </item>
+  <item id="460">
+    <name>Space Mail</name>
+  </item>
+  <item id="461">
+    <name>Carta Air</name>
+  </item>
+  <item id="462">
+    <name>Mosaic Mail</name>
+  </item>
+  <item id="463">
+    <name>Brick Mail</name>
+  </item>
+  <item id="464">
+    <name>X Attack</name>
+  </item>
+  <item id="465">
+    <name>X Attack 2</name>
+  </item>
+  <item id="466">
+    <name>X Attack 3</name>
+  </item>
+  <item id="467">
+    <name>X Attack 6</name>
+  </item>
+  <item id="468">
+    <name>X Defense</name>
+  </item>
+  <item id="469">
+    <name>X Defense 2</name>
+  </item>
+  <item id="470">
+    <name>X Defense 3</name>
+  </item>
+  <item id="471">
+    <name>X Defense 6</name>
+  </item>
+  <item id="472">
+    <name>X Sp. Atk</name>
+  </item>
+  <item id="473">
+    <name>X Sp. Atk 2</name>
+  </item>
+  <item id="474">
+    <name>X Sp. Atk 3</name>
+  </item>
+  <item id="475">
+    <name>X Sp. Atk 6</name>
+  </item>
+  <item id="476">
+    <name>X Sp. Def</name>
+  </item>
+  <item id="477">
+    <name>X Sp. Def 2</name>
+  </item>
+  <item id="478">
+    <name>X Sp. Def 3</name>
+  </item>
+  <item id="479">
+    <name>X Sp. Def 6</name>
+  </item>
+  <item id="480">
+    <name>X Speed</name>
+  </item>
+  <item id="481">
+    <name>X Speed 2</name>
+  </item>
+  <item id="482">
+    <name>X Speed 3</name>
+  </item>
+  <item id="483">
+    <name>X Speed 6</name>
+  </item>
+  <item id="484">
+    <name>X Accuracy</name>
+  </item>
+  <item id="485">
+    <name>X Accuracy 2</name>
+  </item>
+  <item id="486">
+    <name>X Accuracy 3</name>
+  </item>
+  <item id="487">
+    <name>X Accuracy 6</name>
+  </item>
+  <item id="488">
+    <name>Dire Hit</name>
+  </item>
+  <item id="489">
+    <name>Dire Hit 2</name>
+  </item>
+  <item id="490">
+    <name>Dire Hit 3</name>
+  </item>
+  <item id="491">
+    <name>Guard Spec.</name>
+  </item>
+  <item id="492">
+    <name>Reset Urge</name>
+  </item>
+  <item id="493">
+    <name>Imp. Habil</name>
+  </item>
+  <item id="494">
+    <name>Item Urge</name>
+  </item>
+  <item id="495">
+    <name>Item Drop</name>
+  </item>
+  <item id="496">
+    <name>Flauta Azul</name>
+  </item>
+  <item id="497">
+    <name>Yellow Flute</name>
+  </item>
+  <item id="498">
+    <name>Red Flute</name>
+  </item>
+  <item id="499">
+    <name>Poké Doll</name>
+  </item>
+  <item id="500">
+    <name>Fluffy Tail</name>
+  </item>
+  <item id="501">
+    <name>Poké Toy</name>
+  </item>
+  <item id="502">
+    <name>Bici</name>
+  </item>
+  <item id="503">
+    <name>Old Rod</name>
+  </item>
+  <item id="504">
+    <name>Good Rod</name>
+  </item>
+  <item id="505">
+    <name>Super Rod</name>
+  </item>
+  <item id="506">
+    <name>Itemfinder</name>
+  </item>
+  <item id="507">
+    <name>Dowsing Machine</name>
+  </item>
+  <item id="508">
+    <name>Poké Radar</name>
+  </item>
+  <item id="509">
+    <name>Town Map</name>
+  </item>
+  <item id="510">
+    <name>Poké Flute</name>
+  </item>
+  <item id="511">
+    <name>Coin Case</name>
+  </item>
+  <item id="512">
+    <name>Soot Sack</name>
+  </item>
+  <item id="513">
+    <name>Silph Scope</name>
+  </item>
+  <item id="514">
+    <name>Devon Scope</name>
+  </item>
+  <item id="515">
+    <name>Squirt Bottle</name>
+  </item>
+  <item id="516">
+    <name>Sprayduck</name>
+  </item>
+  <item id="517">
+    <name>Wailmer Pail</name>
+  </item>
+  <item id="518">
+    <name>Gracidea</name>
+  </item>
+  <item id="519">
+    <name>Aurora Ticket</name>
+  </item>
+  <item id="520">
+    <name>Old Sea Map</name>
+  </item>
+  <item id="521">
+    <name>DNA Splicers</name>
+  </item>
+  <item id="522">
+    <name>Reveal Glass</name>
+  </item>
+  <item id="523">
+    <name>Oval Charm</name>
+  </item>
+  <item id="524">
+    <name>Shiny Charm</name>
+  </item>
+  <item id="525">
+    <name>Carne de Socio</name>
+  </item>
+  <item id="526">
+    <name>Tabla Feerica</name>
+  </item>
+  <item id="527">
+    <name>Kit de Cazatesoros</name>
+  </item>
+  <item id="528">
+    <name>Runa Rara</name>
+  </item>
+  <item id="529">
+    <name>Baya Golen</name>
+  </item>
+  <item id="530">
+    <name>Baya Henne</name>
+  </item>
+  <item id="531">
+    <name>Baya Jirlo</name>
+  </item>
+  <item id="532">
+    <name>Mega-Focus</name>
+  </item>
+  <item id="533">
+    <name>Cacao</name>
+  </item>
+  <item id="534">
+    <name>Intensificador</name>
+  </item>
+  <item id="535">
+    <name>Polvo Azul</name>
+  </item>
+  <item id="536">
+    <name>Polvo Rojo</name>
+  </item>
+  <item id="537">
+    <name>Polvo Amarillo</name>
+  </item>
+  <item id="538">
+    <name>Polvo Verde</name>
+  </item>
+  <item id="539">
+    <name>Polvo Rosa</name>
+  </item>
+  <item id="540">
+    <name>Baya Arancia</name>
+  </item>
+  <item id="541">
+    <name>Venusaurita</name>
+  </item>
+  <item id="542">
+    <name>Grimmerola</name>
+  </item>
+  <item id="543">
+    <name>Fosil Icto</name>
+  </item>
+  <item id="544">
+    <name>Recetario</name>
+  </item>
+</moves>

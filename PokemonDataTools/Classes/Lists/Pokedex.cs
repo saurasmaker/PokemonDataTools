@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -14,16 +15,9 @@ namespace Classes.Lists
 
         #region Attributes
         private static string defaultPath = Directory.GetCurrentDirectory() + "\\..\\..\\..\\Saves\\pokedex.xml";
-        private string filePath;
 
-        public string FilePath
-        {
-            get { return filePath; }
-            set
-            {
-                filePath = value + "\\pokedex.xml";
-            }
-        }
+        public string FilePath { get; set; }
+
         public List<OPokemon> PokemonList { get; set; }
         #endregion
 
@@ -117,27 +111,31 @@ namespace Classes.Lists
 
             doc.Add(root);
 
-            doc.Save(FilePath);
-
+            doc.Save(FilePath + "\\pokedex.xml");
+            Debug.WriteLine(FilePath + "\\pokedex.xml");
+            Debug.WriteLine(File.ReadAllText(FilePath + "\\pokedex.xml"));
             return;
         }
 
         public void Load()
         {
             XDocument doc = XMLTools.GetXMLDocument(FilePath);
-            XElement root = doc.Root;
-
             if (doc != null)
             {
-                foreach (XElement e in root.Elements("pokemon"))
+                XElement root = doc.Root;
+
+                if (doc != null)
                 {
-                    try
+                    foreach (XElement e in root.Elements("pokemon"))
                     {
-                        OPokemon newPoke = LoadDataInPokemon(e);
-                        PokemonList.Add(newPoke);
-                    }
-                    catch (Exception)
-                    {
+                        try
+                        {
+                            OPokemon newPoke = LoadDataInPokemon(e);
+                            PokemonList.Add(newPoke);
+                        }
+                        catch (Exception)
+                        {
+                        }
                     }
                 }
             }
@@ -232,12 +230,12 @@ namespace Classes.Lists
 
             XElement eggMoves = new XElement("eggMoves");
             for (int i = 0; i < p.EggMoves.Count; ++i)
-                genresPercentaje.Add(new XElement("move", p.EggMoves[i]));
+                eggMoves.Add(new XElement("move", p.EggMoves[i]));
             pokemon.Add(eggMoves);
 
             XElement eggGroups = new XElement("eggGroups");
             for(int i = 0; i < p.EggGroups.Length; ++i)
-                genresPercentaje.Add(new XElement("eggGroup", p.GenresPercentage[i]));
+                eggGroups.Add(new XElement("eggGroup", p.GenresPercentage[i]));
             pokemon.Add(eggGroups);
 
             pokemon.Add(new XElement("levelType", p.LevelType));

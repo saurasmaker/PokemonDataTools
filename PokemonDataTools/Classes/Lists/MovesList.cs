@@ -11,16 +11,8 @@ namespace Classes.Lists
     {
         #region Attributes
         private static string defaultPath = Directory.GetCurrentDirectory() + "\\..\\..\\..\\saves\\moves.xml";
-        private string filePath;
 
-        public string FilePath
-        {
-            get { return filePath; }
-            set
-            {
-                filePath = value + "\\moves.xml";
-            }
-        }
+        public string FilePath { get; set; }
 
         public List<PokeMove> Moves { get; set; }
         #endregion
@@ -115,35 +107,39 @@ namespace Classes.Lists
 
             doc.Add(root);
 
-            doc.Save(FilePath);
+            doc.Save(FilePath + "\\moves.xml");
 
             return;
         }
 
-        public List<PokeMove> Load()
+        public void Load()
         {
             XDocument doc = XMLTools.GetXMLDocument(FilePath);
-            XElement root = doc.Root;
-          
+
             if (doc != null)
             {
-                int i = 0;
-                foreach (XElement e in root.Elements("move"))
+
+                XElement root = doc.Root;
+
+                if (doc != null)
                 {
-                    i++;
-                    try
+                    int i = 0;
+                    foreach (XElement e in root.Elements("move"))
                     {
-                        PokeMove newMove = LoadDataInMove(e);
-                        Moves.Add(newMove);
-                    }
-                    catch (Exception)
-                    {
-                        Console.WriteLine("Movement in the position {0} could not be read", i);
+                        i++;
+                        try
+                        {
+                            PokeMove newMove = LoadDataInMove(e);
+                            Moves.Add(newMove);
+                        }
+                        catch (Exception)
+                        {
+                            Console.WriteLine("Movement in the position {0} could not be read", i);
+                        }
                     }
                 }
             }
-
-            return Moves;
+            return;
         }
         #endregion
 

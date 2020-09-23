@@ -1,3 +1,508 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet href = 'MyStyles.css' title = 'Compact' type = 'text/css'?>
-<abilities />
+<abilities>
+  <move id="0">
+    <name>Hedor</name>
+  </move>
+  <move id="1">
+    <name>Llovizna</name>
+  </move>
+  <move id="2">
+    <name>Impulso</name>
+  </move>
+  <move id="3">
+    <name>Armadura Batalla</name>
+  </move>
+  <move id="4">
+    <name>Robustez</name>
+  </move>
+  <move id="5">
+    <name>Humedad</name>
+  </move>
+  <move id="6">
+    <name>Flexibilidad</name>
+  </move>
+  <move id="7">
+    <name>Velo Arena</name>
+  </move>
+  <move id="8">
+    <name>Electricidad Estatica</name>
+  </move>
+  <move id="9">
+    <name>Absor. elec.</name>
+  </move>
+  <move id="10">
+    <name>Absor. agua</name>
+  </move>
+  <move id="11">
+    <name>Despiste</name>
+  </move>
+  <move id="12">
+    <name>Aclimatación</name>
+  </move>
+  <move id="13">
+    <name>Ojo Compuesto</name>
+  </move>
+  <move id="14">
+    <name>Insomnio</name>
+  </move>
+  <move id="15">
+    <name>Cambio Color</name>
+  </move>
+  <move id="16">
+    <name>Inmunidad</name>
+  </move>
+  <move id="17">
+    <name>Absor. fuego</name>
+  </move>
+  <move id="18">
+    <name>Polvo Escudo</name>
+  </move>
+  <move id="19">
+    <name>Ritmo Propio</name>
+  </move>
+  <move id="20">
+    <name>Ventosas</name>
+  </move>
+  <move id="21">
+    <name>Intimidacion</name>
+  </move>
+  <move id="22">
+    <name>Sombra Trampa</name>
+  </move>
+  <move id="23">
+    <name>Piel Tosca</name>
+  </move>
+  <move id="24">
+    <name>Superguarda</name>
+  </move>
+  <move id="25">
+    <name>Levitacion</name>
+  </move>
+  <move id="26">
+    <name>Efecto Espora</name>
+  </move>
+  <move id="27">
+    <name>Sincronia</name>
+  </move>
+  <move id="28">
+    <name>Cuerpo Puro</name>
+  </move>
+  <move id="29">
+    <name>Cura Natural</name>
+  </move>
+  <move id="30">
+    <name>Pararrayos</name>
+  </move>
+  <move id="31">
+    <name>Dicha</name>
+  </move>
+  <move id="32">
+    <name>Nado Rapido</name>
+  </move>
+  <move id="33">
+    <name>Clorofila</name>
+  </move>
+  <move id="34">
+    <name>Iluminacion</name>
+  </move>
+  <move id="35">
+    <name>Rastro</name>
+  </move>
+  <move id="36">
+    <name>Potencia</name>
+  </move>
+  <move id="37">
+    <name>Punto Toxico</name>
+  </move>
+  <move id="38">
+    <name>Foco Interno</name>
+  </move>
+  <move id="39">
+    <name>Escudo Magma</name>
+  </move>
+  <move id="40">
+    <name>Velo Agua</name>
+  </move>
+  <move id="41">
+    <name>Iman</name>
+  </move>
+  <move id="42">
+    <name>Insonorizar</name>
+  </move>
+  <move id="43">
+    <name>Cura Lluvia</name>
+  </move>
+  <move id="44">
+    <name>Chorro Arena</name>
+  </move>
+  <move id="45">
+    <name>Presion</name>
+  </move>
+  <move id="46">
+    <name>Sebo</name>
+  </move>
+  <move id="47">
+    <name>Madrugar</name>
+  </move>
+  <move id="48">
+    <name>Cuerpo Llama</name>
+  </move>
+  <move id="49">
+    <name>Fuga</name>
+  </move>
+  <move id="50">
+    <name>Vista Lince</name>
+  </move>
+  <move id="51">
+    <name>Corte Fuerte</name>
+  </move>
+  <move id="52">
+    <name>Recogida</name>
+  </move>
+  <move id="53">
+    <name>Ausente</name>
+  </move>
+  <move id="54">
+    <name>Entusiasmo</name>
+  </move>
+  <move id="55">
+    <name>Gran Encanto</name>
+  </move>
+  <move id="56">
+    <name>Mas</name>
+  </move>
+  <move id="57">
+    <name>Menos</name>
+  </move>
+  <move id="58">
+    <name>Prediccion</name>
+  </move>
+  <move id="59">
+    <name>Viscosidad</name>
+  </move>
+  <move id="60">
+    <name>Mudar</name>
+  </move>
+  <move id="61">
+    <name>Agallas</name>
+  </move>
+  <move id="62">
+    <name>Escama Especial</name>
+  </move>
+  <move id="63">
+    <name>Lodo Liquido</name>
+  </move>
+  <move id="64">
+    <name>Espesura</name>
+  </move>
+  <move id="65">
+    <name>Mar Llamas</name>
+  </move>
+  <move id="66">
+    <name>Torrente</name>
+  </move>
+  <move id="67">
+    <name>Enjambre</name>
+  </move>
+  <move id="68">
+    <name>Cabeza Roca</name>
+  </move>
+  <move id="69">
+    <name>Sequia</name>
+  </move>
+  <move id="70">
+    <name>Trampa Arena</name>
+  </move>
+  <move id="71">
+    <name>Espiritu Vital</name>
+  </move>
+  <move id="72">
+    <name>Humo Blanco</name>
+  </move>
+  <move id="73">
+    <name>Poder Puro</name>
+  </move>
+  <move id="74">
+    <name>Caparazon</name>
+  </move>
+  <move id="75">
+    <name>Bucle Aire</name>
+  </move>
+  <move id="76">
+    <name>Tumbos</name>
+  </move>
+  <move id="77">
+    <name>Electromotor</name>
+  </move>
+  <move id="78">
+    <name>Rivalidad</name>
+  </move>
+  <move id="79">
+    <name>Impasible</name>
+  </move>
+  <move id="80">
+    <name>Manto niveo</name>
+  </move>
+  <move id="81">
+    <name>Gula</name>
+  </move>
+  <move id="82">
+    <name>Irascible</name>
+  </move>
+  <move id="83">
+    <name>Liviano</name>
+  </move>
+  <move id="84">
+    <name>Ignifugo</name>
+  </move>
+  <move id="85">
+    <name>Simple</name>
+  </move>
+  <move id="86">
+    <name>Piel Seca</name>
+  </move>
+  <move id="87">
+    <name>Descarga</name>
+  </move>
+  <move id="88">
+    <name>Puño Ferreo</name>
+  </move>
+  <move id="89">
+    <name>Antidoto</name>
+  </move>
+  <move id="90">
+    <name>Adaptable</name>
+  </move>
+  <move id="91">
+    <name>Encadenado</name>
+  </move>
+  <move id="92">
+    <name>Hidratacion</name>
+  </move>
+  <move id="93">
+    <name>Poder Solar</name>
+  </move>
+  <move id="94">
+    <name>Pies Rapidos</name>
+  </move>
+  <move id="95">
+    <name>Normalidad</name>
+  </move>
+  <move id="96">
+    <name>Francotirador</name>
+  </move>
+  <move id="97">
+    <name>Muro Magico</name>
+  </move>
+  <move id="98">
+    <name>Indefenso</name>
+  </move>
+  <move id="99">
+    <name>Rezagado</name>
+  </move>
+  <move id="100">
+    <name>Experto</name>
+  </move>
+  <move id="101">
+    <name>Defensa Hoja</name>
+  </move>
+  <move id="102">
+    <name>Zoquete</name>
+  </move>
+  <move id="103">
+    <name>Rompemoldes</name>
+  </move>
+  <move id="104">
+    <name>Afortunado</name>
+  </move>
+  <move id="105">
+    <name>Resquicio</name>
+  </move>
+  <move id="106">
+    <name>Anticipacion</name>
+  </move>
+  <move id="107">
+    <name>Alerta</name>
+  </move>
+  <move id="108">
+    <name>Ignorante</name>
+  </move>
+  <move id="109">
+    <name>Cromolente</name>
+  </move>
+  <move id="110">
+    <name>Filtro</name>
+  </move>
+  <move id="111">
+    <name>Inicio Lento</name>
+  </move>
+  <move id="112">
+    <name>Intrepido</name>
+  </move>
+  <move id="113">
+    <name>Colector</name>
+  </move>
+  <move id="114">
+    <name>Gelido</name>
+  </move>
+  <move id="115">
+    <name>Roca Solida</name>
+  </move>
+  <move id="116">
+    <name>Nevada</name>
+  </move>
+  <move id="117">
+    <name>Recogemiel</name>
+  </move>
+  <move id="118">
+    <name>Cacheo</name>
+  </move>
+  <move id="119">
+    <name>Audaz</name>
+  </move>
+  <move id="120">
+    <name>Multitipo</name>
+  </move>
+  <move id="121">
+    <name>Don Floral</name>
+  </move>
+  <move id="122">
+    <name>Pesadilla</name>
+  </move>
+  <move id="123">
+    <name>Hurto</name>
+  </move>
+  <move id="124">
+    <name>Potencia bruta</name>
+  </move>
+  <move id="125">
+    <name>Respondon</name>
+  </move>
+  <move id="126">
+    <name>Nerviosismo</name>
+  </move>
+  <move id="127">
+    <name>Competitivo</name>
+  </move>
+  <move id="128">
+    <name>Flaqueza</name>
+  </move>
+  <move id="129">
+    <name>Cuerpo Maldito</name>
+  </move>
+  <move id="130">
+    <name>Sanador</name>
+  </move>
+  <move id="131">
+    <name>Guarda Amiga</name>
+  </move>
+  <move id="132">
+    <name>Armadura Fragil</name>
+  </move>
+  <move id="133">
+    <name>Metal Pesado</name>
+  </move>
+  <move id="134">
+    <name>Metal Ligero</name>
+  </move>
+  <move id="135">
+    <name>Compensacion</name>
+  </move>
+  <move id="136">
+    <name>Impetu toxico</name>
+  </move>
+  <move id="137">
+    <name>Impetu Ardiente</name>
+  </move>
+  <move id="138">
+    <name>Cosecha</name>
+  </move>
+  <move id="139">
+    <name>Telepatia</name>
+  </move>
+  <move id="140">
+    <name>Veleta</name>
+  </move>
+  <move id="141">
+    <name>Funda</name>
+  </move>
+  <move id="142">
+    <name>Toque toxico</name>
+  </move>
+  <move id="143">
+    <name>Regeneracion</name>
+  </move>
+  <move id="144">
+    <name>Sacapecho</name>
+  </move>
+  <move id="145">
+    <name>Impetu Arena</name>
+  </move>
+  <move id="146">
+    <name>Piel Milagro</name>
+  </move>
+  <move id="147">
+    <name>Calculo Final</name>
+  </move>
+  <move id="148">
+    <name>Ilusion</name>
+  </move>
+  <move id="149">
+    <name>Impostor</name>
+  </move>
+  <move id="150">
+    <name>Allanamiento</name>
+  </move>
+  <move id="151">
+    <name>Momia</name>
+  </move>
+  <move id="152">
+    <name>Autoestima</name>
+  </move>
+  <move id="153">
+    <name>Justiciero</name>
+  </move>
+  <move id="154">
+    <name>Cobardía</name>
+  </move>
+  <move id="155">
+    <name>Espejo Magico</name>
+  </move>
+  <move id="156">
+    <name>Herbivoro</name>
+  </move>
+  <move id="157">
+    <name>Bromista</name>
+  </move>
+  <move id="158">
+    <name>Poder Arena</name>
+  </move>
+  <move id="159">
+    <name>Punta Acero</name>
+  </move>
+  <move id="160">
+    <name>Modo Daruma</name>
+  </move>
+  <move id="161">
+    <name>Tinovictoria</name>
+  </move>
+  <move id="162">
+    <name>Turbollama</name>
+  </move>
+  <move id="163">
+    <name>Terravoltaje</name>
+  </move>
+  <move id="164">
+    <name>Piel Feerica</name>
+  </move>
+  <move id="165">
+    <name>Imposicion</name>
+  </move>
+  <move id="166">
+    <name>Temerario</name>
+  </move>
+  <move id="167">
+    <name>Alma Maldita</name>
+  </move>
+</abilities>

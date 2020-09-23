@@ -145,3 +145,39 @@ Nombre del parámetro: outputFileName**
 23/09/2020 9:36:16 => Application initilizated.
 23/09/2020 9:38:11 => Application initilizated.
 23/09/2020 9:40:45 => Application initilizated.
+23/09/2020 20:16:15 => Application initilizated.
+23/09/2020 20:16:43 => Project pruebas loaded from D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+ -23/09/2020 20:17:41 => Error saving pokedex of pruebas.
+ **El valor no puede ser nulo.
+Nombre del parámetro: outputFileName**
+ -23/09/2020 20:17:41 => Error saving moves list of pruebas.
+ **El valor no puede ser nulo.
+Nombre del parámetro: outputFileName**
+ -23/09/2020 20:17:41 => Error saving abilities list of pruebas.
+ **El valor no puede ser nulo.
+Nombre del parámetro: outputFileName**
+ -23/09/2020 20:17:41 => Error saving items list of pruebas.
+ **El valor no puede ser nulo.
+Nombre del parámetro: outputFileName**
+23/09/2020 20:17:42 => Project pruebas saved in D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+23/09/2020 20:28:34 => Application initilizated.
+23/09/2020 20:28:58 => Project pruebas loaded from D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+23/09/2020 20:29:22 => Project pruebas saved in D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+23/09/2020 20:30:55 => Project pruebas saved in D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+23/09/2020 20:33:16 => Application initilizated.
+23/09/2020 20:35:52 => Application initilizated.
+23/09/2020 20:39:45 => Application initilizated.
+23/09/2020 20:39:56 => Project pruebas loaded from D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+23/09/2020 20:40:57 => Project pruebas saved in D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+23/09/2020 20:42:32 => Application initilizated.
+23/09/2020 20:42:45 => Project pruebas loaded from D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+23/09/2020 20:43:33 => Project pruebas saved in D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+23/09/2020 20:44:37 => Application initilizated.
+23/09/2020 20:44:54 => Project pruebas loaded from D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+23/09/2020 20:49:12 => Application initilizated.
+23/09/2020 20:50:00 => Application initilizated.
+23/09/2020 20:50:11 => Project pruebas loaded from D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+23/09/2020 20:50:35 => Project pruebas saved in D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+23/09/2020 20:57:45 => Application initilizated.
+23/09/2020 20:57:55 => Project pruebas loaded from D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+23/09/2020 20:58:14 => Project pruebas saved in D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas

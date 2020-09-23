@@ -260,9 +260,8 @@ namespace Forms
                 movesList = new MovesList();
                 abilitiesList = new AbilitiesList();
                 itemsList = new ItemsList();
-                pokedex.FilePath = movesList.FilePath = abilitiesList.FilePath = itemsList.FilePath = fbd.SelectedPath;
+                projectPath = pokedex.FilePath = movesList.FilePath = abilitiesList.FilePath = itemsList.FilePath = fbd.SelectedPath;
 
-                projectPath = fbd.SelectedPath;
                 string[] split = projectPath.Split('\\');
                 projectName = split[split.Length-1];
 
@@ -355,7 +354,7 @@ namespace Forms
         {
             OpenFileDialog ofd = OpenTxtFile();
             if (ofd.ShowDialog() == DialogResult.OK)
-                pokedex = EssentialsTranslator.Pokedex(movesList, abilitiesList, itemsList, ofd.FileName);
+                EssentialsTranslator.Pokedex(pokedex, movesList, abilitiesList, itemsList, ofd.FileName);
 
             return;
         }
@@ -365,7 +364,7 @@ namespace Forms
         {
             OpenFileDialog ofd = OpenTxtFile();
             if (ofd.ShowDialog() == DialogResult.OK)
-                movesList = EssentialsTranslator.MovesList(ofd.FileName);
+                EssentialsTranslator.MovesList(movesList, ofd.FileName);
 
             return;
         }
@@ -375,7 +374,7 @@ namespace Forms
         {
             OpenFileDialog ofd = OpenTxtFile();
             if (ofd.ShowDialog() == DialogResult.OK)
-                abilitiesList = EssentialsTranslator.AbilitiesList(ofd.FileName);
+                EssentialsTranslator.AbilitiesList(abilitiesList, ofd.FileName);
 
             return;
         }
@@ -385,7 +384,7 @@ namespace Forms
         {
             OpenFileDialog ofd = OpenTxtFile();
             if (ofd.ShowDialog() == DialogResult.OK)
-                itemsList = EssentialsTranslator.ItemsList(ofd.FileName);
+                EssentialsTranslator.ItemsList(itemsList, ofd.FileName);
 
             return;
         }
@@ -401,10 +400,10 @@ namespace Forms
             fbd.SelectedPath = XMLTools.DefaultPath;
             if (fbd.ShowDialog() == DialogResult.OK)
             {
-                itemsList = EssentialsTranslator.ItemsList(fbd.SelectedPath + "\\items.txt");
-                abilitiesList = EssentialsTranslator.AbilitiesList(fbd.SelectedPath + "\\abilities.txt");
-                movesList = EssentialsTranslator.MovesList(fbd.SelectedPath + "\\moves.txt");
-                pokedex = EssentialsTranslator.Pokedex(movesList, abilitiesList, itemsList, fbd.SelectedPath + "\\pokemon.txt");
+                EssentialsTranslator.ItemsList(itemsList, fbd.SelectedPath + "\\items.txt");
+                EssentialsTranslator.AbilitiesList(abilitiesList, fbd.SelectedPath + "\\abilities.txt");
+                EssentialsTranslator.MovesList(movesList, fbd.SelectedPath + "\\moves.txt");
+                EssentialsTranslator.Pokedex(pokedex, movesList, abilitiesList, itemsList, fbd.SelectedPath + "\\pokemon.txt");
             }
         }
 
