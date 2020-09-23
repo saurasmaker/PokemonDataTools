@@ -319,7 +319,7 @@ namespace Forms
         {
             if (MessageBox.Show("Are you sure that you want to close this project?", "Message Question.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (MessageBox.Show("Do yo want to save the projecto before close?", "Message Question.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)                
+                if (MessageBox.Show("Do yo want to save the project before close?", "Message Question.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)                
                     SaveProject();
 
                 Dispose();
@@ -391,6 +391,14 @@ namespace Forms
 
         private void essentialsToolStripMenuItem5_Click(object sender, EventArgs e)
         {
+            if (projectName.Equals(string.Empty))
+                if (MessageBox.Show("To translate a project you need to load or generate a new project.\n Do you want to generate a project? ", "Message Question.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    GenerateNewProyect();
+                else
+                {
+                    MessageBox.Show("Translation canceled. ", "Operation Canceled", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.RootFolder = Environment.SpecialFolder.Desktop;
 
@@ -400,10 +408,41 @@ namespace Forms
             fbd.SelectedPath = XMLTools.DefaultPath;
             if (fbd.ShowDialog() == DialogResult.OK)
             {
-                EssentialsTranslator.ItemsList(itemsList, fbd.SelectedPath + "\\items.txt");
-                EssentialsTranslator.AbilitiesList(abilitiesList, fbd.SelectedPath + "\\abilities.txt");
-                EssentialsTranslator.MovesList(movesList, fbd.SelectedPath + "\\moves.txt");
-                EssentialsTranslator.Pokedex(pokedex, movesList, abilitiesList, itemsList, fbd.SelectedPath + "\\pokemon.txt");
+                try
+                {
+                    EssentialsTranslator.ItemsList(itemsList, fbd.SelectedPath);
+                }
+                catch (Exception t) {
+                    MessageBox.Show("Error translating items. Check the log for more information.", "Message Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Log.Execute("Error translating items " + projectName + ".", t);
+                }
+                try
+                {
+                    EssentialsTranslator.AbilitiesList(abilitiesList, fbd.SelectedPath);
+                }
+                catch (Exception t) {
+                    MessageBox.Show("Error translating abilities. Check the log for more information.", "Message Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Log.Execute("Error translating abilities " + projectName + ".", t);
+                }
+                try
+                {
+                    EssentialsTranslator.MovesList(movesList, fbd.SelectedPath);
+                }
+                catch (Exception t) {
+                    MessageBox.Show("Error translating moves. Check the log for more information.", "Message Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Log.Execute("Error translating moves " + projectName + ".", t);
+                }
+                try
+                {
+                    EssentialsTranslator.Pokedex(pokedex, movesList, abilitiesList, itemsList, fbd.SelectedPath);
+                }
+                catch (Exception t) {
+                    MessageBox.Show("Error translatting pokédex. Check the log for more information.", "Message Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Log.Execute("Error translatting pokédex " + projectName + ".", t);
+                }
+
+                MessageBox.Show("Project " + projectName + " translated from essentials succesfully.", "Message Info.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Log.Execute("Project " + projectName + " translated in " + fbd.SelectedPath);
             }
         }
 
