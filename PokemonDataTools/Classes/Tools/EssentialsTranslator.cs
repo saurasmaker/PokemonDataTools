@@ -159,11 +159,11 @@ namespace PokemonDataTools.Classes.Tools
                                         splitedAbilities = abilities.Split(',');
                                     else splitedAbilities[0] = abilities;
 
-                                    for (byte i = 0; i < abilities.Length; ++i)
+                                    for (byte i = 0; i < splitedAbilities.Length; ++i)
                                         for (int j = 0; j < ab.Abilities.Count; ++j)
-                                            if (ab.Abilities[i].Name.ToUpper().Equals(splitedAbilities[i].ToUpper()))
+                                            if (ab.Abilities[j].InternalName.ToUpper().Equals(splitedAbilities[i].ToUpper()))
                                             {
-                                                p.Abilities[i] = ab.Abilities[i].Id;
+                                                p.Abilities[i] = ab.Abilities[j].Id;
                                                 break;
                                             }
                                 }
@@ -174,7 +174,7 @@ namespace PokemonDataTools.Classes.Tools
                                 if (ab != null)
                                 {
                                     for (int i = 0; i < ab.Abilities.Count; ++i)
-                                        if (ab.Abilities[i].Name.ToUpper().Equals(line.Split('=')[1].ToUpper()))
+                                        if (ab.Abilities[i].InternalName.ToUpper().Equals(line.Split('=')[1].ToUpper()))
                                         {
                                             p.HiddenAbility = ab.Abilities[i].Id;
                                             break;
@@ -190,7 +190,13 @@ namespace PokemonDataTools.Classes.Tools
                                     {
                                         OPokemon.MoveWillLearnByLevel m = new OPokemon.MoveWillLearnByLevel();
                                         m.level = Convert.ToByte(moves[i]);
-                                        m.idMove = moves[++i];
+                                        ++i;
+                                        for (int j = 0; j < mo.Moves.Count; ++j)
+                                            if (moves[i].ToUpper().Equals(mo.Moves[j].InternalName.ToUpper()))
+                                            {  
+                                                m.idMove = mo.Moves[j].Id;
+                                                break;
+                                            }
                                         p.MovesWillLearnByLevel.Add(m);
                                     }
                                 }
@@ -201,7 +207,12 @@ namespace PokemonDataTools.Classes.Tools
                                 {
                                     string[] eggMoves = line.Split('=')[1].Split(',');
                                     for (byte i = 0; i < eggMoves.Length; ++i)
-                                        p.EggMoves.Add(eggMoves[i]);
+                                        for (int j = 0; j < mo.Moves.Count; ++j)
+                                            if (eggMoves[i].ToUpper().Equals(mo.Moves[j].InternalName.ToUpper()))
+                                            {
+                                                p.EggMoves.Add(mo.Moves[j].Id);
+                                                break;
+                                            }
                                 }
                                 break;
 
@@ -347,9 +358,10 @@ namespace PokemonDataTools.Classes.Tools
                 PokeMove p = new PokeMove();
                 string[] attributes = line.Split(',');
                 p.Id = Convert.ToInt32(attributes[0]);
+                p.InternalName = attributes[1];
                 p.Name = attributes[2];
                 p.EffectCode = attributes[3];
-                p.Power = Convert.ToSByte(attributes[4]);
+                p.Power = Convert.ToInt16(attributes[4]);
                 
                 for(byte i = 0; i < PokeType.TypesNames.Length; ++i)
                     if (PokeType.TypesNames[i].ToUpper().Equals(attributes[5]))
@@ -367,22 +379,63 @@ namespace PokemonDataTools.Classes.Tools
 
                 p.Accuracy = Convert.ToByte(attributes[7]);
                 p.PP = Convert.ToByte(attributes[8]);
-                p.EffectProbability = Convert.ToByte(attributes[9]);
-
-                switch (attributes[10])
+                
+                switch (attributes[9])
                 {//En desarrollo
                     case "00":
                         p.Target = PokeMove.TargetAllPokemon;
                         break;
                 }
 
-                p.Priority = Convert.ToByte(attributes[11]);
+                p.EffectProbability = Convert.ToSingle(attributes[10]);
+
+                
+
+                p.Priority = Convert.ToSByte(attributes[11]);
+
+                string tags = attributes[11];
+                if (tags.Contains("a"))
+                    p.Contact = true;
+
+                if (tags.Contains("b"))
+                    p.CanBeProtected = true;
+
+                if (tags.Contains("c"))
+                    p.AffectedByBounceEffect = true;
+
+                if (tags.Contains("d"))
+                    p.CanSteal = true;
+
+                if (tags.Contains("e"))
+                    p.CanCopy = true;
+
+                if (tags.Contains("f"))
+                    p.AffectedByKingsRock = true;
+
+                if (tags.Contains("g"))
+                    p.CanDefrost = true;
+
+                if (tags.Contains("h"))
+                    p.CriticalProbability = 12.5f;
+
+                if (tags.Contains("i"))
+                    p.RecoverByDamage = 50f;
+
+                if (tags.Contains("j"))
+                    p.IsPerforation = true;
+
+                if (tags.Contains("k"))
+                    p.IsSound = true;
+
+                if (tags.Contains("l"))
+                    p.AffectedByGravity = true;
 
                 for (int i = 13; i < attributes.Length - 13; ++i)
-                    p.Description += attributes[i];
+                    p.Description += attributes[i].Replace("\"", "");
 
                 if (p.Name != null)
                     moves.AddPokeMove(p);
+
             }
 
             return moves;
@@ -390,15 +443,55 @@ namespace PokemonDataTools.Classes.Tools
 
         public static AbilitiesList AbilitiesList(string path)
         {
-            
+            AbilitiesList abilities = new AbilitiesList();
 
-            return null;
+            string line;
+
+            StreamReader file = new StreamReader(path);
+            while ((line = file.ReadLine()) != null)
+            {
+                PokeAbility a = new PokeAbility();
+                string[] attributes = line.Split(',');
+                a.Id = Convert.ToInt32(attributes[0]);
+                a.InternalName = attributes[1];
+                a.Name = attributes[2];
+                
+                for (int i = 3; i < attributes.Length - 3; ++i)
+                    a.Description += attributes[i].Replace("\"","");
+
+                if (a.Name != null)
+                    abilities.AddPokeAbility(a);
+            }
+
+            return abilities;
         }
 
         public static ItemsList ItemsList(string path)
         {
+            ItemsList items = new ItemsList();
 
-            return null;
+            string line;
+
+            StreamReader file = new StreamReader(path);
+            while ((line = file.ReadLine()) != null)
+            {
+                PokeItem item = new PokeItem();
+                string[] attributes = line.Split(',');
+
+                item.Id = Convert.ToInt32(attributes[0]);
+                item.InternalName = attributes[1];
+                item.Name = attributes[2];
+
+                //por hacer
+
+                for (int i = 3; i < attributes.Length - 3; ++i)
+                    item.Description += attributes[i].Replace("\"", "");
+
+                if (item.Name != null)
+                    items.AddPokeItem(item);
+            }
+            
+            return items;
         }
         #endregion
 

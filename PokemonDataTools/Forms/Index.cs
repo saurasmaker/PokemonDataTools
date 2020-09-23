@@ -103,7 +103,7 @@ namespace Forms
         #region Pokedex Tools
         private void btnShowPokeFromPokedex_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new ShowPokemonForm(pokedex));
+            OpenChildForm(new ShowPokemonForm(pokedex, movesList, abilitiesList, itemsList));
         }
 
         private void btnAddPokeToPokedex_Click(object sender, EventArgs e)
@@ -152,7 +152,7 @@ namespace Forms
                 MessageBox.Show("You cannot show a pokémon if there is no pokemon in memory", "Project error.");
 
             else
-                OpenChildForm(new ShowPokemonForm(pokedex));
+                OpenChildForm(new ShowPokemonForm(pokedex, movesList, abilitiesList, itemsList));
         }
         #endregion
 
@@ -365,7 +365,7 @@ namespace Forms
         {
             OpenFileDialog ofd = OpenTxtFile();
             if (ofd.ShowDialog() == DialogResult.OK)
-                EssentialsTranslator.AbilitiesList(ofd.FileName);
+                movesList = EssentialsTranslator.MovesList(ofd.FileName);
 
             return;
         }
@@ -375,7 +375,7 @@ namespace Forms
         {
             OpenFileDialog ofd = OpenTxtFile();
             if (ofd.ShowDialog() == DialogResult.OK)
-                EssentialsTranslator.AbilitiesList(ofd.FileName);
+                abilitiesList = EssentialsTranslator.AbilitiesList(ofd.FileName);
 
             return;
         }
@@ -385,10 +385,29 @@ namespace Forms
         {
             OpenFileDialog ofd = OpenTxtFile();
             if (ofd.ShowDialog() == DialogResult.OK)
-                EssentialsTranslator.AbilitiesList(ofd.FileName);
+                itemsList = EssentialsTranslator.ItemsList(ofd.FileName);
 
             return;
         }
+
+        private void essentialsToolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.RootFolder = Environment.SpecialFolder.Desktop;
+
+            if (!Directory.Exists(XMLTools.DefaultPath))
+                Directory.CreateDirectory(XMLTools.DefaultPath);
+
+            fbd.SelectedPath = XMLTools.DefaultPath;
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                itemsList = EssentialsTranslator.ItemsList(fbd.SelectedPath + "\\items.txt");
+                abilitiesList = EssentialsTranslator.AbilitiesList(fbd.SelectedPath + "\\abilities.txt");
+                movesList = EssentialsTranslator.MovesList(fbd.SelectedPath + "\\moves.txt");
+                pokedex = EssentialsTranslator.Pokedex(movesList, abilitiesList, itemsList, fbd.SelectedPath + "\\pokemon.txt");
+            }
+        }
+
         #endregion //end of essentials translator
 
         #endregion //end of Tool strip
@@ -408,6 +427,7 @@ namespace Forms
 
             return ofd;
         }
+
 
 
         #endregion

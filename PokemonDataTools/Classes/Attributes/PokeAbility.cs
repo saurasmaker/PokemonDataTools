@@ -10,7 +10,9 @@ namespace Classes.Attributes
 
         public int Id { get; set; }
         public String Name{ get; set; }
+        public string InternalName { get; set; }
 
+        public string Description { get; set; }
 
         
     }

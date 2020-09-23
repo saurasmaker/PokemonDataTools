@@ -130,7 +130,7 @@ namespace Forms.MovesListTools
             pokeMove.EffectProbability = Convert.ToByte(numericUpDownEffectProbability.Value);
             pokeMove.Power = Convert.ToSByte(numericUpDownPower.Value);
             pokeMove.PP = Convert.ToByte(numericUpDownPP.Value);
-            pokeMove.Priority = Convert.ToByte(numericUpDownPriority.Value);
+            pokeMove.Priority = Convert.ToSByte(numericUpDownPriority.Value);
             pokeMove.RecoverByDamage = Convert.ToSByte(numericUpDownRecover.Value);
             pokeMove.Repetitions = Convert.ToByte(numericUpDownRepetitions.Value);
             pokeMove.RepetitionsInTurn = Convert.ToByte(numericUpDownRepetitionsInTurn.Value);
@@ -193,10 +193,10 @@ namespace Forms.MovesListTools
             comboBoxTarget.SelectedIndex = pokeMove.Target;
 
             numericUpDownAccuarcy.Value = pokeMove.Accuracy;
-            numericUpDownEffectProbability.Value = pokeMove.EffectProbability;
+            numericUpDownEffectProbability.Value = Convert.ToDecimal(pokeMove.EffectProbability);
             numericUpDownPower.Value = pokeMove.Power;
             numericUpDownPP.Value = pokeMove.PP;
-            numericUpDownRecover.Value = pokeMove.RecoverByDamage;
+            numericUpDownRecover.Value = Convert.ToDecimal(pokeMove.RecoverByDamage);
             numericUpDownRepetitions.Value = pokeMove.Repetitions;
             numericUpDownRepetitionsInTurn.Value = pokeMove.RepetitionsInTurn;
             numericUpDownPriority.Value = pokeMove.Priority;

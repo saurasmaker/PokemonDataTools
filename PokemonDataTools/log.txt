@@ -78,3 +78,56 @@ Nombre del parámetro: outputFileName**
 22/09/2020 20:03:32 => Application initilizated.
 22/09/2020 20:06:07 => Application initilizated.
 22/09/2020 20:06:39 => Application initilizated.
+23/09/2020 6:50:32 => Application initilizated.
+23/09/2020 6:54:00 => Application initilizated.
+23/09/2020 6:55:41 => Application initilizated.
+23/09/2020 6:57:05 => Application initilizated.
+23/09/2020 7:09:13 => Application initilizated.
+23/09/2020 7:10:32 => Application initilizated.
+23/09/2020 7:11:36 => Application initilizated.
+23/09/2020 7:12:16 => Application initilizated.
+23/09/2020 7:13:44 => Application initilizated.
+23/09/2020 7:16:06 => Application initilizated.
+ -23/09/2020 7:18:34 => Error saving pokedex of .
+ **El valor no puede ser nulo.
+Nombre del parámetro: outputFileName**
+ -23/09/2020 7:18:34 => Error saving moves list of .
+ **El valor no puede ser nulo.
+Nombre del parámetro: outputFileName**
+ -23/09/2020 7:18:34 => Error saving abilities list of .
+ **El valor no puede ser nulo.
+Nombre del parámetro: outputFileName**
+ -23/09/2020 7:18:34 => Error saving items list of .
+ **El valor no puede ser nulo.
+Nombre del parámetro: outputFileName**
+23/09/2020 7:18:36 => Project  saved in 
+23/09/2020 7:19:48 => Project asdf loaded from D:\SauraSMaker\Escritorio\Proyectos PokemonTools\asdf
+ -23/09/2020 7:20:27 => Error saving pokedex of asdf.
+ **El valor no puede ser nulo.
+Nombre del parámetro: outputFileName**
+ -23/09/2020 7:20:27 => Error saving moves list of asdf.
+ **El valor no puede ser nulo.
+Nombre del parámetro: outputFileName**
+ -23/09/2020 7:20:27 => Error saving abilities list of asdf.
+ **El valor no puede ser nulo.
+Nombre del parámetro: outputFileName**
+ -23/09/2020 7:20:27 => Error saving items list of asdf.
+ **El valor no puede ser nulo.
+Nombre del parámetro: outputFileName**
+23/09/2020 7:20:30 => Project asdf saved in D:\SauraSMaker\Escritorio\Proyectos PokemonTools\asdf
+23/09/2020 7:21:57 => Application initilizated.
+23/09/2020 7:22:08 => Project asdf loaded from D:\SauraSMaker\Escritorio\Proyectos PokemonTools\asdf
+23/09/2020 7:38:59 => Application initilizated.
+23/09/2020 7:43:43 => Application initilizated.
+23/09/2020 7:46:08 => Application initilizated.
+23/09/2020 7:49:19 => Application initilizated.
+23/09/2020 7:51:13 => Application initilizated.
+23/09/2020 7:52:52 => Application initilizated.
+23/09/2020 7:56:08 => Application initilizated.
+23/09/2020 7:58:32 => Application initilizated.
+23/09/2020 8:05:41 => Application initilizated.
+23/09/2020 8:05:57 => Application initilizated.
+23/09/2020 8:11:14 => Application initilizated.
+23/09/2020 8:19:33 => Application initilizated.
+23/09/2020 8:26:33 => Application initilizated.
+23/09/2020 8:27:38 => Application initilizated.

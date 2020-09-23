@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBoxGeneral = new System.Windows.Forms.GroupBox();
+            this.comboBoxEffectCode = new System.Windows.Forms.ComboBox();
             this.labelEffectProbability = new System.Windows.Forms.Label();
             this.numericUpDownEffectProbability = new System.Windows.Forms.NumericUpDown();
             this.labelEffectCode = new System.Windows.Forms.Label();
@@ -58,7 +59,6 @@
             this.labelTitle = new System.Windows.Forms.Label();
             this.buttonAddMove = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.comboBoxEffectCode = new System.Windows.Forms.ComboBox();
             this.groupBoxGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEffectProbability)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPP)).BeginInit();
@@ -109,6 +109,18 @@
             this.groupBoxGeneral.TabStop = false;
             this.groupBoxGeneral.Text = "General";
             // 
+            // comboBoxEffectCode
+            // 
+            this.comboBoxEffectCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboBoxEffectCode.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBoxEffectCode.FormattingEnabled = true;
+            this.comboBoxEffectCode.Items.AddRange(new object[] {
+            "Effect Code..."});
+            this.comboBoxEffectCode.Location = new System.Drawing.Point(285, 377);
+            this.comboBoxEffectCode.Name = "comboBoxEffectCode";
+            this.comboBoxEffectCode.Size = new System.Drawing.Size(127, 21);
+            this.comboBoxEffectCode.TabIndex = 13;
+            // 
             // labelEffectProbability
             // 
             this.labelEffectProbability.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -122,6 +134,7 @@
             // numericUpDownEffectProbability
             // 
             this.numericUpDownEffectProbability.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.numericUpDownEffectProbability.DecimalPlaces = 2;
             this.numericUpDownEffectProbability.Location = new System.Drawing.Point(422, 377);
             this.numericUpDownEffectProbability.Name = "numericUpDownEffectProbability";
             this.numericUpDownEffectProbability.Size = new System.Drawing.Size(126, 20);
@@ -179,12 +192,8 @@
             // numericUpDownRecover
             // 
             this.numericUpDownRecover.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.numericUpDownRecover.DecimalPlaces = 2;
             this.numericUpDownRecover.Location = new System.Drawing.Point(285, 330);
-            this.numericUpDownRecover.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
             this.numericUpDownRecover.Name = "numericUpDownRecover";
             this.numericUpDownRecover.Size = new System.Drawing.Size(127, 20);
             this.numericUpDownRecover.TabIndex = 6;
@@ -270,6 +279,7 @@
             // numericUpDownAccuarcy
             // 
             this.numericUpDownAccuarcy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.numericUpDownAccuarcy.DecimalPlaces = 2;
             this.numericUpDownAccuarcy.Location = new System.Drawing.Point(146, 328);
             this.numericUpDownAccuarcy.Name = "numericUpDownAccuarcy";
             this.numericUpDownAccuarcy.Size = new System.Drawing.Size(123, 20);
@@ -403,18 +413,6 @@
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
-            // 
-            // comboBoxEffectCode
-            // 
-            this.comboBoxEffectCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.comboBoxEffectCode.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBoxEffectCode.FormattingEnabled = true;
-            this.comboBoxEffectCode.Items.AddRange(new object[] {
-            "Effect Code..."});
-            this.comboBoxEffectCode.Location = new System.Drawing.Point(285, 377);
-            this.comboBoxEffectCode.Name = "comboBoxEffectCode";
-            this.comboBoxEffectCode.Size = new System.Drawing.Size(127, 21);
-            this.comboBoxEffectCode.TabIndex = 13;
             // 
             // AddOrUpdateMoveForm
             // 

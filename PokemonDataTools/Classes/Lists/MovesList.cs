@@ -230,7 +230,7 @@ namespace Classes.Lists
             p.Target = Convert.ToByte(e.Element("target").Value);
             p.PP = Convert.ToByte(e.Element("pp").Value);
             p.Contact = e.Element("contact").Value.Equals("true") ? true : false;
-            p.Priority = Convert.ToByte(e.Element("priority").Value);
+            p.Priority = Convert.ToSByte(e.Element("priority").Value);
             p.EffectCode = e.Element("effectCode").Value;
             p.EffectProbability = Convert.ToByte(e.Element("effectProbability").Value);
 

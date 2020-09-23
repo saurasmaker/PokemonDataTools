@@ -9,7 +9,7 @@ using Classes.Tools;
 
 namespace Classes.Lists
 {
-    class ItemsList
+    public class ItemsList
     {
         #region Attributes
         private static string defaultPath = Directory.GetCurrentDirectory() + "\\..\\..\\..\\saves\\items.xml";

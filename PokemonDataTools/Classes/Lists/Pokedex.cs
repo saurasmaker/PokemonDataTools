@@ -294,12 +294,12 @@ namespace Classes.Lists
             {
                 string s = movesWillLearnByLevel[i].Value;
                 if (s != null)
-                    p.MovesWillLearnByLevel.Add(new OPokemon.MoveWillLearnByLevel(Convert.ToByte(movesWillLearnByLevel[i].Attribute("level").Value), s));
+                    p.MovesWillLearnByLevel.Add(new OPokemon.MoveWillLearnByLevel(Convert.ToByte(movesWillLearnByLevel[i].Attribute("level").Value), Convert.ToInt16(s)));
             }
 
             List<XElement> eggMoves = e.Element("eggMoves").Elements("move").ToList();
             for (int i = 0; i < eggMoves.Count; ++i)
-                    p.EggMoves.Add(eggMoves[i].Value);         
+                    p.EggMoves.Add(Convert.ToInt16(eggMoves[i].Value));         
 
             XElement genres = e.Element("genresPercentage");
             p.GenresPercentage[0] = Convert.ToByte(genres.Element("male").Value);

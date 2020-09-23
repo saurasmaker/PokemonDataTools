@@ -9,9 +9,16 @@ namespace PokemonShowdown.Forms.PokedexTools
     public partial class ShowPokemonForm : Form
     {
         Pokedex pokedex;
-        public ShowPokemonForm(Pokedex pokedex)
+        MovesList movesList;
+        AbilitiesList abilitiesList;
+        ItemsList itemsList;
+
+        public ShowPokemonForm(Pokedex pokedex, MovesList movesList, AbilitiesList abilitiesList, ItemsList itemsList)
         {
             this.pokedex = pokedex;
+            this.movesList = movesList;
+            this.abilitiesList = abilitiesList;
+            this.itemsList = itemsList;
             InitializeComponent();
             for (int i = 0; i < pokedex.PokemonList.Count; ++i)
                 comboBoxPokemon.Items.Add(pokedex.PokemonList[i].Name);
@@ -21,7 +28,7 @@ namespace PokemonShowdown.Forms.PokedexTools
         {
             OPokemon p = pokedex.SearchPokemon(comboBoxPokemon.Text);
             if (p != null)
-                richTextBoxShowPoke.Text = p.Show();
+                richTextBoxShowPoke.Text = p.Show(movesList, abilitiesList, itemsList);
 
             else
                 MessageBox.Show(comboBoxPokemon.Text + "Not Finded");

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using Classes.Attributes;
+using Classes.Lists;
 
 namespace Classes
 {
@@ -31,9 +32,9 @@ namespace Classes
         public struct MoveWillLearnByLevel
         {
             public byte level;
-            public string idMove;
+            public int idMove;
 
-            public MoveWillLearnByLevel(byte level, string idMove)
+            public MoveWillLearnByLevel(byte level, int idMove)
             {
                 this.level = level;
                 this.idMove = idMove;
@@ -72,7 +73,7 @@ namespace Classes
         private byte[] genresPercentage;
         private List<MoveWillLearnByLevel> movesWillLearnByLevel;
         private List<WildItem> wildItems;
-        private List<string> eggMoves; //Moves Id. Movements that the pokémon can learn by breeding.
+        private List<int> eggMoves; //Moves Id. Movements that the pokémon can learn by breeding.
 
         #endregion
 
@@ -81,7 +82,7 @@ namespace Classes
         {
             Types = new byte[2] { 0, 0 };
             EggGroups = new byte[2] { 0, 0 };
-            EggMoves = new List<string>();
+            EggMoves = new List<int>();
             GivedEVs = new byte[6] { 0, 0, 0, 0, 0, 0 };
             BaseStats = new byte[6] { 0, 0, 0, 0, 0, 0 };
             GenresPercentage = new byte[2] { 0, 0 };
@@ -93,7 +94,7 @@ namespace Classes
         #endregion
 
         #region Methods
-        public string Show()
+        public string Show(MovesList movesList, AbilitiesList abilitiesList, ItemsList itemsList)
         {
             string pokemonInfo = "\n ||----- " + Name + " -----||" +
             "\n Category: " + Category +
@@ -104,9 +105,11 @@ namespace Classes
             "\n\n ---Abilities--- ";
 
             for (int i = 0; i < Abilities.Length; ++i)
-                pokemonInfo += "\n  -Ability" + i + ": " + Abilities[i];
+                for (int j = 0; j < abilitiesList.Abilities.Count; ++j)
+                    if (abilitiesList.Abilities[j].Id.Equals(Abilities[i]))
+                        pokemonInfo += "\n  -Ability " + (i+1) + ": " + abilitiesList.Abilities[j].Name;
 
-            pokemonInfo += "\n  -Hidden: " + HiddenAbility;
+            pokemonInfo += "\n  -Hidden: " + abilitiesList.Abilities[HiddenAbility].Name;
 
             pokemonInfo +=
             "\n\n ---Base Stats--- " +
@@ -131,12 +134,16 @@ namespace Classes
             pokemonInfo +=
                 "\n\n ---Moves---";
             for (int i = 0; i < movesWillLearnByLevel.Count; ++i)
-                pokemonInfo += "\n  -" + movesWillLearnByLevel[i].idMove + " (lvl " + movesWillLearnByLevel[i].level + ")";
+                for(int j = 0; j < movesList.Moves.Count; ++j)
+                    if(movesList.Moves[j].Id.Equals(movesWillLearnByLevel[i].idMove)) 
+                        pokemonInfo += "\n  -" + movesList.Moves[j].Name + " (lvl " + movesWillLearnByLevel[i].level + ")";
 
             pokemonInfo +=
                 "\n\n ---Egg Moves---";
             for (int i = 0; i < eggMoves.Count; ++i)
-                pokemonInfo += "\n  -" + eggMoves[i];
+                for (int j = 0; j < movesList.Moves.Count; ++j)
+                    if (movesList.Moves[j].Id.Equals(eggMoves[i]))
+                        pokemonInfo += "\n  -" + movesList.Moves[j].Name;
 
             pokemonInfo += "\n\n ---EVs it Gives--- " +
             "\n Health: " + GivedEVs[PokeStat.Health] +
@@ -278,9 +285,9 @@ namespace Classes
             set { wildItems = value; }
         }
 
-        public List<string> EggMoves
+        public List<int> EggMoves
         {
-            get { if (eggMoves == null) eggMoves = new List<string>(); return eggMoves; }
+            get { if (eggMoves == null) eggMoves = new List<int>(); return eggMoves; }
             set { eggMoves = value; }
         }
 

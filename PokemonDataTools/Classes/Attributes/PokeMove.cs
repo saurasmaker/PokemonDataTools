@@ -73,19 +73,20 @@ namespace Classes
         private byte type;
         private byte category;
         private byte accuracy; //Si está en '0' no se puede esquivar el movimiento. 
-        private sbyte power;
-        private byte criticalProbability;
-        private byte effectProbability;
+        private short power;
+        private float criticalProbability;
+        private float effectProbability;
 
         public int Id { get; set; }
         public string Name { get; set; }
+        public string InternalName { get; set; }
         public string Description { get; set; }
         public byte Repetitions { get; set; } //How many times the movement is repeated after the first use
         public byte RepetitionsInTurn { get; set; } //How many times the movement is repeated after the first use
-        public sbyte RecoverByDamage { get; set; } //percentage of life gained based on damage done. If this attribute is negative, instead of recover will be a recoil of health.
+        public float RecoverByDamage { get; set; } //percentage of life gained based on damage done. If this attribute is negative, instead of recover will be a recoil of health.
         public byte PP { get; set; }
         public byte Target { get; set; }
-        public byte Priority { get; set; }
+        public sbyte Priority { get; set; }
         public string EffectCode { get; set; }
 
         public bool Contact { get; set; }
@@ -120,8 +121,14 @@ namespace Classes
 
         public string Show()
         {
-            return "\n ----- Pokemove -----" +
-                " -Name: " + Name;
+            string moveInfo = "\n ||----- " + Name + " -----||" +
+            "\n Id: " + Id +
+            "\n Internal Name: " + InternalName +
+            "\n Category: " + Category +
+            "\n Description: " + Description +
+            "\n Type: " + PokeType.TypesNames[Type];
+
+            return moveInfo;
         }
 
         #endregion
@@ -173,7 +180,7 @@ namespace Classes
             }
         }
 
-        public sbyte Power
+        public short Power
         {
             get { return power; }
             set
@@ -184,31 +191,27 @@ namespace Classes
             }
         }
 
-        public byte EffectProbability
+        public float EffectProbability
         {
             get { return effectProbability; }
             set
             {
                 if (effectProbability > 100)
-                    effectProbability = 0;
+                    effectProbability = 100;
                 else effectProbability = value;
             }
         }
 
-        public byte CriticalEffectProbability
+        public float CriticalProbability
         {
             get { return criticalProbability; }
             set
             {
                 if (criticalProbability > 100)
-                    criticalProbability = 0;
+                    criticalProbability = 100;
                 else criticalProbability = value;
-
-
-                #endregion
-
-
             }
+            #endregion
         }
     }
 }
