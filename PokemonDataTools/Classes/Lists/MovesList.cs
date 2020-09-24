@@ -97,8 +97,6 @@ namespace Classes.Lists
         #region XML Instance CRUD
         public void Save()
         {
-            Console.WriteLine("\n\n Guardando cambios...");
-
             XDocument doc = XMLTools.CreateXMLDocument();
             XElement root = new XElement("moves");
 

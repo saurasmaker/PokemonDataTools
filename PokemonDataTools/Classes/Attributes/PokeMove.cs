@@ -6,38 +6,6 @@ namespace Classes
     public class PokeMove
     {
         #region Static Attributes
-
-
-        /*
-         * Id
-         * Nombre interno
-         * Nombre
-         * Codigo efecto
-         * Poder
-         * tipo
-         * categoria
-         * precision
-         * pp
-         * effect probability
-         * objetivo
-         * prioridad
-         * 
-         * etiquetas:
-         * a - contacto
-         * b - se puede proteger con protect
-         * c - capamagica
-         * d - robo
-         * e - se puede copiar por mov espejoç
-         * f - aplica roca del rey
-         * g - si esta congelado y lo usa se descongela
-         * h - alta probabilidad de golpe critico
-         * i - cura
-         * j - perforacion
-         * k - es de sonido
-         * l - si gravedad -> no se puede usar
-         * 
-         * descripcion
-         */
         public static string[] CategoryNames = new string[] {
             "Physical", "Special", "State"
         };

@@ -192,7 +192,16 @@ namespace Classes.Lists
         {
             XElement item = new XElement("item");
             item.Add(new XAttribute("id", GenerateId(root)));
+            item.Add(new XElement("internalName", m.InternalName));
             item.Add(new XElement("name", m.Name));
+            item.Add(new XElement("pluralName", m.PluralName));
+            item.Add(new XElement("pocket", m.Pocket));
+            item.Add(new XElement("price", m.Price));
+            item.Add(new XElement("description", m.Description));
+            item.Add(new XElement("useOutOfCombat", m.UseInCombat));
+            item.Add(new XElement("useInCombat", m.UseInCombat));
+            item.Add(new XElement("specialObject", m.SpecialObject));
+            item.Add(new XElement("mtIdMove", m.MTIdMove));
 
             return item;
         }
@@ -201,7 +210,16 @@ namespace Classes.Lists
         {
             PokeItem p = new PokeItem();
             p.Id = Convert.ToInt32(e.Attribute("id").Value);
+            p.InternalName = e.Element("internalName").Value;
             p.Name = e.Element("name").Value;
+            p.PluralName = e.Element("pluralName").Value;
+            p.Pocket = Convert.ToByte(e.Element("pocket").Value);
+            p.Price = Convert.ToSingle(e.Element("price").Value);
+            p.Description = e.Element("description").Value;
+            p.UseOutOfCombat = Convert.ToByte(e.Element("useOutOfCombat").Value);
+            p.UseInCombat = Convert.ToByte(e.Element("useInCombat").Value);
+            p.SpecialObject = Convert.ToByte(e.Element("specialObject").Value);
+            p.MTIdMove = Convert.ToInt32(e.Element("mtIdMove").Value);
 
             return p;
         }
