@@ -141,7 +141,6 @@ namespace Classes
 
             return null;
         }
-
         #endregion
 
         #region Getters & Setters
@@ -211,7 +210,8 @@ namespace Classes
                     criticalProbability = 100;
                 else criticalProbability = value;
             }
-            #endregion
+            
         }
+        #endregion
     }
 }
