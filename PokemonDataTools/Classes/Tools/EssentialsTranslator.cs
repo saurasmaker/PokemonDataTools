@@ -13,9 +13,9 @@ namespace PokemonDataTools.Classes.Tools
     {
 
         #region Lists
-        public static Pokedex Pokedex(MovesList mo, AbilitiesList ab, ItemsList it, string path)
-        { 
-            Pokedex pokedex = new Pokedex();
+        public static void Pokedex(Pokedex pokedex, MovesList mo, AbilitiesList ab, ItemsList it, string path)
+        {
+            path += "\\pokedex.xml";
             StreamReader file = new StreamReader(path);
             string line = "";
             OPokemon p = null;
@@ -344,15 +344,13 @@ namespace PokemonDataTools.Classes.Tools
 
             file.Close();
 
-            return pokedex;
+            return;
         }
 
-        public static MovesList MovesList(string path)
+        public static void MovesList(MovesList moves, string path)
         {
-            MovesList moves = new MovesList();
-
             string line;
-
+            path += "\\moves.xml";
             StreamReader file = new StreamReader(path);
             while ((line = file.ReadLine()) != null)
             {
@@ -439,15 +437,13 @@ namespace PokemonDataTools.Classes.Tools
 
             }
 
-            return moves;
+            return;
         }
 
-        public static AbilitiesList AbilitiesList(string path)
+        public static void AbilitiesList(AbilitiesList abilities, string path)
         {
-            AbilitiesList abilities = new AbilitiesList();
-
             string line;
-
+            path += "\\abilities.xml";
             StreamReader file = new StreamReader(path);
             while ((line = file.ReadLine()) != null)
             {
@@ -464,15 +460,13 @@ namespace PokemonDataTools.Classes.Tools
                     abilities.AddPokeAbility(a);
             }
 
-            return abilities;
+            return;
         }
 
-        public static ItemsList ItemsList(string path)
+        public static void ItemsList(ItemsList items, string path)
         {
-            ItemsList items = new ItemsList();
-
             string line;
-
+            path += "\\items.xml";
             StreamReader file = new StreamReader(path);
             while ((line = file.ReadLine()) != null)
             {
@@ -492,7 +486,7 @@ namespace PokemonDataTools.Classes.Tools
                     items.AddPokeItem(item);
             }
             
-            return items;
+            return;
         }
         #endregion
 

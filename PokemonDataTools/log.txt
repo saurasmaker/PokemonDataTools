@@ -145,3 +145,60 @@ Nombre del parámetro: outputFileName**
 23/09/2020 9:36:16 => Application initilizated.
 23/09/2020 9:38:11 => Application initilizated.
 23/09/2020 9:40:45 => Application initilizated.
+23/09/2020 20:16:15 => Application initilizated.
+23/09/2020 20:16:43 => Project pruebas loaded from D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+ -23/09/2020 20:17:41 => Error saving pokedex of pruebas.
+ **El valor no puede ser nulo.
+Nombre del parámetro: outputFileName**
+ -23/09/2020 20:17:41 => Error saving moves list of pruebas.
+ **El valor no puede ser nulo.
+Nombre del parámetro: outputFileName**
+ -23/09/2020 20:17:41 => Error saving abilities list of pruebas.
+ **El valor no puede ser nulo.
+Nombre del parámetro: outputFileName**
+ -23/09/2020 20:17:41 => Error saving items list of pruebas.
+ **El valor no puede ser nulo.
+Nombre del parámetro: outputFileName**
+23/09/2020 20:17:42 => Project pruebas saved in D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+23/09/2020 20:28:34 => Application initilizated.
+23/09/2020 20:28:58 => Project pruebas loaded from D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+23/09/2020 20:29:22 => Project pruebas saved in D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+23/09/2020 20:30:55 => Project pruebas saved in D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+23/09/2020 20:33:16 => Application initilizated.
+23/09/2020 20:35:52 => Application initilizated.
+23/09/2020 20:39:45 => Application initilizated.
+23/09/2020 20:39:56 => Project pruebas loaded from D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+23/09/2020 20:40:57 => Project pruebas saved in D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+23/09/2020 20:42:32 => Application initilizated.
+23/09/2020 20:42:45 => Project pruebas loaded from D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+23/09/2020 20:43:33 => Project pruebas saved in D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+23/09/2020 20:44:37 => Application initilizated.
+23/09/2020 20:44:54 => Project pruebas loaded from D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+23/09/2020 20:49:12 => Application initilizated.
+23/09/2020 20:50:00 => Application initilizated.
+23/09/2020 20:50:11 => Project pruebas loaded from D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+23/09/2020 20:50:35 => Project pruebas saved in D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+23/09/2020 20:57:45 => Application initilizated.
+23/09/2020 20:57:55 => Project pruebas loaded from D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+23/09/2020 20:58:14 => Project pruebas saved in D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Saves\pruebas
+23/09/2020 21:19:55 => Application initilizated.
+23/09/2020 21:20:20 => Project pruebas2 generated in D:\Alba\Escritorio\pruebas2
+ -23/09/2020 21:20:41 => Error translating items pruebas2.
+ **Acceso denegado a la ruta de acceso 'D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Essentials'.**
+ -23/09/2020 21:20:42 => Error translating abilities pruebas2.
+ **Acceso denegado a la ruta de acceso 'D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Essentials'.**
+ -23/09/2020 21:20:43 => Error translating moves pruebas2.
+ **Acceso denegado a la ruta de acceso 'D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Essentials'.**
+ -23/09/2020 21:20:43 => Error translatting pokédex pruebas2.
+ **Acceso denegado a la ruta de acceso 'D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Essentials'.**
+23/09/2020 21:20:46 => Project pruebas2 translated in D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Essentials
+23/09/2020 21:21:47 => Application initilizated.
+23/09/2020 21:21:57 => Project adsf generated in D:\Alba\Escritorio\adsf
+23/09/2020 21:24:47 => Application initilizated.
+23/09/2020 21:25:02 => Project qwre generated in D:\Alba\Escritorio\qwre
+ -23/09/2020 21:25:22 => Error translatting project qwre.
+ **No se pudo encontrar el archivo 'D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Essentials\items.xml'.**
+ -23/09/2020 21:25:36 => Error translatting project qwre.
+ **No se pudo encontrar el archivo 'D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Essentials\items.xml'.**
+23/09/2020 21:26:13 => Application initilizated.
+23/09/2020 21:26:24 => Project asdf generated in D:\Alba\Escritorio\asdf

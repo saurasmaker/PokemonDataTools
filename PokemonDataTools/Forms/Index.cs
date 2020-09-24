@@ -260,9 +260,8 @@ namespace Forms
                 movesList = new MovesList();
                 abilitiesList = new AbilitiesList();
                 itemsList = new ItemsList();
-                pokedex.FilePath = movesList.FilePath = abilitiesList.FilePath = itemsList.FilePath = fbd.SelectedPath;
+                projectPath = pokedex.FilePath = movesList.FilePath = abilitiesList.FilePath = itemsList.FilePath = fbd.SelectedPath;
 
-                projectPath = fbd.SelectedPath;
                 string[] split = projectPath.Split('\\');
                 projectName = split[split.Length-1];
 
@@ -320,7 +319,7 @@ namespace Forms
         {
             if (MessageBox.Show("Are you sure that you want to close this project?", "Message Question.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (MessageBox.Show("Do yo want to save the projecto before close?", "Message Question.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)                
+                if (MessageBox.Show("Do yo want to save the project before close?", "Message Question.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)                
                     SaveProject();
 
                 Dispose();
@@ -355,7 +354,7 @@ namespace Forms
         {
             OpenFileDialog ofd = OpenTxtFile();
             if (ofd.ShowDialog() == DialogResult.OK)
-                pokedex = EssentialsTranslator.Pokedex(movesList, abilitiesList, itemsList, ofd.FileName);
+                EssentialsTranslator.Pokedex(pokedex, movesList, abilitiesList, itemsList, ofd.FileName);
 
             return;
         }
@@ -365,7 +364,7 @@ namespace Forms
         {
             OpenFileDialog ofd = OpenTxtFile();
             if (ofd.ShowDialog() == DialogResult.OK)
-                movesList = EssentialsTranslator.MovesList(ofd.FileName);
+                EssentialsTranslator.MovesList(movesList, ofd.FileName);
 
             return;
         }
@@ -375,7 +374,7 @@ namespace Forms
         {
             OpenFileDialog ofd = OpenTxtFile();
             if (ofd.ShowDialog() == DialogResult.OK)
-                abilitiesList = EssentialsTranslator.AbilitiesList(ofd.FileName);
+                EssentialsTranslator.AbilitiesList(abilitiesList, ofd.FileName);
 
             return;
         }
@@ -385,13 +384,21 @@ namespace Forms
         {
             OpenFileDialog ofd = OpenTxtFile();
             if (ofd.ShowDialog() == DialogResult.OK)
-                itemsList = EssentialsTranslator.ItemsList(ofd.FileName);
+                EssentialsTranslator.ItemsList(itemsList, ofd.FileName);
 
             return;
         }
 
         private void essentialsToolStripMenuItem5_Click(object sender, EventArgs e)
         {
+            if (projectName.Equals(string.Empty))
+                if (MessageBox.Show("To translate a project you need to load or generate a new project.\n Do you want to generate a project? ", "Message Question.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    GenerateNewProyect();
+                else
+                {
+                    MessageBox.Show("Translation canceled. ", "Operation Canceled", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.RootFolder = Environment.SpecialFolder.Desktop;
 
@@ -401,10 +408,22 @@ namespace Forms
             fbd.SelectedPath = XMLTools.DefaultPath;
             if (fbd.ShowDialog() == DialogResult.OK)
             {
-                itemsList = EssentialsTranslator.ItemsList(fbd.SelectedPath + "\\items.txt");
-                abilitiesList = EssentialsTranslator.AbilitiesList(fbd.SelectedPath + "\\abilities.txt");
-                movesList = EssentialsTranslator.MovesList(fbd.SelectedPath + "\\moves.txt");
-                pokedex = EssentialsTranslator.Pokedex(movesList, abilitiesList, itemsList, fbd.SelectedPath + "\\pokemon.txt");
+                //try { 
+                    EssentialsTranslator.ItemsList(itemsList, fbd.SelectedPath);
+                    EssentialsTranslator.AbilitiesList(abilitiesList, fbd.SelectedPath);
+                    EssentialsTranslator.MovesList(movesList, fbd.SelectedPath);
+                    EssentialsTranslator.Pokedex(pokedex, movesList, abilitiesList, itemsList, fbd.SelectedPath);
+
+                    MessageBox.Show("Project " + projectName + " translated from essentials succesfully.", "Message Info.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Log.Execute("Project " + projectName + " translated in " + fbd.SelectedPath);
+                /*}
+                catch (Exception t)
+                {
+                    MessageBox.Show("Error translatting project. Check the log for more information.", "Message Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Log.Execute("Error translatting project " + projectName + ".", t);
+                }*/
+
+                
             }
         }
 
