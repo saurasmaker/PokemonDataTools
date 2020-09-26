@@ -131,7 +131,7 @@ namespace Forms.MovesListTools
             pokeMove.Power = Convert.ToSByte(numericUpDownPower.Value);
             pokeMove.PP = Convert.ToByte(numericUpDownPP.Value);
             pokeMove.Priority = Convert.ToSByte(numericUpDownPriority.Value);
-            pokeMove.RecoverByDamage = Convert.ToSByte(numericUpDownRecover.Value);
+            pokeMove.RecoverByDamage = Convert.ToSByte(numericUpDownRecoverByDamage.Value);
             pokeMove.Repetitions = Convert.ToByte(numericUpDownRepetitions.Value);
             pokeMove.RepetitionsInTurn = Convert.ToByte(numericUpDownRepetitionsInTurn.Value);
             pokeMove.Target = Convert.ToByte(comboBoxTarget.SelectedIndex);
@@ -196,7 +196,7 @@ namespace Forms.MovesListTools
             numericUpDownEffectProbability.Value = Convert.ToDecimal(pokeMove.EffectProbability);
             numericUpDownPower.Value = pokeMove.Power;
             numericUpDownPP.Value = pokeMove.PP;
-            numericUpDownRecover.Value = Convert.ToDecimal(pokeMove.RecoverByDamage);
+            numericUpDownRecoverByDamage.Value = Convert.ToDecimal(pokeMove.RecoverByDamage);
             numericUpDownRepetitions.Value = pokeMove.Repetitions;
             numericUpDownRepetitionsInTurn.Value = pokeMove.RepetitionsInTurn;
             numericUpDownPriority.Value = pokeMove.Priority;
@@ -263,5 +263,6 @@ namespace Forms.MovesListTools
             return;
         }
         #endregion
+
     }
 }
