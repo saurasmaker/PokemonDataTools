@@ -112,8 +112,12 @@ namespace Classes.Lists
             doc.Add(root);
 
             doc.Save(FilePath + "\\pokedex.xml");
-            Debug.WriteLine(FilePath + "\\pokedex.xml");
+            
             Debug.WriteLine(File.ReadAllText(FilePath + "\\pokedex.xml"));
+            Debug.WriteLine(FilePath + "\\pokedex.xml");
+            
+            
+
             return;
         }
 

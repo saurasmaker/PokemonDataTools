@@ -104,7 +104,7 @@ namespace Classes.Lists
             Console.WriteLine("\n\n Guardando cambios...");
 
             XDocument doc = XMLTools.CreateXMLDocument();
-            XElement root = new XElement("moves");
+            XElement root = new XElement("items");
 
             for(int i = 0; i < Items.Count; ++i)
                 root.Add(AddPokeItemDataInElement(Items[i], root));               

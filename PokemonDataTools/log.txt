@@ -223,3 +223,17 @@ Nombre del parámetro: outputFileName**
  -26/09/2020 20:30:50 => Error saving items list of asdf.
  **'', valor hexadecimal 0x16, es un carácter no válido.**
 26/09/2020 20:30:51 => Project asdf saved in D:\SauraSMaker\Escritorio\Proyectos PokemonTools\asdf
+26/09/2020 20:35:23 => Application initilizated.
+26/09/2020 20:35:33 => Project asdf loaded from D:\SauraSMaker\Escritorio\Proyectos PokemonTools\asdf
+26/09/2020 20:36:01 => Project asdf translated in D:\SauraSMaker\Escritorio\TXT
+ -26/09/2020 20:36:05 => Error saving items list of asdf.
+ **'', valor hexadecimal 0x16, es un carácter no válido.**
+26/09/2020 20:36:07 => Project asdf saved in D:\SauraSMaker\Escritorio\Proyectos PokemonTools\asdf
+26/09/2020 20:38:20 => Application initilizated.
+26/09/2020 20:38:38 => Project asdf loaded from D:\SauraSMaker\Escritorio\Proyectos PokemonTools\asdf
+26/09/2020 20:38:53 => Project asdf translated in D:\SauraSMaker\Escritorio\TXT
+ -26/09/2020 20:38:56 => Error saving items list of asdf.
+ **'', valor hexadecimal 0x16, es un carácter no válido.**
+26/09/2020 20:38:57 => Project asdf saved in D:\SauraSMaker\Escritorio\Proyectos PokemonTools\asdf
+26/09/2020 20:39:34 => Application initilizated.
+26/09/2020 20:39:46 => Project asdf loaded from D:\SauraSMaker\Escritorio\Proyectos PokemonTools\asdf
