@@ -125,7 +125,6 @@ namespace Forms.MovesListTools
             pokeMove.Description = richTextBoxDescription.Text;
             pokeMove.Accuracy = Convert.ToByte(numericUpDownAccuarcy.Value);
             pokeMove.Category = Convert.ToByte(comboBoxCategory.SelectedIndex);
-            pokeMove.Contact = checkBoxContact.Checked;
             pokeMove.EffectCode = comboBoxEffectCode.Text;
             pokeMove.EffectProbability = Convert.ToByte(numericUpDownEffectProbability.Value);
             pokeMove.Power = Convert.ToSByte(numericUpDownPower.Value);
@@ -136,6 +135,18 @@ namespace Forms.MovesListTools
             pokeMove.RepetitionsInTurn = Convert.ToByte(numericUpDownRepetitionsInTurn.Value);
             pokeMove.Target = Convert.ToByte(comboBoxTarget.SelectedIndex);
             pokeMove.Type = Convert.ToByte(comboBoxType.SelectedIndex);
+
+            pokeMove.Contact = checkBoxContact.Checked;
+            pokeMove.AffectedByBounceEffect = checkBoxAffectedByBounceEffect.Checked;
+            pokeMove.AffectedByGravity = checkBoxAffectedByGravity.Checked;
+            pokeMove.AffectedByKingsRock = checkBoxAffectedByKingsRock.Checked;
+            pokeMove.CanCopy = checkBoxCanBeCopied.Checked;
+            pokeMove.CanBeProtected = checkBoxCanBeProtected.Checked;
+            pokeMove.CanSteal = checkBoxCanBeStealed.Checked;
+            pokeMove.CanDefrost = checkBoxCanDefrost.Checked;
+            pokeMove.IsDance = checkBoxIsDance.Checked;
+            pokeMove.IsPerforation = checkBoxIsPerforation.Checked;
+            pokeMove.IsSound = checkBoxIsSound.Checked;
 
             return;
         }
@@ -202,6 +213,16 @@ namespace Forms.MovesListTools
             numericUpDownPriority.Value = pokeMove.Priority;
 
             checkBoxContact.Checked = pokeMove.Contact;
+            checkBoxAffectedByBounceEffect.Checked = pokeMove.AffectedByBounceEffect;
+            checkBoxAffectedByGravity.Checked = pokeMove.AffectedByGravity;
+            checkBoxAffectedByKingsRock.Checked = pokeMove.AffectedByKingsRock;
+            checkBoxCanBeCopied.Checked = pokeMove.CanCopy;
+            checkBoxCanBeProtected.Checked = pokeMove.CanBeProtected;
+            checkBoxCanBeStealed.Checked = pokeMove.CanSteal;
+            checkBoxCanDefrost.Checked = pokeMove.CanDefrost;
+            checkBoxIsDance.Checked = pokeMove.IsDance;
+            checkBoxIsPerforation.Checked = pokeMove.IsPerforation;
+            checkBoxIsSound.Checked = pokeMove.IsSound;
         }
         
         #region TextBoxes
@@ -262,7 +283,7 @@ namespace Forms.MovesListTools
 
             return;
         }
-        #endregion
-
+        #endregion}
+    
     }
 }

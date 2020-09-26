@@ -202,3 +202,24 @@ Nombre del parámetro: outputFileName**
  **No se pudo encontrar el archivo 'D:\Alba\Escritorio\Programación Iván\Proyectos_Programacion\CSharp\PokemonDataTools\PokemonDataTools\Essentials\items.xml'.**
 23/09/2020 21:26:13 => Application initilizated.
 23/09/2020 21:26:24 => Project asdf generated in D:\Alba\Escritorio\asdf
+26/09/2020 20:21:23 => Application initilizated.
+26/09/2020 20:21:47 => Project asdf loaded from D:\SauraSMaker\Escritorio\Proyectos PokemonTools\asdf
+26/09/2020 20:23:34 => Application initilizated.
+26/09/2020 20:23:45 => Project TXT loaded from D:\SauraSMaker\Escritorio\TXT
+26/09/2020 20:25:04 => Application initilizated.
+26/09/2020 20:25:22 => Project TXT loaded from D:\SauraSMaker\Escritorio\TXT
+26/09/2020 20:26:14 => PokeMove Pruebawith ID 0 added. 
+26/09/2020 20:26:58 => Application initilizated.
+26/09/2020 20:27:07 => Project TXT loaded from D:\SauraSMaker\Escritorio\TXT
+26/09/2020 20:27:28 => Project TXT translated in D:\SauraSMaker\Escritorio\TXT
+26/09/2020 20:28:56 => PokeMove Pruebawith ID 0 added. 
+ -26/09/2020 20:29:22 => Error saving items list of TXT.
+ **'', valor hexadecimal 0x16, es un carácter no válido.**
+26/09/2020 20:29:27 => Project TXT saved in D:\SauraSMaker\Escritorio\TXT
+26/09/2020 20:29:38 => Application initilizated.
+26/09/2020 20:29:49 => Project asdf loaded from D:\SauraSMaker\Escritorio\Proyectos PokemonTools\asdf
+26/09/2020 20:30:31 => Project asdf loaded from D:\SauraSMaker\Escritorio\Proyectos PokemonTools\asdf
+26/09/2020 20:30:45 => Project asdf translated in D:\SauraSMaker\Escritorio\TXT
+ -26/09/2020 20:30:50 => Error saving items list of asdf.
+ **'', valor hexadecimal 0x16, es un carácter no válido.**
+26/09/2020 20:30:51 => Project asdf saved in D:\SauraSMaker\Escritorio\Proyectos PokemonTools\asdf

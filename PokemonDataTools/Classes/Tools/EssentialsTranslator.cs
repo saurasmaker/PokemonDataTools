@@ -15,7 +15,7 @@ namespace PokemonDataTools.Classes.Tools
         #region Lists
         public static void Pokedex(Pokedex pokedex, MovesList mo, AbilitiesList ab, ItemsList it, string path)
         {
-            path += "\\pokedex.xml";
+            path += "\\pokemon.txt";
             StreamReader file = new StreamReader(path);
             string line = "";
             OPokemon p = null;
@@ -350,7 +350,7 @@ namespace PokemonDataTools.Classes.Tools
         public static void MovesList(MovesList moves, string path)
         {
             string line;
-            path += "\\moves.xml";
+            path += "\\moves.txt";
             StreamReader file = new StreamReader(path);
             while ((line = file.ReadLine()) != null)
             {
@@ -443,7 +443,7 @@ namespace PokemonDataTools.Classes.Tools
         public static void AbilitiesList(AbilitiesList abilities, string path)
         {
             string line;
-            path += "\\abilities.xml";
+            path += "\\abilities.txt";
             StreamReader file = new StreamReader(path);
             while ((line = file.ReadLine()) != null)
             {
@@ -466,7 +466,7 @@ namespace PokemonDataTools.Classes.Tools
         public static void ItemsList(ItemsList items, string path)
         {
             string line;
-            path += "\\items.xml";
+            path += "\\items.txt";
             StreamReader file = new StreamReader(path);
             while ((line = file.ReadLine()) != null)
             {
