@@ -290,7 +290,7 @@ namespace Forms
 
         public void SaveProject()
         {
-            try
+            if(pokedex != null && movesList != null && abilitiesList != null && itemsList != null) try
             {
                 try { pokedex.Save(); }
                 catch(Exception t) { Log.Execute("Error saving pokedex of " + projectName+ ".", t); }
