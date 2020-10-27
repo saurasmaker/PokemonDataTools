@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Text;
 using Classes.Attributes;
 using Classes.Lists;
-using Forms.PokedexTools;
 
 namespace Classes
 {
@@ -11,10 +11,6 @@ namespace Classes
     {
         public struct Evolution
         {
-            private string pokemonName;
-            private string evolutionType;
-            private string itNeeds;
-
             public string PokemonName{get; set;}
             public string EvolutionType { get; set;}
             public string ItNeeds{get; set;}
@@ -30,21 +26,19 @@ namespace Classes
 
         public struct WildItem
         {
-            private int itemId;
-            private byte probabilityPercentage;
-
             public int ItemId { get; set; }
+            public int ProbabilityPercentage { get; set; }
         }
 
         public struct MoveWillLearnByLevel
         {
-            public byte level;
-            public int idMove;
+            public byte Level { get; set; }
+            public int IdMove { get; set; }
 
             public MoveWillLearnByLevel(byte level, int idMove)
             {
-                this.level = level;
-                this.idMove = idMove;
+                Level = level;
+                IdMove = idMove;
             }
         }
 
@@ -103,24 +97,26 @@ namespace Classes
         #region Methods
         public string Show(MovesList movesList, AbilitiesList abilitiesList, ItemsList itemsList)
         {
-            string pokemonInfo = "\n ||----- " + Name + " -----||" +
+            StringBuilder pokemonInfo = new StringBuilder();
+                
+            pokemonInfo.Append("\n ||----- " + Name + " -----||" +
             "\n Category: " + Category +
             "\n Description: " + Description +
             "\n Height: " + Height +
             "\n Weight: " + Weight +
             "\n Types: " + PokeType.TypesNames[Types[0]] + " / " + PokeType.TypesNames[Types[1]] +
-            "\n\n ---Abilities--- ";
+            "\n\n ---Abilities--- ");
 
             for (int i = 0; i < Abilities.Length; ++i)
                 for (int j = 0; j < abilitiesList.Abilities.Count; ++j)
                     if (abilitiesList.Abilities[j].Id.Equals(Abilities[i]))
-                        pokemonInfo += "\n  -Ability " + (i+1) + ": " + abilitiesList.Abilities[j].Name;
+                        pokemonInfo.Append("\n  -Ability " + (i+1) + ": " + abilitiesList.Abilities[j].Name);
 
             for (int i = 0; i < abilitiesList.Abilities.Count; ++i)
                 if (abilitiesList.Abilities[i].Id.Equals(HiddenAbility))
-                    pokemonInfo += "\n  -Hidden: " + abilitiesList.Abilities[i].Name;
+                    pokemonInfo.Append("\n  -Hidden: " + abilitiesList.Abilities[i].Name);
 
-            pokemonInfo +=
+            pokemonInfo.Append(
             "\n\n ---Base Stats--- " +
             "\n Health: " + BaseStats[PokeStat.Health] +
             "\n Attack: " + BaseStats[PokeStat.Attack] +
@@ -132,32 +128,30 @@ namespace Classes
             "\n\n ---Reproduction---" +
             "\n  -Male: " + GenresPercentage[0] +
             "\n  -Female: " + GenresPercentage[1] +
-            "\n  -Egg Groups: ";
+            "\n  -Egg Groups: ");
 
             for (int i = 0; i < eggGroups.Length; ++i)
             {
-                if (i != 0) pokemonInfo += ", " + PokeEggGroup.EggGroupNames[EggGroups[i]];
-                else pokemonInfo += PokeEggGroup.EggGroupNames[EggGroups[i]];
+                if (i != 0) pokemonInfo.Append(", " + PokeEggGroup.EggGroupNames[EggGroups[i]]);
+                else pokemonInfo.Append(PokeEggGroup.EggGroupNames[EggGroups[i]]);
             }
 
-            pokemonInfo +=
-                "\n\n ---Moves---";
+            pokemonInfo.Append("\n\n ---Moves---");
             for (int i = 0; i < movesWillLearnByLevel.Count; ++i)
                 for(int j = 0; j < movesList.Moves.Count; ++j)
-                    if(movesList.Moves[j].Id.Equals(movesWillLearnByLevel[i].idMove)) 
-                        pokemonInfo += "\n  -" + movesList.Moves[j].Name + " (lvl " + movesWillLearnByLevel[i].level + ")";
+                    if(movesList.Moves[j].Id.Equals(movesWillLearnByLevel[i].IdMove))
+                        pokemonInfo.Append("\n  -" + movesList.Moves[j].Name + " (lvl " + movesWillLearnByLevel[i].Level + ")");
 
             if (eggMoves.Count > 0)
             {
-                pokemonInfo +=
-                    "\n\n ---Egg Moves---";
+                pokemonInfo.Append("\n\n ---Egg Moves---");
                 for (int i = 0; i < eggMoves.Count; ++i)
                     for (int j = 0; j < movesList.Moves.Count; ++j)
                         if (movesList.Moves[j].Id.Equals(eggMoves[i]))
-                            pokemonInfo += "\n  -" + movesList.Moves[j].Name;
+                            pokemonInfo.Append("\n  -" + movesList.Moves[j].Name);
             }
 
-            pokemonInfo += "\n\n ---EVs it Gives--- " +
+            pokemonInfo.Append("\n\n ---EVs it Gives--- " +
             "\n Health: " + GivedEVs[PokeStat.Health] +
             "\n Attack: " + GivedEVs[PokeStat.Attack] +
             "\n Special Attack: " + GivedEVs[PokeStat.SpecialAttack] +
@@ -165,19 +159,18 @@ namespace Classes
             "\n Special Defense: " + GivedEVs[PokeStat.SpecialDefense] +
             "\n Speed: " + GivedEVs[PokeStat.Speed] +
 
-            "\n\n Level Type: " + PokeLevelType.LevelTypesNames[LevelType] + "\n";
+            "\n\n Level Type: " + PokeLevelType.LevelTypesNames[LevelType] + "\n");
 
             if (Evolutions.Count > 0)
             {
-                pokemonInfo +=
-                   "\n\n ---Evolution---";
+                pokemonInfo.Append("\n\n ---Evolution---");
                 for (int i = 0; i < Evolutions.Count; ++i)
-                    pokemonInfo += "\n\n Pokemon: " + Evolutions[i].namePokemon +
-                    "\n Kind: " + Evolutions[i].evolutionType +
-                    "\n Need: " + Evolutions[i].need;
+                    pokemonInfo.Append("\n\n Pokemon: " + Evolutions[i].PokemonName +
+                    "\n Kind: " + Evolutions[i].EvolutionType +
+                    "\n Need: " + Evolutions[i].ItNeeds);
             }
 
-            return pokemonInfo;
+            return pokemonInfo.ToString();
         }
 
 

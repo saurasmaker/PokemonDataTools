@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace Classes.Attributes
 {
     public class PokeAbility

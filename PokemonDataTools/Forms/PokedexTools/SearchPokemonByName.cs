@@ -7,10 +7,10 @@ namespace Forms.PokedexTools
 {
     public partial class SearchPokemonByName : Form
     {
-        public static string[] Mode = new string[] { "none", "Update", "Remove" };
+        public static readonly string[] Mode = new string[] { "none", "Update", "Remove" };
 
-        public static byte Updates = 1;
-        public static byte Remove = 2;
+        public static readonly byte Updates = 1;
+        public static readonly byte Remove = 2;
 
         private byte mode;
         private Index index;

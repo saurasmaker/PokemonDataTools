@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace Classes.Attributes
 {
-    class PokeLevelType
+    static class PokeLevelType
     {
-        public static string[] LevelTypesNames = new string[] {
+        public static readonly string[] LevelTypesNames = new string[] {
             "Fast", "Medium", "Slow", "Parabolic", "Erratic", "Fluctuating"
         };
 
-        public static byte Fast = 0;
-        public static byte Medium = 1;
-        public static byte Slow = 2;
-        public static byte Parabolic = 3;
-        public static byte Erratic = 4;
-        public static byte Fluctuating = 5;
+        public static readonly byte Fast = 0;
+        public static readonly byte Medium = 1;
+        public static readonly byte Slow = 2;
+        public static readonly byte Parabolic = 3;
+        public static readonly byte Erratic = 4;
+        public static readonly byte Fluctuating = 5;
     }
 }

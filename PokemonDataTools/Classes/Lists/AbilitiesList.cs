@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -89,11 +88,12 @@ namespace Classes.Lists
 
         public string ShowAllPokeAbilities()
         {
-            string s = "---- MovesList ----";
+            StringBuilder s = new StringBuilder();
+            s.Append("---- MovesList ----");
             for (int i = 0; i < Abilities.Count; ++i)
-                s += ("\n -" + Abilities[i].Id + ") " + Abilities[i].Name);
+                s.Append("\n -" + Abilities[i].Id + ") " + Abilities[i].Name);
 
-            return s;
+            return s.ToString();
         }
         #endregion
 
@@ -112,8 +112,6 @@ namespace Classes.Lists
             doc.Add(root);
 
             doc.Save(FilePath + "\\abilities.xml");
-
-            return;
         }
 
         public void Load()
@@ -124,7 +122,7 @@ namespace Classes.Lists
             {
                 XElement root = doc.Root;
 
-                if (doc != null)
+                if (root != null)
                 {
                     int i = 0;
                     foreach (XElement e in root.Elements("ability"))
@@ -142,7 +140,6 @@ namespace Classes.Lists
                     }
                 }
             }
-            return;
         }
         #endregion
 
@@ -158,8 +155,6 @@ namespace Classes.Lists
             doc.Add(root);
 
             doc.Save(defaultPath);
-
-            return;
         }
 
         public static List<PokeAbility> DefaultLoad()
@@ -167,7 +162,7 @@ namespace Classes.Lists
             XDocument doc = XmlTools.GetXMLDocument(defaultPath);
             XElement root = doc.Root;
             List<PokeAbility> pokeAbilities = new List<PokeAbility>();
-            if (doc != null)
+            if (root != null)
             {
                 int i = 0;
                 foreach (XElement e in root.Elements("ability"))

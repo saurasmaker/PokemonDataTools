@@ -90,11 +90,12 @@ namespace Classes.Lists
 
         public string ShowAllPokeItems()
         {
-            string s = "---- MovesList ----";
+            StringBuilder sb = new StringBuilder();
+            sb.Append("---- MovesList ----");
             for (int i = 0; i < Items.Count; ++i)
-                s += ("\n -" + Items[i].Id + ") " + Items[i].Name);
+                sb.Append("\n -" + Items[i].Id + ") " + Items[i].Name);
 
-            return s;
+            return sb.ToString();
         }
         #endregion
 
@@ -113,7 +114,6 @@ namespace Classes.Lists
 
             doc.Save(FilePath + "\\items.xml");
 
-            return;
         }
 
         public void Load()
@@ -122,7 +122,7 @@ namespace Classes.Lists
             if (doc != null)
             {
                 XElement root = doc.Root;
-                if (doc != null)
+                if (root != null)
                 {
                     int i = 0;
                     foreach (XElement e in root.Elements("move"))
@@ -140,7 +140,6 @@ namespace Classes.Lists
                     }
                 }
             }
-            return;
         }
         #endregion
 
@@ -157,7 +156,6 @@ namespace Classes.Lists
 
             doc.Save(defaultPath);
 
-            return;
         }
 
         public static List<PokeItem> DefaultLoad()
@@ -165,7 +163,7 @@ namespace Classes.Lists
             XDocument doc = XmlTools.GetXMLDocument(defaultPath);
             XElement root = doc.Root;
             List<PokeItem> items = new List<PokeItem>();
-            if (doc != null)
+            if (root != null)
             {
                 int i = 0;
                 foreach (XElement e in root.Elements("move"))

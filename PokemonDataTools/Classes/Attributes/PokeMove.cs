@@ -6,33 +6,33 @@ namespace Classes
     public class PokeMove
     {
         #region Static Attributes
-        public static string[] CategoryNames = new string[] {
+        public static readonly string[] CategoryNames = new string[] {
             "Physical", "Special", "State"
         };
 
-        public static byte Physical = 0;
-        public static byte Special = 1;
-        public static byte State = 2;
+        public static readonly byte Physical = 0;
+        public static readonly byte Special = 1;
+        public static readonly byte State = 2;
 
-        public static string[] TargetNames = new string[] {
+        public static readonly string[] TargetNames = new string[] {
             "Can target any adjacent foe Pokémon", "Can target any adjacent okémon", "Can target any Pokémon", "Can target non-adjacent Pokémon",
             "Can target the user or an adjacent ally", "Target all adjacent foes", "Target all adjacent Pokémon", "Target all allies",
             "Target all foes", "Target all Pokémon", "Target one adjacent ally", "Target the user", "Target the user and all allies"
         };
 
-        public static byte CanTargetAnyAdjacentFoePokemon = 0;
-        public static byte CanTargetAnyAdjacentPokemon = 1;
-        public static byte CanTargetAnyPokemon = 2;
-        public static byte CanTargetNonAdjacentPokemon = 3;
-        public static byte CanTargetTheUserOrAnAdjacentAlly = 4;
-        public static byte TargetAllAdjacentFoes = 5;
-        public static byte TargetAllAdjacentPokemons = 6;
-        public static byte TargetAllAllies = 7;
-        public static byte TargetAllFoes = 8;
-        public static byte TargetAllPokemon = 9;
-        public static byte TargetOneAdjacentAlly = 10;
-        public static byte TargetTheUser = 11;
-        public static byte TargetTheUserAndAllAllies = 12;
+        public static readonly byte CanTargetAnyAdjacentFoePokemon = 0;
+        public static readonly byte CanTargetAnyAdjacentPokemon = 1;
+        public static readonly byte CanTargetAnyPokemon = 2;
+        public static readonly byte CanTargetNonAdjacentPokemon = 3;
+        public static readonly byte CanTargetTheUserOrAnAdjacentAlly = 4;
+        public static readonly byte TargetAllAdjacentFoes = 5;
+        public static readonly byte TargetAllAdjacentPokemons = 6;
+        public static readonly byte TargetAllAllies = 7;
+        public static readonly byte TargetAllFoes = 8;
+        public static readonly byte TargetAllPokemon = 9;
+        public static readonly byte TargetOneAdjacentAlly = 10;
+        public static readonly byte TargetTheUser = 11;
+        public static readonly byte TargetTheUserAndAllAllies = 12;
 
         #endregion
 
@@ -83,8 +83,7 @@ namespace Classes
         #region Methods
         public void Use()
         {
-
-            return;
+            //Por hacer
         }
 
         public string Show()

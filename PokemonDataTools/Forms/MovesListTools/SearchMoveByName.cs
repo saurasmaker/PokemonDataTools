@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using Classes;
 using Classes.Lists;
@@ -13,10 +8,10 @@ namespace Forms.MovesListTools
     public partial class SearchMoveByName : Form
     {
         #region Attributes
-        public static string[] Mode = new string[] { "none", "Update", "Remove" };
+        public static readonly string[] Mode = new string[] { "none", "Update", "Remove" };
 
-        public static byte Updates = 1;
-        public static byte Remove = 2;
+        public static readonly byte Updates = 1;
+        public static readonly byte Remove = 2;
 
         private byte mode;
         private Index index;

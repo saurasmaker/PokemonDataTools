@@ -219,8 +219,8 @@ namespace Classes.Lists
             XElement movesWillLearnByLevel = new XElement("movesWillLearnByLevel");
             for (int i = 0; i < p.MovesWillLearnByLevel.Count; ++i)
             {
-                XElement move = new XElement("move",p.MovesWillLearnByLevel[i].idMove);
-                move.Add(new XAttribute("level", p.MovesWillLearnByLevel[i].level));
+                XElement move = new XElement("move",p.MovesWillLearnByLevel[i].IdMove);
+                move.Add(new XAttribute("level", p.MovesWillLearnByLevel[i].Level));
                 movesWillLearnByLevel.Add(move);
             }
             pokemon.Add(movesWillLearnByLevel);
@@ -274,7 +274,7 @@ namespace Classes.Lists
             p.StepsToHatch = Convert.ToInt32(e.Element("stepsToHatch").Value);
 
             p.Types[0] = Convert.ToByte(e.Element("type1").Value);
-            p.Types[0] = Convert.ToByte(e.Element("type2").Value);
+            p.Types[1] = Convert.ToByte(e.Element("type2").Value);
 
             p.BaseStats[PokeStat.Health] = Convert.ToByte(e.Element("health").Value);
             p.BaseStats[PokeStat.Attack] = Convert.ToByte(e.Element("attack").Value);

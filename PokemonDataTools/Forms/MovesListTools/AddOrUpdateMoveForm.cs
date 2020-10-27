@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using Classes;
 using Classes.Attributes;
@@ -57,8 +53,6 @@ namespace Forms.MovesListTools
             for (int i = 0; i < PokeMove.CategoryNames.Length; ++i)
                 comboBoxCategory.Items.Add(PokeMove.CategoryNames[i]);
             comboBoxCategory.SelectedIndex = 0;
-
-            return;
         }
 
         private void AddPokeMove()
@@ -83,8 +77,6 @@ namespace Forms.MovesListTools
                 }
 
             }
-
-            return;
         }
 
         private void UpdatePokeMove()
@@ -113,8 +105,6 @@ namespace Forms.MovesListTools
                     Log.Execute("Error updating pokemove.", e);
                 }
             }
-
-            return;
         }
 
         private void SetDataInPokeMove()
@@ -147,8 +137,6 @@ namespace Forms.MovesListTools
             pokeMove.IsDance = checkBoxIsDance.Checked;
             pokeMove.IsPerforation = checkBoxIsPerforation.Checked;
             pokeMove.IsSound = checkBoxIsSound.Checked;
-
-            return;
         }
 
         private bool CheckData()
@@ -271,8 +259,6 @@ namespace Forms.MovesListTools
                 UpdatePokeMove();
             }
             else { AddPokeMove(); }
-
-            return;
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -280,8 +266,6 @@ namespace Forms.MovesListTools
             DialogResult dialogResult = MessageBox.Show("Are you sure that you want to close this form? All changes realized will desapear.", "Close advise", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
                 Dispose();
-
-            return;
         }
         #endregion}
     

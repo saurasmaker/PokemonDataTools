@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Xml.Linq;
 using Classes.Tools;
 
@@ -86,11 +87,11 @@ namespace Classes.Lists
 
         public string ShowAllPokeMoves()
         {
-            string s = "---- MovesList ----";
+            StringBuilder sb = new StringBuilder("---- MovesList ----");
             for (int i = 0; i < Moves.Count; ++i)
-                s += ("\n -" + Moves[i].Id + ") " + Moves[i].Name);
+                sb.Append("\n -" + Moves[i].Id + ") " + Moves[i].Name);
 
-            return s;
+            return sb.ToString();
         }
         #endregion
 
@@ -106,8 +107,6 @@ namespace Classes.Lists
             doc.Add(root);
 
             doc.Save(FilePath + "\\moves.xml");
-
-            return;
         }
 
         public void Load()
@@ -119,7 +118,7 @@ namespace Classes.Lists
 
                 XElement root = doc.Root;
 
-                if (doc != null)
+                if (root != null)
                 {
                     int i = 0;
                     foreach (XElement e in root.Elements("move"))
@@ -137,7 +136,6 @@ namespace Classes.Lists
                     }
                 }
             }
-            return;
         }
         #endregion
 
@@ -154,7 +152,6 @@ namespace Classes.Lists
 
             doc.Save(defaultPath);
 
-            return;
         }
 
         public static List<PokeMove> DefaultLoad()
@@ -162,7 +159,7 @@ namespace Classes.Lists
             XDocument doc = XmlTools.GetXMLDocument(defaultPath);
             XElement root = doc.Root;
             List<PokeMove> moves = new List<PokeMove>();
-            if (doc != null)
+            if (root != null)
             {
                 int i = 0;
                 foreach (XElement e in root.Elements("move"))
@@ -241,16 +238,16 @@ namespace Classes.Lists
             p.Priority = Convert.ToSByte(e.Element("priority").Value);
             p.EffectCode = e.Element("effectCode").Value;
 
-            p.Contact = e.Element("contact").Value.Equals("true") ? true : false;
-            p.IsDance = e.Element("isDance").Value.Equals("true") ? true : false;
-            p.CanBeProtected = e.Element("canBeProtected").Value.Equals("true") ? true : false;
-            p.AffectedByBounceEffect = e.Element("affectedByBounceEffect").Value.Equals("true") ? true : false;
-            p.CanSteal = e.Element("canSteal").Value.Equals("true") ? true : false;
-            p.AffectedByKingsRock = e.Element("affectedByKingsRock").Value.Equals("true") ? true : false;
-            p.CanDefrost = e.Element("canDefrost").Value.Equals("true") ? true : false;
-            p.IsPerforation = e.Element("isPerforation").Value.Equals("true") ? true : false;
-            p.IsSound = e.Element("isSound").Value.Equals("true") ? true : false;
-            p.AffectedByGravity = e.Element("affectedByGravity").Value.Equals("true") ? true : false;
+            p.Contact = e.Element("contact").Value.Equals("true");
+            p.IsDance = e.Element("isDance").Value.Equals("true");
+            p.CanBeProtected = e.Element("canBeProtected").Value.Equals("true");
+            p.AffectedByBounceEffect = e.Element("affectedByBounceEffect").Value.Equals("true");
+            p.CanSteal = e.Element("canSteal").Value.Equals("true");
+            p.AffectedByKingsRock = e.Element("affectedByKingsRock").Value.Equals("true");
+            p.CanDefrost = e.Element("canDefrost").Value.Equals("true");
+            p.IsPerforation = e.Element("isPerforation").Value.Equals("true");
+            p.IsSound = e.Element("isSound").Value.Equals("true");
+            p.AffectedByGravity = e.Element("affectedByGravity").Value.Equals("true");
             
             p.EffectProbability = Convert.ToByte(e.Element("effectProbability").Value);
             p.CriticalProbability = Convert.ToByte(e.Element("criticalProbability").Value);

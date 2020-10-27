@@ -32,7 +32,6 @@ namespace Classes
         #endregion
 
 
-
         #region Getters & Setters
         public byte[] IVs
         {

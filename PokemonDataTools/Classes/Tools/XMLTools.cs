@@ -5,9 +5,9 @@ using Tools;
 
 namespace Classes.Tools
 {
-    class XmlTools
+    static class XmlTools
     {
-        public static string DefaultPath = Directory.GetCurrentDirectory() + "\\..\\..\\Saves";
+        public static readonly string DefaultPath = Directory.GetCurrentDirectory() + "\\..\\..\\Saves";
         public static XDocument CreateXMLDocument()
         {
 

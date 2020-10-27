@@ -162,13 +162,10 @@ namespace Classes
                 }
             }
 
-            else if (99 <= Level && Level <= 100)
+            else if (99 <= Level && Level <= 100 && ((newExp -= (ulong)(Math.Pow(newLevel, 3) * (1.6 - (0.01 * newLevel)))) <= 0))
             {
-                if ((newExp -= (ulong)(Math.Pow(newLevel, 3) * (1.6 - (0.01 * newLevel)))) <= 0)
-                {
-                    Experience = newExp;
-                    return newLevel;
-                }
+                Experience = newExp;
+                return newLevel;
             }
 
             return Level;
@@ -197,13 +194,10 @@ namespace Classes
                 }
             }
 
-            else if (36 <= Level && Level <= 100)
+            else if (36 <= Level && Level <= 100 && ((newExp -= (ulong)(Math.Pow(newLevel, 3) * ((32 + (newLevel / 2)) / 50))) <= 0))
             {
-                if ((newExp -= (ulong)(Math.Pow(newLevel, 3) * ((32 + (newLevel / 2)) / 50))) <= 0)
-                {
-                    Experience = newExp;
-                    return newLevel;
-                }
+                Experience = newExp;
+                return newLevel;
             }
 
             return Level;

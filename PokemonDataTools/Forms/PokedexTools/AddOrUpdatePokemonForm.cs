@@ -74,8 +74,6 @@ namespace Forms.PokedexTools
                 comboBoxEggGroup.Items.Add(PokeEggGroup.EggGroupNames[i]);
             }
             comboBoxEggGroup.SelectedIndex = 0;
-
-            return;
         }
 
         private void AddPokemon()
@@ -101,8 +99,6 @@ namespace Forms.PokedexTools
                 }
 
             }
-
-            return;
         }
 
         private void UpdatePokemon()
@@ -132,8 +128,6 @@ namespace Forms.PokedexTools
                 }
 
             }
-
-            return;
         }
 
         private void SetDataInPokemon()
@@ -187,8 +181,6 @@ namespace Forms.PokedexTools
 
             pokemon.LevelType = Convert.ToByte(comboBoxLevelType.SelectedIndex);
             pokemon.EggGroups[0] = Convert.ToByte(comboBoxEggGroup.SelectedIndex);
-
-            return;
         }
 
         private bool CheckData()
@@ -307,8 +299,6 @@ namespace Forms.PokedexTools
 
             numericUpDownMale.Value = pokemon.GenresPercentage[0];
             numericUpDownMale.Value = pokemon.GenresPercentage[1];
-
-            return;
         }
 
 
@@ -320,8 +310,6 @@ namespace Forms.PokedexTools
             DialogResult dialogResult = MessageBox.Show("Are you sure that you want to close this form? All changes realized will desapear.", "Close advise", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
                 Dispose();
-
-            return;
         }
         private void buttonAccept_Click(object sender, EventArgs e)
         {
@@ -329,8 +317,6 @@ namespace Forms.PokedexTools
                 UpdatePokemon();
             }
             else { AddPokemon();}
-
-            return;
         }
         #endregion
 

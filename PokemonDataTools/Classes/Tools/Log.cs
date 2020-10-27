@@ -1,20 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace Tools
 {
-    class Log
+    static class Log
     {
-        private static string path = Directory.GetCurrentDirectory() + "\\..\\..\\log.txt";
+        private static readonly string path = Directory.GetCurrentDirectory() + "\\..\\..\\log.txt";
 
         public static void Execute(string msg)
         {
             StreamWriter sw = InitializeStream();
             sw.WriteLine(DateTime.Now + " => " + msg);
             sw.Close();
-            return;
         }
 
 
@@ -24,7 +21,6 @@ namespace Tools
             StreamWriter sw = InitializeStream();
             sw.WriteLine(" -" + DateTime.Now + " => " + msg + "\n **" + e.Message + "**");
             sw.Close();
-            return;
         }
 
         private static StreamWriter InitializeStream()

@@ -2,14 +2,14 @@
 using Classes.Attributes;
 using Classes.Lists;
 using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-
+using System.Text;
+using Tools;
 
 namespace PokemonDataTools.Classes.Tools
 {
-    class EssentialsTranslator
+    static class EssentialsTranslator
     {
 
         #region Lists
@@ -17,12 +17,11 @@ namespace PokemonDataTools.Classes.Tools
         {
             path += "\\pokemon.txt";
             StreamReader file = new StreamReader(path);
-            string line = "";
-            OPokemon p = null;
+            string line;
+            OPokemon p = new OPokemon();
 
             while ((line = file.ReadLine()) != null)
             {
-                //Console.WriteLine(line);
                 if (line[0].Equals('['))
                 {
                     if (p!=null && p.Name != null)
@@ -193,20 +192,22 @@ namespace PokemonDataTools.Classes.Tools
                                 try
                                 {
                                     OPokemon.MoveWillLearnByLevel m = new OPokemon.MoveWillLearnByLevel();
-                                    m.level = Convert.ToByte(moves[i]);
+                                    m.Level = Convert.ToByte(moves[i]);
                                     ++i;
                                     for (int j = 0; j < mo.Moves.Count; ++j)
 
                                         if (moves[i].ToUpper().Equals(mo.Moves[j].InternalName.ToUpper()))
                                         {
-                                            m.idMove = mo.Moves[j].Id;
+                                            m.IdMove = mo.Moves[j].Id;
                                             break;
                                         }
 
 
                                     p.MovesWillLearnByLevel.Add(m);
                                 }
-                                catch (Exception) { }
+                                catch (Exception) {
+                                    Log.Execute("");
+                                }
                             }
                         }
                         break;
@@ -274,8 +275,8 @@ namespace PokemonDataTools.Classes.Tools
                             for (int i = 0; i < it.Items.Count; ++i)
                                 if (it.Items[i].Name.ToUpper().Equals(wildItem1.ToUpper()))
                                 {
-                                    item1.probabilityPercentage = 50;
-                                    item1.itemId = it.Items[i].Id;
+                                    item1.ProbabilityPercentage = 50;
+                                    item1.ItemId = it.Items[i].Id;
                                     break;
                                 }
 
@@ -291,8 +292,8 @@ namespace PokemonDataTools.Classes.Tools
                             for (int i = 0; i < it.Items.Count; ++i)
                                 if (it.Items[i].Name.ToUpper().Equals(wildItem2.ToUpper()))
                                 {
-                                    item2.probabilityPercentage = 5;
-                                    item2.itemId = it.Items[i].Id;
+                                    item2.ProbabilityPercentage = 5;
+                                    item2.ItemId = it.Items[i].Id;
                                     break;
                                 }
 
@@ -308,8 +309,8 @@ namespace PokemonDataTools.Classes.Tools
                             for (int i = 0; i < it.Items.Count; ++i)
                                 if (it.Items[i].Name.ToUpper().Equals(wildItem3.ToUpper()))
                                 {
-                                    item3.probabilityPercentage = 5;
-                                    item3.itemId = it.Items[i].Id;
+                                    item3.ProbabilityPercentage = 5;
+                                    item3.ItemId = it.Items[i].Id;
                                     break;
                                 }
 
@@ -326,13 +327,15 @@ namespace PokemonDataTools.Classes.Tools
                             {
                                 OPokemon.Evolution e = new OPokemon.Evolution
                                 {
-                                    namePokemon = evolutions[i],
-                                    evolutionType = evolutions[++i],
-                                    need = evolutions[++i]
+                                    PokemonName = evolutions[i],
+                                    EvolutionType = evolutions[++i],
+                                    ItNeeds = evolutions[++i]
                                 };
                                 p.Evolutions.Add(e);
                             }
-                            catch (Exception) { }
+                            catch (Exception) {
+                                Log.Execute("");
+                            }
                         }
                         break;
 
@@ -343,8 +346,6 @@ namespace PokemonDataTools.Classes.Tools
                 pokedex.AddPokemon(p);         
 
             file.Close();
-
-            return;
         }
 
         public static void MovesList(MovesList moves, string path)
@@ -429,15 +430,17 @@ namespace PokemonDataTools.Classes.Tools
                 if (tags.Contains("l"))
                     p.AffectedByGravity = true;
 
-                for (int i = 13; i < attributes.Length - 13; ++i)
-                    p.Description += attributes[i].Replace("\"", "");
+                StringBuilder sb = new StringBuilder();
+                sb.Append(p.Description);
+                for (int i = 13; i < attributes.Length; ++i)
+                    sb.Append(attributes[i].Replace("\"", ""));
+                p.Description = sb.ToString();
 
                 if (p.Name != null)
                     moves.AddPokeMove(p);
 
             }
-
-            return;
+            file.Dispose();
         }
 
         public static void AbilitiesList(AbilitiesList abilities, string path)
@@ -452,15 +455,16 @@ namespace PokemonDataTools.Classes.Tools
                 a.Id = Convert.ToInt32(attributes[0]);
                 a.InternalName = attributes[1];
                 a.Name = attributes[2];
-                
+
+                StringBuilder sb = new StringBuilder();
                 for (int i = 3; i < attributes.Length - 3; ++i)
-                    a.Description += attributes[i].Replace("\"","");
+                    sb.Append(attributes[i].Replace("\"",""));
+                a.Description = sb.ToString();
 
                 if (a.Name != null)
                     abilities.AddPokeAbility(a);
             }
-
-            return;
+            file.Dispose();
         }
 
         public static void ItemsList(ItemsList items, string path)
@@ -478,15 +482,15 @@ namespace PokemonDataTools.Classes.Tools
                 item.Name = attributes[2];
 
                 //por hacer
-
+                StringBuilder sb = new StringBuilder();
                 for (int i = 3; i < attributes.Length - 3; ++i)
-                    item.Description += attributes[i].Replace("\"", "");
+                    sb.Append(attributes[i].Replace("\"", ""));
+                item.Description = sb.ToString();
 
                 if (item.Name != null)
                     items.AddPokeItem(item);
             }
-            
-            return;
+            file.Dispose();
         }
         #endregion
 
