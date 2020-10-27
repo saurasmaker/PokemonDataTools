@@ -103,7 +103,7 @@ namespace Classes.Lists
         {
             Console.WriteLine("\n\n Guardando cambios...");
 
-            XDocument doc = XMLTools.CreateXMLDocument();
+            XDocument doc = XmlTools.CreateXMLDocument();
             XElement root = new XElement("abilities");
 
             for(int i = 0; i < Abilities.Count; ++i)
@@ -118,7 +118,7 @@ namespace Classes.Lists
 
         public void Load()
         {
-            XDocument doc = XMLTools.GetXMLDocument(FilePath);
+            XDocument doc = XmlTools.GetXMLDocument(FilePath);
 
             if (doc != null)
             {
@@ -149,7 +149,7 @@ namespace Classes.Lists
         #region XML Default CRUD
         public static void Save(List<PokeAbility> abilitiesList)
         {
-            XDocument doc = XMLTools.CreateXMLDocument();
+            XDocument doc = XmlTools.CreateXMLDocument();
             XElement root = new XElement("abilities");
 
             foreach (PokeAbility a in abilitiesList)
@@ -164,7 +164,7 @@ namespace Classes.Lists
 
         public static List<PokeAbility> DefaultLoad()
         {
-            XDocument doc = XMLTools.GetXMLDocument(defaultPath);
+            XDocument doc = XmlTools.GetXMLDocument(defaultPath);
             XElement root = doc.Root;
             List<PokeAbility> pokeAbilities = new List<PokeAbility>();
             if (doc != null)

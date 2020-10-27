@@ -1,10 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Xml.Linq;
+using Tools;
 
 namespace Classes.Tools
 {
-    class XMLTools
+    class XmlTools
     {
         public static string DefaultPath = Directory.GetCurrentDirectory() + "\\..\\..\\Saves";
         public static XDocument CreateXMLDocument()
@@ -22,14 +23,15 @@ namespace Classes.Tools
 
         public static XDocument GetXMLDocument(string path)
         {
-            XDocument doc = null;
+            XDocument doc;
             try //Check if the XML Document exists
             {
                 doc = XDocument.Load(path);
             }
             catch (Exception)
             { //If not, end Method
-                return doc;
+                Log.Execute("Error to load the document: " + path);
+                doc = null;
             }
 
             return doc;

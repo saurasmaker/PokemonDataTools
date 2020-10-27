@@ -97,7 +97,7 @@ namespace Classes.Lists
         #region XML Instance CRUD
         public void Save()
         {
-            XDocument doc = XMLTools.CreateXMLDocument();
+            XDocument doc = XmlTools.CreateXMLDocument();
             XElement root = new XElement("moves");
 
             for(int i = 0; i < Moves.Count; ++i)
@@ -112,7 +112,7 @@ namespace Classes.Lists
 
         public void Load()
         {
-            XDocument doc = XMLTools.GetXMLDocument(FilePath);
+            XDocument doc = XmlTools.GetXMLDocument(FilePath);
 
             if (doc != null)
             {
@@ -144,7 +144,7 @@ namespace Classes.Lists
         #region XML Default CRUD
         public static void DefaultSave(List<PokeMove> movesList)
         {
-            XDocument doc = XMLTools.CreateXMLDocument();
+            XDocument doc = XmlTools.CreateXMLDocument();
             XElement root = new XElement("moves");
 
             foreach (PokeMove m in movesList)
@@ -159,7 +159,7 @@ namespace Classes.Lists
 
         public static List<PokeMove> DefaultLoad()
         {
-            XDocument doc = XMLTools.GetXMLDocument(defaultPath);
+            XDocument doc = XmlTools.GetXMLDocument(defaultPath);
             XElement root = doc.Root;
             List<PokeMove> moves = new List<PokeMove>();
             if (doc != null)

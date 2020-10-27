@@ -238,3 +238,6 @@ Nombre del parámetro: outputFileName**
 26/09/2020 20:39:34 => Application initilizated.
 26/09/2020 20:39:46 => Project asdf loaded from D:\SauraSMaker\Escritorio\Proyectos PokemonTools\asdf
 13/10/2020 19:34:55 => Application initilizated.
+25/10/2020 21:39:47 => Application initilizated.
+25/10/2020 22:02:37 => Application initilizated.
+25/10/2020 22:11:32 => Application initilizated.

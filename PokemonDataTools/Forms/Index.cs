@@ -18,10 +18,10 @@ namespace Forms
         string projectPath = string.Empty;
         string projectName = string.Empty;
 
-        Pokedex pokedex; //= new Pokedex(Pokedex.Load());
-        MovesList movesList; //= new MovesList(MovesList.Load());
-        AbilitiesList abilitiesList; //= new AbilitiesList(AbilitiesList.Load());
-        ItemsList itemsList; //= new ItemsList(ItemsList.Load());
+        Pokedex pokedex; 
+        MovesList movesList; 
+        AbilitiesList abilitiesList;
+        ItemsList itemsList; 
 
         #region Constructors
         public Index()
@@ -75,8 +75,6 @@ namespace Forms
             panelChildForm.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-
-            return;
         }
 
         private void HideSubMenus()
@@ -90,7 +88,7 @@ namespace Forms
 
         private void ShowSubmenu(Panel subMenu)
         {
-            if (subMenu.Visible != true)
+            if (!subMenu.Visible)
             {
                 HideSubMenus();
                 subMenu.Visible = true;
@@ -211,10 +209,10 @@ namespace Forms
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.RootFolder = Environment.SpecialFolder.Desktop;
 
-            if (!Directory.Exists(XMLTools.DefaultPath))
-                Directory.CreateDirectory(XMLTools.DefaultPath);
+            if (!Directory.Exists(XmlTools.DefaultPath))
+                Directory.CreateDirectory(XmlTools.DefaultPath);
 
-            fbd.SelectedPath = XMLTools.DefaultPath;
+            fbd.SelectedPath = XmlTools.DefaultPath;
             if (projectName != string.Empty && fbd.ShowDialog() == DialogResult.OK )
             {
                 projectPath = fbd.SelectedPath + "\\" + projectName;
@@ -242,7 +240,7 @@ namespace Forms
                     Log.Execute("Error to generate new project.", e);
                 }
             }
-            return;
+
         }
 
         public void LoadProject()
@@ -250,10 +248,10 @@ namespace Forms
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.RootFolder = Environment.SpecialFolder.Desktop;
 
-            if (!Directory.Exists(XMLTools.DefaultPath))
-                Directory.CreateDirectory(XMLTools.DefaultPath);
+            if (!Directory.Exists(XmlTools.DefaultPath))
+                Directory.CreateDirectory(XmlTools.DefaultPath);
 
-            fbd.SelectedPath = XMLTools.DefaultPath;
+            fbd.SelectedPath = XmlTools.DefaultPath;
             if (fbd.ShowDialog() == DialogResult.OK)
             {
                 pokedex = new Pokedex();
@@ -285,7 +283,6 @@ namespace Forms
 
             }
 
-            return;
         }
 
         public void SaveProject()
@@ -356,7 +353,6 @@ namespace Forms
             if (ofd.ShowDialog() == DialogResult.OK)
                 EssentialsTranslator.Pokedex(pokedex, movesList, abilitiesList, itemsList, ofd.FileName);
 
-            return;
         }
 
         //Moves essentials translator
@@ -366,7 +362,6 @@ namespace Forms
             if (ofd.ShowDialog() == DialogResult.OK)
                 EssentialsTranslator.MovesList(movesList, ofd.FileName);
 
-            return;
         }
 
         //Abilities essentials translator
@@ -376,7 +371,6 @@ namespace Forms
             if (ofd.ShowDialog() == DialogResult.OK)
                 EssentialsTranslator.AbilitiesList(abilitiesList, ofd.FileName);
 
-            return;
         }
 
         //Items essentials translator
@@ -386,12 +380,11 @@ namespace Forms
             if (ofd.ShowDialog() == DialogResult.OK)
                 EssentialsTranslator.ItemsList(itemsList, ofd.FileName);
 
-            return;
         }
 
         private void essentialsToolStripMenuItem5_Click(object sender, EventArgs e)
         {
-            if (projectName.Equals(string.Empty))
+            if (String.IsNullOrEmpty(projectName))
                 if (MessageBox.Show("To translate a project you need to load or generate a new project.\n Do you want to generate a project? ", "Message Question.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     GenerateNewProyect();
                 else
@@ -402,13 +395,13 @@ namespace Forms
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.RootFolder = Environment.SpecialFolder.Desktop;
 
-            if (!Directory.Exists(XMLTools.DefaultPath))
-                Directory.CreateDirectory(XMLTools.DefaultPath);
+            if (!Directory.Exists(XmlTools.DefaultPath))
+                Directory.CreateDirectory(XmlTools.DefaultPath);
 
-            fbd.SelectedPath = XMLTools.DefaultPath;
+            fbd.SelectedPath = XmlTools.DefaultPath;
             if (fbd.ShowDialog() == DialogResult.OK)
             {
-                //try { 
+                try { 
                     EssentialsTranslator.ItemsList(itemsList, fbd.SelectedPath);
                     EssentialsTranslator.AbilitiesList(abilitiesList, fbd.SelectedPath);
                     EssentialsTranslator.MovesList(movesList, fbd.SelectedPath);
@@ -416,12 +409,12 @@ namespace Forms
 
                     MessageBox.Show("Project " + projectName + " translated from essentials succesfully.", "Message Info.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Log.Execute("Project " + projectName + " translated in " + fbd.SelectedPath);
-                /*}
+                }
                 catch (Exception t)
                 {
                     MessageBox.Show("Error translatting project. Check the log for more information.", "Message Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Log.Execute("Error translatting project " + projectName + ".", t);
-                }*/
+                }
 
                 
             }
@@ -439,10 +432,10 @@ namespace Forms
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
 
-            if (!Directory.Exists(XMLTools.DefaultPath))
-                Directory.CreateDirectory(XMLTools.DefaultPath);
+            if (!Directory.Exists(XmlTools.DefaultPath))
+                Directory.CreateDirectory(XmlTools.DefaultPath);
 
-            ofd.InitialDirectory = XMLTools.DefaultPath;
+            ofd.InitialDirectory = XmlTools.DefaultPath;
 
             return ofd;
         }

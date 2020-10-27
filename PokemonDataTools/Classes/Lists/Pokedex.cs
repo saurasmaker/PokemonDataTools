@@ -7,6 +7,7 @@ using System.Linq;
 using System.Xml.Linq;
 using Classes.Attributes;
 using Classes.Tools;
+using Tools;
 
 namespace Classes.Lists
 {
@@ -92,7 +93,7 @@ namespace Classes.Lists
         {
             string s = "---- Pokédex ----";
             for (int i = 0; i < PokemonList.Count; ++i)
-                s += ("\n -" + PokemonList[i].Id + ") " + PokemonList[i].Name);
+                s = (string)s.Concat("\n -" + PokemonList[i].Id + ") " + PokemonList[i].Name);
 
             return s;
         }
@@ -103,7 +104,7 @@ namespace Classes.Lists
         {
             Console.WriteLine("\n\n Guardando cambios...");
 
-            XDocument doc = XMLTools.CreateXMLDocument();
+            XDocument doc = XmlTools.CreateXMLDocument();
             XElement root = new XElement("pokedex");
 
             for (int i = 0; i < PokemonList.Count; ++i)
@@ -114,21 +115,17 @@ namespace Classes.Lists
             doc.Save(FilePath + "\\pokedex.xml");
             
             Debug.WriteLine(File.ReadAllText(FilePath + "\\pokedex.xml"));
-            Debug.WriteLine(FilePath + "\\pokedex.xml");
-            
-            
-
-            return;
+            Debug.WriteLine(FilePath + "\\pokedex.xml");                     
         }
 
         public void Load()
         {
-            XDocument doc = XMLTools.GetXMLDocument(FilePath);
+            XDocument doc = XmlTools.GetXMLDocument(FilePath);
             if (doc != null)
             {
                 XElement root = doc.Root;
 
-                if (doc != null)
+                if (root != null)
                 {
                     foreach (XElement e in root.Elements("pokemon"))
                     {
@@ -139,11 +136,11 @@ namespace Classes.Lists
                         }
                         catch (Exception)
                         {
+                            Log.Execute("Error to load the data selected in the pokémon.");
                         }
                     }
                 }
             }
-            return;
         }
 
 
@@ -153,19 +150,19 @@ namespace Classes.Lists
         public void DefaultSave()
         {
             Console.WriteLine("\n\n Guardando cambios...");
-
-            return;
         }
 
         public static List<OPokemon> DefaultLoad()
         {
             List<OPokemon> pokemon = new List<OPokemon>();
 
-            XDocument doc = XMLTools.GetXMLDocument(defaultPath);
-            XElement root = doc.Root;
+            XDocument doc = XmlTools.GetXMLDocument(defaultPath);
+            
 
             if (doc != null)
             {
+                XElement root = doc.Root;
+
                 foreach (XElement e in root.Elements("pokemon"))
                 {
                     try
@@ -175,6 +172,7 @@ namespace Classes.Lists
                     }
                     catch (Exception)
                     {
+                        Log.Execute("Was an error loading pokemon in the position");
                     }
                 }
             }

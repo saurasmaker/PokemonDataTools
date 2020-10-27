@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using Classes.Attributes;
 using Classes.Lists;
+using Forms.PokedexTools;
 
 namespace Classes
 {
@@ -10,23 +11,29 @@ namespace Classes
     {
         public struct Evolution
         {
-            public string namePokemon;
-            public string evolutionType;
-            public string need;
+            private string pokemonName;
+            private string evolutionType;
+            private string itNeeds;
 
-            public Evolution(string namePokemon, string evolutionType, string need)
+            public string PokemonName{get; set;}
+            public string EvolutionType { get; set;}
+            public string ItNeeds{get; set;}
+
+            public Evolution(string pokemonName, string evolutionType, string itNeeds)
             {
-                this.namePokemon = namePokemon;
-                this.evolutionType = evolutionType;
-                this.need = need;
+                PokemonName = pokemonName;
+                EvolutionType = evolutionType;
+                ItNeeds = itNeeds;
                 
             }
         }
 
         public struct WildItem
         {
-            public int itemId;
-            public byte probabilityPercentage;
+            private int itemId;
+            private byte probabilityPercentage;
+
+            public int ItemId { get; set; }
         }
 
         public struct MoveWillLearnByLevel
