@@ -46,7 +46,7 @@ namespace Forms.PokedexTools
         #region Methods
         private void InitializeComboBoxes()
         {
-            for (int i = 0; i < abilities.Abilities.Count; i++) {             
+            /*for (int i = 0; i < abilities.Abilities.Count; i++) {             
                 comboBoxAbility1.Items.Add(abilities.Abilities[i].Name);
                 comboBoxAbility2.Items.Add(abilities.Abilities[i].Name);
                 comboBoxAbilityHidden.Items.Add(abilities.Abilities[i].Name);
@@ -54,7 +54,7 @@ namespace Forms.PokedexTools
             comboBoxAbility1.SelectedIndex = 0;
             comboBoxAbility2.SelectedIndex = 0;
             comboBoxAbilityHidden.SelectedIndex = 0;
-
+            */ 
             for (int i = 0; i < PokeType.TypesNames.Length; i++)
             {
                 comboBoxType1.Items.Add(PokeType.TypesNames[i]);
